@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, Outlet } from 'react-router-dom';
+import logo from '../assets/logo.png';
 export function Navbar() {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
@@ -19,6 +20,7 @@ export function Navbar() {
     { to: '/services', label: 'Services' },
     { to: '/projects', label: 'Projects' },
     { to: '/products', label: 'Products' },
+    { to: '/gallery', label: 'Gallery' },
   ];
 
   return (
@@ -83,31 +85,81 @@ export function Navbar() {
 `}</style>
 
       {/* Top contact bar */}
-      <div style={{ background: 'linear-gradient(90deg, #0a1628, #0f1f3d, #0a1628)', padding: '7px 0', borderBottom: '1px solid rgba(14,165,233,0.1)' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
-          <span style={{ color: '#E4E4E7', fontSize: '10px', fontWeight: '700', letterSpacing: '1px' }}>MAXTECH BROTHERS ENGINEERING LLP · BOISAR, MAHARASHTRA</span>
-          <div style={{ display: 'flex', gap: '2rem' }}>
-            <a href="tel:+919665442319" style={{ color: '#E4E4E7', fontSize: '11px', fontWeight: '600', textDecoration: 'none' }}>📞 +91 96654 42319</a>
-            <a href="mailto:director@maxtechbrothers.com" style={{ color: '#E4E4E7', fontSize: '11px', fontWeight: '600', textDecoration: 'none' }}>✉ director@maxtechbrothers.com</a>
-          </div>
-        </div>
-      </div>
+      {/* --- THE TOP UTILITY BAR --- */}
+<div style={{ 
+  background: '#020617', // Extremely dark slate (darker than your navbar) to push it backward
+  color: '#94A3B8',      // Muted slate text so it doesn't fight with the main menu
+  fontSize: '12px',      // Small utility font size
+  padding: '8px 0',      // Very thin height
+  borderBottom: '1px solid rgba(255,255,255,0.05)', // A hyper-subtle line separating it from the main nav
+  fontWeight: '600',
+  letterSpacing: '1px',
+  textTransform: 'uppercase'
+}}>
+  <div style={{ 
+    maxWidth: '1280px', 
+    margin: '0 auto', 
+    padding: '0 2rem', 
+    display: 'flex', 
+    justifyContent: 'space-between', // Puts contact info on the left, other info on the right
+    alignItems: 'center' 
+  }}>
+    
+    {/* Left Side: Contact Info */}
+    <div style={{ display: 'flex', gap: '2rem' }}>
+      <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <span style={{ color: '#009DE0' }}>📞</span> {/* Accent color on the icon */}
+        +91 12345 67890
+      </span>
+      <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <span style={{ color: '#009DE0' }}>✉️</span> 
+        contact@maxtechbrothers.com
+      </span>
+    </div>
+
+    {/* Right Side: Trust Badge or Hours */}
+    <div style={{ display: 'flex', gap: '1rem' }}>
+      <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
+    </div>
+
+  </div>
+</div>
+{/* --- MAIN NAVBAR STARTS HERE --- */}
 
       {/* Main nav */}
-      <nav style={{ position: 'sticky', top: 0, zIndex: 100, background: scrolled ? 'rgba(7,16,32,0.97)' : 'linear-gradient(180deg, #28166F 0%, #0b1835 100%)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(14,165,233,0.15)', transition: 'background 0.3s' }}>
+      <nav style={{ 
+  position: 'sticky', 
+  top: 0, 
+  zIndex: 100, 
+  background: scrolled ? 'rgba(15, 23, 42, 0.95)' : 'linear-gradient(180deg, #1e293b 0%, #0f172a 100%)',
+  // This is the subtle separator line
+  borderBottom: '1px solid rgba(255, 255, 255, 0.08)', 
+  transition: 'background 0.3s ease' 
+}}>
         <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '4px', background: '#3F3F46' }} />
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', height: '72px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <Link to="/" style={{ textDecoration: 'none' }}>
-            <div style={{ fontSize: '16px', fontWeight: '800', color: '#fff', letterSpacing: '2.5px', textTransform: 'uppercase' }}>MAXTECH BROTHERS</div>
-            <div style={{ fontSize: '9px', color: '#009DE0', fontWeight: '700', letterSpacing: '3px', textTransform: 'uppercase', marginTop: '1px' }}>Engineering LLP · Est. 1996</div>
-          </Link>
+          {/* NEW IMAGE LOGO */}
+{/* Replace your logo block with this refined version */}
+<Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+  <img 
+    src={logo} 
+    alt="Maxtech Brothers Logo" 
+    style={{ 
+      height: '65px', 
+      width: 'auto', 
+      // Reduced the blur radius (from 2px to 1px) 
+      // and lowered the alpha (from 0.5 to 0.3) for a subtler look
+      filter: 'drop-shadow(0px 0px 1px rgba(255,255,255,0.3))' 
+    }} 
+  />
+</Link>
 
           {/* Desktop nav */}
           <div className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
             {navLinks.map(l => (
               <Link key={l.to} to={l.to} className={`nav-link ${location.pathname === l.to ? 'active' : ''}`}>{l.label}</Link>
             ))}
-            <Link to="/contact" className="cta-btn">Get a Quote</Link>
+            <Link to="/contact" className="cta-btn">Contact Us</Link>
           </div>
 
           {/* Mobile hamburger */}
@@ -124,7 +176,7 @@ export function Navbar() {
                 {l.label}
               </Link>
             ))}
-            <Link to="/contact" className="cta-btn" style={{ display: 'inline-block', marginTop: '1.5rem' }}>Get a Quote</Link>
+            <Link to="/contact" className="cta-btn" style={{ display: 'inline-block', marginTop: '1.5rem' }}>Contact Us</Link>
           </div>
         )}
       </nav>
@@ -147,7 +199,7 @@ export function Navbar() {
             {[
               { title: 'Company', links: [{ label: 'Home', to: '/' }, { label: 'About Us', to: '/about' }, { label: 'Projects', to: '/projects' }, { label: 'Products', to: '/products' }] },
               { title: 'Services', links: [{ label: 'Steel Erection', to: '/services' }, { label: 'Fabrication', to: '/services' }, { label: 'Bolting & Torquing', to: '/services' }, { label: 'Surface Treatment', to: '/services' }] },
-              { title: 'Contact', links: [{ label: 'Get a Quote', to: '/contact' }, { label: 'Tender Inquiry', to: '/contact' }, { label: 'Partnerships', to: '/contact' }] },
+              { title: 'Contact', links: [{ label: 'Contact Us', to: '/contact' }, { label: 'Tender Inquiry', to: '/contact' }, { label: 'Partnerships', to: '/contact' }] },
             ].map((col, i) => (
               <div key={i}>
                 <p style={{ color: '#009DE0', fontSize: '10px', fontWeight: '700', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '1.25rem' }}>{col.title}</p>

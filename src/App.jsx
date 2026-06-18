@@ -49,6 +49,7 @@ import { PageHero } from './components/PageHero';
 // ─────────────────────────────────────────────────────────────
 
 import { Home } from './pages/Home.jsx';
+
 // ─── ABOUT PAGE ──────────────────────────────────────────────────────────────
 
 export function About() {
@@ -247,69 +248,9 @@ export function Services() {
   );
 }
 
-// ─── PROJECTS PAGE ───────────────────────────────────────────────────────────
+// ───────────────────────────────────────────────────────────
 
-function ProjectCard({ project }) {
-  const [hov, setHov] = useState(false);
-  return (
-    <div onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{ background: '#fff', border: '1px solid #E2E8F0', overflow: 'hidden', transition: 'box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)', boxShadow: hov ? '0 20px 40px rgba(0,0,0,0.08)' : 'none', transform: hov ? 'translateY(-4px)' : 'none' }}>
-      <div style={{ aspectRatio: '16/10', overflow: 'hidden', position: 'relative' }}>
-        <img src={project.image} alt={project.title} className="img-industrial" style={{ filter: hov ? 'grayscale(0%) contrast(1)' : 'grayscale(80%) contrast(1.1)', transform: hov ? 'scale(1.04)' : 'scale(1)' }} />
-        <span style={{ position: 'absolute', top: '1rem', left: '1rem', background: project.color === '#009DE0' ? '#009DE0' : project.color, color: '#fff', fontSize: '10px', fontWeight: '800', letterSpacing: '2px', textTransform: 'uppercase', padding: '6px 12px', borderRadius: '2px' }}>{project.tag}</span>
-      </div>
-      <div style={{ padding: '1.75rem' }}>
-        <h3 style={{ fontSize: '1.15rem', fontWeight: '800', color: '#0F172A', lineHeight: '1.4', marginBottom: '0.5rem', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase' }}>{project.title}</h3>
-        <p style={{ color: '#64748B', fontSize: '12px', marginBottom: '1rem', fontWeight: '500' }}>{project.client} · {project.location}</p>
-        <p style={{ color: '#475569', fontSize: '13px', lineHeight: '1.75', marginBottom: '1.5rem' }}>{project.scope}</p>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #F4F4F0', paddingTop: '1.25rem' }}>
-          <div>
-            <div style={{ color: '#94A3B8', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: '700' }}>Year</div>
-            <div style={{ fontWeight: '700', color: '#111111', fontSize: '14px', marginTop: '2px' }}>{project.year}</div>
-          </div>
-          <div style={{ textAlign: 'right' }}>
-            <div style={{ color: '#94A3B8', fontSize: '10px', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: '700' }}>Scale</div>
-            <div style={{ fontWeight: '700', color: '#009DE0', fontSize: '14px', marginTop: '2px' }}>{project.scale}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-export function Projects() {
-  const TAGS = ['All', ...Array.from(new Set(PROJECTS.map(p => p.tag)))];
-  const [activeTag, setActiveTag] = useState('All');
-  const filtered = activeTag === 'All' ? PROJECTS : PROJECTS.filter(p => p.tag === activeTag);
-
-  return (
-    <>
-      <PageHero label="Our Portfolio" title="Engineering Marvels Delivered" subtitle="A proven track record of high-value civil and mechanical operations across India's most demanding infrastructure corridors." />
-
-      <section style={{ background: '#F4F4F0', padding: '5rem 0' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
-          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '3.5rem' }}>
-            {TAGS.map(tag => <button key={tag} className={`tag-btn ${activeTag === tag ? 'active' : ''}`} onClick={() => setActiveTag(tag)}>{tag}</button>)}
-          </div>
-          <p style={{ color: '#94A3B8', fontSize: '12px', letterSpacing: '1px', textTransform: 'uppercase', fontWeight: '700', marginBottom: '2rem' }}>
-            Showing {filtered.length} project{filtered.length !== 1 ? 's' : ''}
-          </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '2px', background: '#CBD5E1' }}>
-            {filtered.map((p, i) => <ProjectCard key={i} project={p} />)}
-          </div>
-        </div>
-      </section>
-
-      <section style={{ background: '#009DE0', padding: '4.5rem 0' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '2rem' }}>
-          <div>
-            <h2 style={{ fontSize: '1.8rem', fontWeight: '800', color: '#000', fontFamily: "'Barlow Condensed', sans-serif" }}>Have a project in mind?</h2>
-            <p style={{ color: 'rgba(255,255,255,0.65)', marginTop: '0.4rem' }}>Submit a tender inquiry and our team will respond within 24 hours.</p>
-          </div>
-          <Link to="/contact" style={{ background: '#009DE0', color: '#fff', padding: '15px 36px', borderRadius: '2px', fontWeight: '800', fontSize: '11px', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', whiteSpace: 'nowrap' }}>Start a Tender →</Link>
-        </div>
-      </section>
-    </>
-  );
-}
+import { Projects } from './pages/Projects.jsx';
 
 // ─── PRODUCTS PAGE ───────────────────────────────────────────────────────────
 
@@ -387,131 +328,11 @@ export function ProductsPage() {
     </>
   );
 }
+import { Gallery } from './pages/Gallery';
 
-// ─── CONTACT PAGE ────────────────────────────────────────────────────────────
+// ─── ────────────────────────────────────────────────────────────
 
-export function Contact() {
-  const [form, setForm] = useState({ name: '', company: '', phone: '', email: '', service: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
-  const handleSubmit = e => { e.preventDefault(); setSubmitted(true); };
-
-  return (
-    <>
-      <PageHero label="Get In Touch" title="Start a Conversation" subtitle="Whether it's a tender inquiry, equipment rental, or a partnership discussion — our team responds within 24 hours." />
-
-      <section style={{ background: 'linear-gradient(160deg, #28166F 0%, #112040 50%, #0a1628 100%)', padding: '7rem 0', position: 'relative', overflow: 'hidden' }}>
-        
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', position: 'relative' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '5rem' }}>
-
-            {/* Contact info */}
-            <div>
-              <p style={{ color: '#009DE0', fontSize: '10px', fontWeight: '700', letterSpacing: '3.5px', textTransform: 'uppercase', marginBottom: '1rem' }}>Contact Details</p>
-              <h2 style={{ fontSize: '2rem', fontWeight: '800', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", lineHeight: '1.2', marginBottom: '2.5rem' }}>Let's Build Together</h2>
-
-              {[
-                { icon: '📍', label: 'Registered Office', value: '201/A Wing, Godavari Building, Ratna Sagar Complex, Tarapur Rd, Boisar, Dist. Palghar, Maharashtra – 401504' },
-                { icon: '📞', label: 'Phone', value: '+91 96654 42319 / +91 96654 42788' },
-                { icon: '✉', label: 'Email', value: 'director@maxtechbrothers.com\nmaxtechbrothers@gmail.com' },
-                { icon: '💬', label: 'WhatsApp', value: '+91 96654 42319' },
-              ].map((item, i) => (
-                <div key={i} style={{ display: 'flex', gap: '1.25rem', marginBottom: '2rem', alignItems: 'flex-start' }}>
-                  <div style={{ fontSize: '1.2rem', marginTop: '2px' }}>{item.icon}</div>
-                  <div>
-                    <div style={{ color: '#009DE0', fontSize: '10px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '4px' }}>{item.label}</div>
-                    <div style={{ color: '#94A3B8', fontSize: '13px', lineHeight: '1.7', whiteSpace: 'pre-line' }}>{item.value}</div>
-                  </div>
-                </div>
-              ))}
-
-              <div style={{ marginTop: '3rem', padding: '2rem', background: 'rgba(200,150,12,0.08)', border: '1px solid rgba(200,150,12,0.2)', borderRadius: '2px' }}>
-                <div style={{ color: '#009DE0', fontSize: '10px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Response Commitment</div>
-                <p style={{ color: '#64748B', fontSize: '13px', lineHeight: '1.75' }}>We respond to all tender and project inquiries within <strong style={{ color: '#fff' }}>24 business hours</strong>. For urgent site-level matters, please call directly.</p>
-              </div>
-            </div>
-
-            {/* Form */}
-            <div>
-              {submitted ? (
-                <div style={{ background: 'rgba(26,107,58,0.15)', border: '1px solid rgba(26,107,58,0.4)', borderRadius: '4px', padding: '3rem', textAlign: 'center' }}>
-                  <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>✓</div>
-                  <h3 style={{ color: '#fff', fontWeight: '800', fontSize: '1.3rem', marginBottom: '0.75rem' }}>Message Received</h3>
-                  <p style={{ color: '#64748B', fontSize: '14px', lineHeight: '1.75' }}>Thank you for reaching out. Our team will review your inquiry and respond within 24 hours.</p>
-                  <button onClick={() => setSubmitted(false)} style={{ marginTop: '2rem', background: '#009DE0', color: '#fff', padding: '12px 28px', borderRadius: '2px', border: 'none', fontWeight: '800', fontSize: '11px', letterSpacing: '2px', textTransform: 'uppercase', cursor: 'pointer' }}>Send Another</button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit}>
-                  <p style={{ color: '#009DE0', fontSize: '10px', fontWeight: '700', letterSpacing: '3.5px', textTransform: 'uppercase', marginBottom: '1rem' }}>Tender / Enquiry Form</p>
-                  <h3 style={{ color: '#fff', fontWeight: '800', fontSize: '1.5rem', marginBottom: '2rem', fontFamily: "'Barlow Condensed', sans-serif" }}>Submit Your Inquiry</h3>
-
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
-                    <div>
-                      <label style={{ color: '#64748B', fontSize: '11px', fontWeight: '700', letterSpacing: '1.5px', textTransform: 'uppercase', display: 'block', marginBottom: '6px' }}>Full Name *</label>
-                      <input name="name" required value={form.name} onChange={handleChange} placeholder="Your name" className="form-input" />
-                    </div>
-                    <div>
-                      <label style={{ color: '#64748B', fontSize: '11px', fontWeight: '700', letterSpacing: '1.5px', textTransform: 'uppercase', display: 'block', marginBottom: '6px' }}>Company</label>
-                      <input name="company" value={form.company} onChange={handleChange} placeholder="Organisation" className="form-input" />
-                    </div>
-                  </div>
-
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
-                    <div>
-                      <label style={{ color: '#64748B', fontSize: '11px', fontWeight: '700', letterSpacing: '1.5px', textTransform: 'uppercase', display: 'block', marginBottom: '6px' }}>Phone *</label>
-                      <input name="phone" required value={form.phone} onChange={handleChange} placeholder="+91 00000 00000" className="form-input" />
-                    </div>
-                    <div>
-                      <label style={{ color: '#64748B', fontSize: '11px', fontWeight: '700', letterSpacing: '1.5px', textTransform: 'uppercase', display: 'block', marginBottom: '6px' }}>Email</label>
-                      <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="email@company.com" className="form-input" />
-                    </div>
-                  </div>
-
-                  <div style={{ marginBottom: '1rem' }}>
-                    <label style={{ color: '#64748B', fontSize: '11px', fontWeight: '700', letterSpacing: '1.5px', textTransform: 'uppercase', display: 'block', marginBottom: '6px' }}>Service Required</label>
-                    <select name="service" value={form.service} onChange={handleChange} className="form-input" style={{ appearance: 'none' }}>
-                      <option value="" style={{ background: '#28166F' }}>Select a service...</option>
-                      <option value="erection" style={{ background: '#28166F' }}>Steel Girder Erection</option>
-                      <option value="fabrication" style={{ background: '#28166F' }}>Metal Fabrication</option>
-                      <option value="torquing" style={{ background: '#28166F' }}>Bolting & Torquing</option>
-                      <option value="surface" style={{ background: '#28166F' }}>Surface Treatment</option>
-                      <option value="civil" style={{ background: '#28166F' }}>Civil Works</option>
-                      <option value="manpower" style={{ background: '#28166F' }}>Manpower Supply</option>
-                      <option value="products" style={{ background: '#28166F' }}>Torque Equipment (Sales/Rental)</option>
-                      <option value="other" style={{ background: '#28166F' }}>Other</option>
-                    </select>
-                  </div>
-
-                  <div style={{ marginBottom: '1.5rem' }}>
-                    <label style={{ color: '#64748B', fontSize: '11px', fontWeight: '700', letterSpacing: '1.5px', textTransform: 'uppercase', display: 'block', marginBottom: '6px' }}>Project Details / Message *</label>
-                    <textarea name="message" required value={form.message} onChange={handleChange} placeholder="Describe the project scope, location, timeline, or your specific requirement..." className="form-input" rows={5} />
-                  </div>
-
-                  <button type="submit" style={{ width: '100%', background: '#009DE0', color: '#fff', padding: '16px', border: 'none', borderRadius: '2px', fontWeight: '800', fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', cursor: 'pointer', transition: 'background 0.2s' }}
-                    onMouseEnter={e => e.target.style.background = '#38BDF8'}
-                    onMouseLeave={e => e.target.style.background = '#009DE0'}>
-                    Submit Inquiry →
-                  </button>
-                </form>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Map placeholder */}
-      <div style={{ background: 'linear-gradient(180deg, #070E24 0%, #050d1e 100%)', padding: '0', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
-        
-        <div style={{ textAlign: 'center', position: 'relative' }}>
-          <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📍</div>
-          <div style={{ color: '#009DE0', fontSize: '11px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase' }}>Boisar, Dist. Palghar, Maharashtra</div>
-          <div style={{ color: '#334155', fontSize: '12px', marginTop: '0.5rem' }}>Pan-India project deployment capabilities</div>
-        </div>
-      </div>
-    </>
-  );
-}
+import { Contact } from './pages/Contact.jsx';
 
 // ─── APP ─────────────────────────────────────────────────────────────────────
 
@@ -522,9 +343,11 @@ export default function App() {
         <Route path="/" element={<Navbar />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
+
           <Route path="services" element={<Services />} />
           <Route path="projects" element={<Projects />} />
           <Route path="products" element={<ProductsPage />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="contact" element={<Contact />} />
         </Route>
       </Routes>
