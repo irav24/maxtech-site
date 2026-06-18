@@ -96,7 +96,7 @@ export function Projects() {
             Showing {finalFilteredProjects.length} {activeTab.toLowerCase().replace(' projects', '')} project{finalFilteredProjects.length !== 1 ? 's' : ''}
           </p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '2px', background: '#CBD5E1' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))', gap: '2px', background: '#CBD5E1' }}>
             {finalFilteredProjects.map((p, i) => <ProjectCard key={i} project={p} />)}
           </div>
 
@@ -114,7 +114,7 @@ export function Projects() {
             <h2 style={{ fontSize: '1.8rem', fontWeight: '800', color: '#000', fontFamily: "'Barlow Condensed', sans-serif" }}>Have a project in mind?</h2>
             <p style={{ color: 'rgba(255,255,255,0.65)', marginTop: '0.4rem' }}>Submit a tender inquiry and our team will respond within 24 hours.</p>
           </div>
-          <Link to="/contact" style={{ background: '#0EA5E9', color: '#fff', padding: '15px 36px', borderRadius: '2px', fontWeight: '800', fontSize: '11px', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', whiteSpace: 'nowrap' }}>Start a Tender →</Link>
+          <Link to="/contact" style={{ background: '#fff', color: '#0EA5E9', padding: '15px 36px', borderRadius: '2px', fontWeight: '800', fontSize: '11px', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', whiteSpace: 'nowrap' }}>Start a Tender →</Link>
         </div>
       </section>
     </>

@@ -26,3 +26,26 @@
     aspect-ratio: 4 / 3; /* Forces a perfect, natural photo shape */
   }
 }
+
+/* --- GLOBAL RESPONSIVE HELPERS --- */
+
+/* Prevent any element from overflowing the viewport horizontally */
+* {
+  box-sizing: border-box;
+}
+
+/* Ensure images never overflow their containers */
+img {
+  max-width: 100%;
+}
+
+/* Fix horizontal scroll caused by wide content */
+body {
+  overflow-x: hidden;
+}
+
+/* Responsive section padding fallback using clamp */
+.section-inner {
+  padding-left: clamp(1rem, 4vw, 2rem);
+  padding-right: clamp(1rem, 4vw, 2rem);
+}

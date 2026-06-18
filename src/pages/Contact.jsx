@@ -81,9 +81,9 @@ export function Contact() {
                   { name: 'Procurement & Supply', email: 'purchase@maxtechbrothers.com' },
                   { name: 'Careers & HR', email: 'hr@maxtechbrothers.com' }
                 ].map((dept, i) => (
-                  <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.25rem 0', borderBottom: '1px solid #E2E8F0' }}>
+                  <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.25rem', padding: '1.25rem 0', borderBottom: '1px solid #E2E8F0' }}>
                     <span style={{ color: '#0F172A', fontSize: '14px', fontWeight: '700' }}>{dept.name}</span>
-                    <a href={`mailto:${dept.email}`} style={{ color: '#009DE0', fontSize: '13px', fontWeight: '600', textDecoration: 'none' }}>{dept.email}</a>
+                    <a href={`mailto:${dept.email}`} style={{ color: '#009DE0', fontSize: '12px', fontWeight: '600', textDecoration: 'none', wordBreak: 'break-all' }}>{dept.email}</a>
                   </div>
                 ))}
               </div>
@@ -91,7 +91,7 @@ export function Contact() {
 
             {/* RIGHT COLUMN: The Minimalist Industrial Form */}
             <div style={{ position: 'relative' }}>
-              <div style={{ position: 'sticky', top: '120px', background: '#ffffff', border: '1px solid #E2E8F0', padding: '3.5rem', boxShadow: '0 20px 40px rgba(0,0,0,0.02)' }}>
+              <div style={{ position: 'sticky', top: '120px', background: '#ffffff', border: '1px solid #E2E8F0', padding: 'clamp(1.5rem, 4vw, 3.5rem)', boxShadow: '0 20px 40px rgba(0,0,0,0.02)' }}>
                 <div style={{ marginBottom: '3rem' }}>
                   <h3 style={{ fontSize: '2rem', fontWeight: '900', color: '#0A0F1C', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase', lineHeight: '1.1', marginBottom: '0.5rem' }}>
                     Direct Inquiry
@@ -107,12 +107,12 @@ export function Contact() {
                 ) : (
                   <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                     
-                    <div style={{ display: 'flex', gap: '2rem' }}>
-                      <div style={{ flex: 1 }}>
+                  <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+                      <div style={{ flex: '1 1 200px' }}>
                         <label style={{ display: 'block', color: '#0A0F1C', fontSize: '11px', fontWeight: '800', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Full Name *</label>
                         <input required type="text" name="name" value={formData.name} onChange={handleChange} style={{ width: '100%', padding: '0 0 12px 0', background: 'transparent', border: 'none', borderBottom: '1px solid #CBD5E1', outline: 'none', fontSize: '15px', color: '#0A0F1C', transition: 'border-color 0.3s' }} onFocus={e => e.target.style.borderBottomColor = '#009DE0'} onBlur={e => e.target.style.borderBottomColor = '#CBD5E1'} />
                       </div>
-                      <div style={{ flex: 1 }}>
+                      <div style={{ flex: '1 1 200px' }}>
                         <label style={{ display: 'block', color: '#0A0F1C', fontSize: '11px', fontWeight: '800', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Company / Organization</label>
                         <input type="text" name="company" value={formData.company} onChange={handleChange} style={{ width: '100%', padding: '0 0 12px 0', background: 'transparent', border: 'none', borderBottom: '1px solid #CBD5E1', outline: 'none', fontSize: '15px', color: '#0A0F1C', transition: 'border-color 0.3s' }} onFocus={e => e.target.style.borderBottomColor = '#009DE0'} onBlur={e => e.target.style.borderBottomColor = '#CBD5E1'} />
                       </div>

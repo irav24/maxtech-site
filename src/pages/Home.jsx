@@ -5,6 +5,20 @@ import { useScrollReveal, AnimatedStat } from '../utils';
 import { STATS, CORE_CAPS, PROJECTS, CLIENTS } from '../data';
 import gallery4 from '../assets/gallery/gallery4.jpg';
 import '../App.css';
+import gallery14 from '../assets/gallery/gallery14.jpg';
+import galleryxx from '../assets/gallery/galleryxx.jpg';
+import gallery19 from '../assets/gallery/gallery19.jpg';
+import gallery20 from '../assets/gallery/gallery20.jpg';
+import { PRODUCTS } from '../data.jsx'; // Adjust path if needed!
+
+
+// Add this quick array right below your imports so it's easy to manage
+const CAROUSEL_IMAGES = [
+  { src: gallery19 },
+  { src: gallery20 },
+  { src: gallery14},
+  { src: galleryxx }
+  ];
 function CapCard({ cap }) {
   const [hovered, setHovered] = useState(false);
   
@@ -52,7 +66,7 @@ export function Home() {
         <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '4px', background: '#009DE0', zIndex: 2 }} />
 
         {/* 4. The Hero Content (Padding reset to a standard static size) */}
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '6rem 2rem', width: '100%', position: 'relative', zIndex: 2 }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: 'clamp(3rem, 6vw, 6rem) clamp(1rem, 4vw, 2rem)', width: '100%', position: 'relative', zIndex: 2 }}>
           
           <div className={`hero-fade ${heroVisible ? 'visible' : ''}`} style={{ animationDelay: '0s' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'rgba(0,157,224,0.1)', border: '1px solid rgba(0,157,224,0.25)', borderRadius: '3px', padding: '8px 16px', marginBottom: '2.5rem', backdropFilter: 'blur(4px)' }}>
@@ -82,7 +96,7 @@ export function Home() {
             </Link>
           </div>
 
-          <div className={`hero-fade ${heroVisible ? 'visible' : ''}`} style={{ animationDelay: '0.5s', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '3rem', marginTop: '5rem', gap: '1rem' }}>
+          <div className={`hero-fade ${heroVisible ? 'visible' : ''}`} style={{ animationDelay: '0.5s', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100px, 45%), 1fr))', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '3rem', marginTop: '5rem', gap: '1rem' }}>
             {STATS.map((s, i) => (
               <div key={i} style={{ paddingRight: '1.5rem', borderRight: i < STATS.length - 1 ? '1px solid rgba(255,255,255,0.1)' : 'none' }}>
                 <div style={{ fontSize: '2.5rem', fontWeight: '900', color: '#009DE0', lineHeight: '1', fontFamily: "'Barlow Condensed', sans-serif", textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}><AnimatedStat value={s.value} /></div>
@@ -103,7 +117,7 @@ export function Home() {
       </div>
 
       {/* Capabilities */}
-      <section ref={secRef} style={{ background: '#F4F4F0', padding: '7rem 0' }}>
+      <section ref={secRef} style={{ background: '#eef3f5', padding: '7rem 0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
           <div className={`reveal ${secVisible ? 'visible' : ''}`} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '4rem', flexWrap: 'wrap', gap: '1rem' }}>
             <div>
@@ -112,14 +126,14 @@ export function Home() {
             </div>
             <Link to="/services" style={{ color: '#009DE0', fontWeight: '800', fontFamily: "'Barlow Condensed', sans-serif", fontSize: '12px', letterSpacing: '1.5px', textTransform: 'uppercase', textDecoration: 'none' }}>All Services →</Link>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', border: '1px solid #E2E8F0' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', border: '2px solid #E2E8F0' }}>
             {CORE_CAPS.map((cap, i) => <CapCard key={i} cap={cap} />)}
           </div>
         </div>
       </section>
 
       {/* Featured Projects */}
-      <section ref={projRef} style={{ background: '#ffffff', padding: '7rem 0', borderTop: '1px solid #E2E8F0' }}>
+      <section ref={projRef} style={{ background: '#eef3f5', padding: '7rem 0', borderTop: '2px solid #E2E8F0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
           <div className={`reveal ${projVisible ? 'visible' : ''}`} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '4rem', flexWrap: 'wrap', gap: '1rem' }}>
             <div>
@@ -146,61 +160,200 @@ export function Home() {
           </div>
         </div>
       </section>
-
-      
-
-
-{/* Why Maxtech */}
-
-{/* Why Maxtech */}
-<section className="noise-bg" style={{ padding: '7rem 0', position: 'relative', overflow: 'hidden' }}>
+      {/* --- FEATURED PRODUCTS CAROUSEL --- */}
+<section className="section-padding" style={{ background: '#eef3f5', borderTop: '2px solid #E2E8F0' }}>
   
-  {/* LAYER 1: The Background Image */}
-  <img 
-    src={gallery4} 
-    alt="Engineering Background" 
-    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }} 
-  />
-
-  {/* LAYER 2: The Dark Overlay 
-      (Fades from 95% solid dark on the left to protect the text, 
-      to 50% transparent on the right so the image shines through) */}
-  <div style={{ 
-    position: 'absolute', 
-    inset: 0, 
-    background: 'linear-gradient(90deg, rgba(11, 17, 32, 0.95) 0%, rgba(11, 17, 32, 0.5) 100%)', 
-    zIndex: 1 
-  }} />
-
-  {/* LAYER 3: Your Original Layout */}
-  <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 2 }}>
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '5rem', alignItems: 'center' }}>
-      
-      {/* Text Block */}
+  {/* THE FIX: This wrapper now contains BOTH the header and the carousel */}
+  <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+    
+    {/* Header Area */}
+    <div style={{ padding: '0 2rem', marginBottom: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem' }}>
       <div>
-        <p style={{ color: '#009DE0', fontSize: '12px', fontWeight: '800', fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: '3.5px' }}>WHY CHOOSE US</p>
-        <h2 style={{ fontSize: '2.4rem', fontWeight: '900', color: '#ffffff', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase' }}>TRUSTED BY INDIA'S TOP EPC CONTRACTORS</h2>
-        <p style={{ color: '#F4F4F0', fontSize: '1.05rem', lineHeight: '1.85' }}>Since 1996, Maxtech Brothers has been the preferred execution partner for India's most demanding infrastructure projects. From the Chenab Bridge to the Bullet Train corridor, our name stands for on-time delivery, zero-compromise safety, and engineering precision.</p>
-        <Link to="/about" style={{ display: 'inline-block', marginTop: '2rem', color: '#009DE0', fontWeight: '800', fontFamily: "'Barlow Condensed', sans-serif" }}>OUR STORY &rarr;</Link>
+        <p style={{ color: '#009DE0', fontSize: '12px', fontWeight: '800', letterSpacing: '4px', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
+          Equipment & Tooling
+        </p>
+        <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#0F172A', fontFamily: "'Barlow Condensed', sans-serif", margin: 0 }}>
+          Our Products
+        </h2>
+      </div>
+      
+      <a href="/products" style={{ color: '#009DE0', fontWeight: '700', fontSize: '14px', textDecoration: 'none', letterSpacing: '1px' }}>
+        VIEW FULL INVENTORY &rarr;
+      </a>
+    </div>
+
+    {/* The Swipeable Scroll Container */}
+    <div style={{
+      display: 'flex',
+      overflowX: 'auto',
+      scrollSnapType: 'x mandatory',
+      gap: '1.5rem',
+      padding: '0 2rem 3rem 2rem', /* The 2rem side padding now perfectly aligns with the header text */
+      scrollbarWidth: 'none',
+      msOverflowStyle: 'none',
+    }}>
+      <style>{`div::-webkit-scrollbar { display: none; }`}</style>
+
+      {/* Only map the first 5 products for the Home page tease */}
+      {PRODUCTS.slice(0, 5).map((prod, i) => (
+        <div key={i} style={{
+          flex: '0 0 auto',
+          width: 'clamp(280px, 75vw, 350px)',
+          scrollSnapAlign: 'start', 
+          background: '#fff',
+          border: '1px solid #E2E8F0',
+          borderRadius: '4px',
+          overflow: 'hidden',
+          display: 'flex',
+          flexDirection: 'column',
+          boxShadow: '0 4px 6px rgba(0,0,0,0.02)'
+        }}>
+          
+          {/* Product Image */}
+          <div style={{ aspectRatio: '4/3', overflow: 'hidden', background: '#F1EDE4' }}>
+            <img src={prod.img} alt={prod.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          </div>
+          
+          {/* Product Details Area */}
+          <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+            <span style={{ background: '#F8FAFC', color: '#64748B', fontSize: '9px', fontWeight: '800', letterSpacing: '2px', textTransform: 'uppercase', padding: '4px 8px', borderRadius: '2px', alignSelf: 'flex-start', marginBottom: '1rem', border: '1px solid #E2E8F0' }}>
+              {prod.cat}
+            </span>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: '#0F172A', lineHeight: '1.4', margin: '0 0 0.5rem 0' }}>
+              {prod.name}
+            </h3>
+            <p style={{ color: '#64748B', fontSize: '13px', lineHeight: '1.6', flexGrow: 1, marginBottom: '1.5rem' }}>
+              {prod.desc.length > 80 ? prod.desc.substring(0, 80) + '...' : prod.desc}
+            </p>
+            <a href="/products" style={{ textAlign: 'center', background: '#fff', color: '#009DE0', border: '1px solid #009DE0', padding: '10px', fontSize: '10px', fontWeight: '800', letterSpacing: '1.5px', textTransform: 'uppercase', textDecoration: 'none', borderRadius: '2px', transition: 'all 0.2s' }}>
+              View Specs
+            </a>
+          </div>
+          
+        </div>
+      ))}
+    </div>
+    
+  </div>
+</section>
+      {/* --- IMAGE CAROUSEL SECTION --- */}
+<section className="section-padding" style={{ background: '#eef3f5',borderTop: '2px solid #E2E8F0', overflow: 'hidden' }}>
+  <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', marginBottom: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+    <div>
+      <p style={{ color: '#009DE0', fontSize: '12px', fontWeight: '800', letterSpacing: '4px', textTransform: 'uppercase', marginBottom: '0.5rem' }}>
+        Visual Archive
+      </p>
+      <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#111111', fontFamily: "'Barlow Condensed', sans-serif", margin: 0 }}>
+        Our Gallery
+      </h2>
+    </div>
+    
+    {/* The Quick Link to the full gallery you wanted */}
+    <a href="/gallery" style={{ color: '#009DE0', fontWeight: '700', fontSize: '14px', textDecoration: 'none', letterSpacing: '1px' }}>
+      VIEW ALL PHOTOS &rarr;
+    </a>
+  </div>
+
+  {/* The Swipeable Scroll Container */}
+  <div style={{
+    display: 'flex',
+    overflowX: 'auto',
+    scrollSnapType: 'x mandatory',
+    gap: '1.5rem',
+    padding: '0 2rem 3rem 2rem', // Extra bottom padding for scrollbar clearance
+    scrollbarWidth: 'none', /* Hides scrollbar on Firefox */
+    msOverflowStyle: 'none', /* Hides scrollbar on IE/Edge */
+  }}>
+    {/* This hides the scrollbar on Chrome/Safari while keeping it functional */}
+    <style>{`
+      div::-webkit-scrollbar { display: none; }
+    `}</style>
+
+    {CAROUSEL_IMAGES.map((img, i) => (
+      <div key={i} style={{
+        flex: '0 0 auto',
+        width: 'clamp(280px, 75vw, 450px)', /* 75% width on phones, caps at 450px on desktop */
+        aspectRatio: '4/3', /* A slightly tighter, less vertically demanding shape */
+        scrollSnapAlign: 'center', /* Snaps perfectly to the center when scrolling */
+        position: 'relative',
+        borderRadius: '4px',
+        overflow: 'hidden',
+        boxShadow: '0 20px 40px rgba(0,0,0,0.4)'
+      }}>
+        
+        {/* The Image */}
+        <img src={img.src} alt={img.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        
+        {/* The Dark Overlay for Text Readability */}
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2.5rem 2rem', background: 'linear-gradient(to top, rgba(15, 23, 42, 0.95), transparent)' }}>
+          <h3 style={{ color: '#fff', margin: 0, fontSize: '1.4rem', fontWeight: '700', letterSpacing: '0.5px' }}>
+            {img.title}
+          </h3>
+        </div>
+
+      </div>
+    ))}
+  </div>
+</section>
+
+      
+
+
+{/* Why Maxtech */}
+
+{/* Why Maxtech */}
+{/* --- WHY CHOOSE US SECTION --- */}
+<section className="section-padding" style={{ background: '#eef3f5', borderTop: '2px solid #E2E8F0',color: '#fff' }}>
+  <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
+    
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', gap: '4rem', alignItems: 'start' }}>
+
+      {/* Left Column: Text Content */}
+      <div>
+        <p style={{ color: '#009DE0', fontSize: '11px', fontWeight: '800', letterSpacing: '4px', textTransform: 'uppercase', marginBottom: '1.5rem' }}>
+          Why Choose Us
+        </p>
+        <h2 style={{ fontSize: '3rem', fontWeight: '900', color: '#111111', fontFamily: "'Barlow Condensed', sans-serif", lineHeight: '1.1', marginBottom: '1.5rem', textTransform: 'uppercase' }}>
+          Trusted By India's Top EPC Contractors
+        </h2>
+        <p style={{ color: '#000', fontSize: '15px', lineHeight: '1.8', marginBottom: '2.5rem', maxWidth: '500px' }}>
+          Since 1996, Maxtech Brothers has been the preferred execution partner for India's most demanding infrastructure projects. From the Chenab Bridge to the Bullet Train corridor, our name stands for on-time delivery, zero-compromise safety, and engineering precision.
+        </p>
+        <a href="/about" style={{ color: '#009DE0', fontWeight: '800', fontSize: '12px', textDecoration: 'none', letterSpacing: '2px', textTransform: 'uppercase' }}>
+          Our Story &rarr;
+        </a>
       </div>
 
-      {/* Grid Block */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: 'rgba(255,255,255,0.1)' }}>
-        {[
-          { label: 'IS Compliant Execution', icon: '✓' },
-          { label: 'OHSAS Safety Standards', icon: '✓' },
-          { label: 'Calibrated Torque Equipment', icon: '✓' },
-          { label: 'Pan-India Deployment', icon: '✓' },
-        ].map((item, i) => (
-          <div key={i} style={{ 
-            background: 'rgba(10, 15, 28, 0.85)', /* Changed to RGBA so the background photo faintly shows through the boxes! */
-            padding: '2.5rem 1.5rem', 
-            borderBottom: i < 2 ? '1px solid rgba(255,255,255,0.05)' : 'none' 
-          }}>
-            <div style={{ color: '#009DE0', fontSize: '1.2rem', marginBottom: '0.75rem', fontWeight: '900' }}>{item.icon}</div>
-            <div style={{ color: '#ffffff', fontSize: '13px', fontWeight: '700', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase' }}>{item.label}</div>
-          </div>
-        ))}
+      {/* Right Column: Cards + Image Stack */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+        
+        {/* The 2x2 Feature Cards */}
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: '1fr 1fr', 
+          gap: '1px', 
+          background: 'rgba(255,255,255,0.05)', /* Creates thin borders between cards */
+          border: '1px solid rgba(255,255,255,0.05)', 
+          borderRadius: '4px', 
+          overflow: 'hidden' 
+        }}>
+          {[
+            'IS Compliant Execution',
+            'OHSAS Safety Standards',
+            'Calibrated Torque Equipment',
+            'Pan-India Deployment'
+          ].map((feature, i) => (
+            <div key={i} style={{ background: '#0B1120', padding: '2.5rem 2rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <span style={{ color: '#009DE0', fontSize: '1.2rem', fontWeight: 'bold' }}>✓</span>
+              <h4 style={{ color: '#fff', fontSize: '12px', fontWeight: '800', letterSpacing: '1px', margin: 0, textTransform: 'uppercase' }}>
+                {feature}
+              </h4>
+            </div>
+          ))}
+        </div>
+
+        {/* The Image beneath the cards */}
+        
       </div>
 
     </div>
@@ -208,7 +361,7 @@ export function Home() {
 </section>
 
       {/* CTA */}
-      <section style={{ background: '#eef3f5', padding: '5rem 0' }}>
+      <section style={{ background: '#eef3f5',borderTop: '2px solid #E2E8F0', padding: '5rem 0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '2rem' }}>
           <div>
             <h2 style={{ fontSize: '1.9rem', fontWeight: '900', color: '#111111', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase', lineHeight: '1.2' }}>Ready to build something monumental?</h2>

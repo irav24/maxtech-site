@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, Outlet } from 'react-router-dom';
 import logo from '../assets/logo.png';
+import footerBg from '../assets/processimg.jpeg'; // Adjust the path to your image
 export function Navbar() {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
@@ -85,22 +86,28 @@ export function Navbar() {
   }
 /* --- MOBILE UTILITY BAR FIXES --- */
   @media (max-width: 900px) {
-    .utility-socials { display: none !important; } /* Hides FB/Twitter on mobile */
+    .utility-socials { display: none !important; }
     .utility-container { padding: 8px 15px !important; }
-    
-    /* Stacks the phone and email rows tightly */
     .utility-contact { 
       flex-direction: column !important; 
-      gap: 6px !important; 
-      align-items: flex-start !important; 
+      gap: 4px !important; 
+      align-items: flex-start !important;
+      width: 100% !important;
     }
-    
-    /* Mobile font sizing */
-    .utility-item { font-size: 11px !important; }
-    
-    /* Keeps icons sized correctly so they don't shrink */
-    .utility-item svg { width: 16px !important; height: 16px !important; }
+    .utility-item { font-size: 10px !important; }
+    .utility-item svg { width: 14px !important; height: 14px !important; flex-shrink: 0; }
+    .utility-item span { 
+      overflow: hidden; 
+      text-overflow: ellipsis; 
+      white-space: nowrap; 
+      max-width: calc(100vw - 60px);
+    }
   }
+
+  /* Very small phones */
+  @media (max-width: 400px) {
+    .utility-item { font-size: 9px !important; }
+    .utility-bar { display: none !important; }
   }
 `}</style>
 
@@ -210,33 +217,39 @@ export function Navbar() {
       </main>
 
       {/* Footer */}
-      <footer style={{ background: 'linear-gradient(180deg, #070E24 0%, #050d1e 100%)', borderTop: '1px solid #1E293B' }}>
-        <div style={{ height: '4px', background: 'linear-gradient(90deg, #28166F, #009DE0, #28166F)' }} />
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '4rem 2rem 0' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem', marginBottom: '3rem' }}>
-            <div>
-              <div style={{ fontSize: '15px', fontWeight: '800', color: '#fff', letterSpacing: '2px', textTransform: 'uppercase' }}>MAXTECH BROTHERS</div>
-              <div style={{ fontSize: '9px', color: '#009DE0', fontWeight: '700', letterSpacing: '3px', textTransform: 'uppercase', marginTop: '2px', marginBottom: '1.5rem' }}>Engineering LLP · Est. 1996</div>
-              <p style={{ color: '#475569', fontSize: '13px', lineHeight: '1.9', maxWidth: '260px' }}>Heavy civil engineering and industrial steel fabrication across India since 1996. Partners to India's most demanding infrastructure corridors.</p>
-              <p style={{ color: '#334155', fontSize: '12px', marginTop: '1.5rem', lineHeight: '1.8' }}>201/A Wing, Godavari Building<br />Boisar, Dist. Palghar<br />Maharashtra – 401504</p>
-            </div>
-            {[
-              { title: 'Company', links: [{ label: 'Home', to: '/' }, { label: 'About Us', to: '/about' }, { label: 'Projects', to: '/projects' }, { label: 'Products', to: '/products' }] },
-              { title: 'Services', links: [{ label: 'Steel Erection', to: '/services' }, { label: 'Fabrication', to: '/services' }, { label: 'Bolting & Torquing', to: '/services' }, { label: 'Surface Treatment', to: '/services' }] },
-              { title: 'Contact', links: [{ label: 'Contact Us', to: '/contact' }, { label: 'Tender Inquiry', to: '/contact' }, { label: 'Partnerships', to: '/contact' }] },
-            ].map((col, i) => (
-              <div key={i}>
-                <p style={{ color: '#009DE0', fontSize: '10px', fontWeight: '700', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '1.25rem' }}>{col.title}</p>
-                {col.links.map((link, j) => <Link key={j} to={link.to} className="footer-link">{link.label}</Link>)}
-              </div>
-            ))}
-          </div>
-          <div style={{ borderTop: '1px solid #1E293B', padding: '2rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-            <p style={{ color: '#334155', fontSize: '12px' }}>© 2026 Maxtech Brothers Engineering LLP. All rights reserved.</p>
-            <p style={{ color: '#334155', fontSize: '12px' }}>CIN: AAP-4913 · GSTIN: 27AADCM8571R1Z5</p>
-          </div>
+     <footer style={{ 
+  backgroundImage: `linear-gradient(to top, rgba(10, 15, 30, 1) 0%, rgba(10, 15, 30, 0.85) 100%), url(${footerBg})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  backgroundAttachment: 'fixed',
+  borderTop: '1px solid #1E293B' 
+}}>
+  <div style={{ height: '4px', background: 'linear-gradient(90deg, #28166F, #009DE0, #28166F)' }} />
+  <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '4rem 2rem 0' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem', marginBottom: '3rem' }}>
+      <div>
+        <div style={{ fontSize: '15px', fontWeight: '800', color: '#fff', letterSpacing: '2px', textTransform: 'uppercase' }}>MAXTECH BROTHERS</div>
+        <div style={{ fontSize: '9px', color: '#009DE0', fontWeight: '700', letterSpacing: '3px', textTransform: 'uppercase', marginTop: '2px', marginBottom: '1.5rem' }}>Engineering LLP · Est. 1996</div>
+        <p style={{ color: '#475569', fontSize: '13px', lineHeight: '1.9', maxWidth: '260px' }}>Heavy civil engineering and industrial steel fabrication across India since 1996. Partners to India's most demanding infrastructure corridors.</p>
+        <p style={{ color: '#334155', fontSize: '12px', marginTop: '1.5rem', lineHeight: '1.8' }}>201/A Wing, Godavari Building<br />Boisar, Dist. Palghar<br />Maharashtra – 401504</p>
+      </div>
+      {[
+        { title: 'Company', links: [{ label: 'Home', to: '/' }, { label: 'About Us', to: '/about' }, { label: 'Projects', to: '/projects' }, { label: 'Products', to: '/products' }] },
+        { title: 'Services', links: [{ label: 'Steel Erection', to: '/services' }, { label: 'Fabrication', to: '/services' }, { label: 'Bolting & Torquing', to: '/services' }, { label: 'Surface Treatment', to: '/services' }] },
+        { title: 'Contact', links: [{ label: 'Contact Us', to: '/contact' }, { label: 'Tender Inquiry', to: '/contact' }, { label: 'Partnerships', to: '/contact' }] },
+      ].map((col, i) => (
+        <div key={i}>
+          <p style={{ color: '#009DE0', fontSize: '10px', fontWeight: '700', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '1.25rem' }}>{col.title}</p>
+          {col.links.map((link, j) => <Link key={j} to={link.to} className="footer-link">{link.label}</Link>)}
         </div>
-      </footer>
+      ))}
+    </div>
+    <div style={{ borderTop: '1px solid #1E293B', padding: '2rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+      <p style={{ color: '#334155', fontSize: '11px' }}>© 2026 Maxtech Brothers Engineering LLP. All rights reserved.</p>
+      <p style={{ color: '#334155', fontSize: '11px' }}>CIN: AAP-4913 · GSTIN: 27AADCM8571R1Z5</p>
+    </div>
+  </div>
+</footer>
     </div>
   );
 }
