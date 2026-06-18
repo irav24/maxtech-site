@@ -6,36 +6,25 @@ export function PageHero({ label, title, subtitle, hasWatermark, bgImage }) {
       padding: '7rem 0 5rem', 
       overflow: 'hidden', 
       position: 'relative',
-      /* THIS IS THE MAGIC LINE WE WERE MISSING */
+     
       background: bgImage ? `url(${bgImage}) center/cover no-repeat` : '#0A0F1C'
     }}>
       
-      {/* Dark Overlay (so text is readable over your real photos) */}
+      
+      {/* The Premium Blue Gradient Overlay */}
       {bgImage && (
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(10, 15, 28, 0.8)', zIndex: 0 }} />
+        <div style={{ 
+          position: 'absolute', 
+          inset: 0, 
+          background: 'linear-gradient(90deg, rgba(15, 23, 42, 0.75) 0%, rgba(0, 157, 224, 0.4) 100%)', 
+          zIndex: 0 
+        }} />
       )}
 
       {/* Noise Texture */}
       <div className="noise-bg" style={{ position: 'absolute', inset: 0, zIndex: 1, opacity: 0.5, pointerEvents: 'none' }} />
 
-      {/* The ABB-Style Watermark */}
-      {hasWatermark && (
-        <div style={{
-          position: 'absolute',
-          right: '-5%',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          opacity: 0.03,
-          pointerEvents: 'none',
-          zIndex: 1
-        }}>
-          <svg width="600" height="600" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style={{ color: '#ffffff' }}>
-            <path d="M12 2L2 7L12 12L22 7L12 2Z" />
-            <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-            <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-          </svg>
-        </div>
-      )}
+     
 
       {/* The Blue Accent Line */}
       <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '4px', background: '#009DE0', zIndex: 2 }} />

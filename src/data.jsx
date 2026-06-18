@@ -2,6 +2,7 @@
 import bltrn from './assets/project/bullet-train.jpeg';
 import mgsetu from './assets/project/mgsetu.jpg';
 import jk from './assets/project/usbrl.jpg';
+import { Wrench, Settings, Zap, HardHat, Building2, Ruler, PaintBucket } from 'lucide-react';
 
 
 export const CLIENTS = ['L&T Construction', 'Afcons Infrastructure', 'NHAI', 'NHSRCL', 'Gammon India', 'Tata Projects', 'Rail Vikas Nigam', 'RVNL', 'DFCCIL', 'Punj Lloyd'];
@@ -15,13 +16,51 @@ export const PROJECTS = [
   { title: 'Chenab Rail Bridge Auxiliary Works', status: 'Completed', client: 'Tata Projects Ltd.', scope: 'Structural fabrication of auxiliary steel components, sandblasting, metallizing and site coordination for the world-class Chenab arch bridge project.', tag: 'Icon Project', scale: '₹4 Crore Value', year: '2018', location: 'Jammu & Kashmir', image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80&w=800', color: '#475569' },
 ];
 
+
+
 export const SERVICES = [
-  { id: '01', title: 'Heavy Steel Girder Erection', icon: '🏗', desc: 'Specialist execution of structural bridge girders for roads and railways — Open Web, Underslung, and Composite systems. Includes launching girder operations, tandem crane lifts, and precision alignment under live corridor constraints.', bullets: ['Open Web Girder (OWG) Bridges', 'Underslung & Composite Girders', 'Launching Girder Operations', 'Cantilever Erection Methods', 'Tandem Crane Coordination'] },
-  { id: '02', title: 'Precision Bolting & Torquing', icon: '🔩', desc: 'End-to-end controlled bolting solutions across industrial and infrastructure sites. We supply, operate, and certify electric and hydraulic torque equipment with NABL-compliant calibration documentation.', bullets: ['Electric & Hydraulic Torque Wrenches', 'High-Strength Structural Bolting', 'Torque Verification & Certification', 'Shear-Type Connector Installation', 'Sales, Rental & On-Site Service'] },
-  { id: '03', title: 'Industrial Metal Fabrication', icon: '⚙️', desc: 'Heavy-duty custom fabrication of industrial steel structures including pressure vessels, piping assemblies, liner plates, trestle systems, and Pre-Engineered Buildings (PEB). Executed with IS:2062 grade materials.', bullets: ['Structural Steel Assembly', 'Pressure Piping Fabrication', 'Liner & Trestle Fabrication', 'PEB Erection & Steel Sheds', 'Cement Plant Structures'] },
-  { id: '04', title: 'Surface Treatment & Coating', icon: '🛡', desc: 'High-specification surface preparation and protective coating programs for steel structures exposed to harsh environments — including rail, coastal, and industrial settings.', bullets: ['Copper Slag & Sand Blasting (Sa2.5)', 'Thermal Arc Metallizing', 'Epoxy & Zinc-Rich Primer Systems', 'Industrial Topcoat Painting', 'SSPC / ISO 8501-1 Compliant'] },
-  { id: '05', title: 'Civil & Structural Works', icon: '🏛', desc: 'Full-scope civil construction services including deck slab concreting, formwork, temporary works design, and site infrastructure for major bridge and rail projects across India.', bullets: ['Deck Slab Concreting', 'Formwork & Falsework', 'Temporary Trestle Structures', 'Pile Cap & Foundation Works', 'Site Infrastructure Setup'] },
-  { id: '06', title: 'Manpower & Labour Supply', icon: '👷', desc: 'Deployment of trained, IS/OHSAS-compliant construction workforce for large-scale project execution. Our skilled labour pool includes riggers, welders, crane operators, and structural fitters.', bullets: ['Skilled & Semi-Skilled Workforce', 'Rigging & Crane Operators', 'Structural Welders (ASME/IS)', 'Safety-Trained Site Teams', 'Long-term Deployment Contracts'] },
+  {
+    id: '01',
+    icon: <HardHat size={40} color="#009DE0" />,
+    title: 'Fabrication of Steel Structures or Piping In any industries.',
+    desc: 'We are a team of skilled metal fabricators who are passionate about creating exceptional products for our clients. We specialize in a wide range of metal fabrication services, utilizing our expertise, state-of-the-art equipment, and innovative techniques to deliver outstanding results.'
+  },
+  {
+    id: '02',
+    icon: <Ruler size={40} color="#009DE0" />,
+    title: 'Erection of Steel Girders',
+    desc: 'Specialist in Erection of Steel Girders of Structural Bridge of Roads, Railways (OWG, Underslung, Composite Girders)'
+  },
+  {
+    id: '03',
+    icon: <Building2 size={40} color="#009DE0" />,
+    title: 'Erection of PEB Structure',
+    desc: 'Erection of pre-engineered buildings and steel structure is the last step in our building process that all the components from the previous steps come together.'
+  },
+  {
+    id: '04',
+    icon: <Settings size={40} color="#009DE0" />,
+    title: 'Civil Projects',
+    desc: 'Civil works are any construction developed by civilians (engineers, architects, builders, etc.) to be used for civilian purposes — that is, by the population of a city, region, or country.'
+  },
+  {
+    id: '05',
+    icon: <Wrench size={40} color="#009DE0" />,
+    title: 'Bolting & Torquing Solution.',
+    desc: 'We deliver all types of Bolting, Tensioning & Torquing Solution in any Industries.'
+  },
+  {
+    id: '06',
+    icon: <Zap size={40} color="#009DE0" />,
+    title: 'Sales, Services & Rentals of Torquing Machines.',
+    desc: 'We deal in Sales of Torquing Machineries, on site services of Bolting & Torquing in any Industry and Rentals of Torque wrenches such as Electric Torque Wrench, Hydraulic Torque Wrench, Powerpacks and Sockets.'
+  },
+  {
+    id: '07',
+    icon: <PaintBucket size={40} color="#009DE0" />,
+    title: 'Sand-Blasting, Metallizing & Painting',
+    desc: 'We do all types of sand/copper slag Blasting, Metallizing and surface coating jobs for any industries.'
+  }
 ];
 
 export const PRODUCTS = [

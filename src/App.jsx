@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import bg2 from './assets/gallery/bg2.jpg';
-
+import './App.css';
+import aboutHero from './assets/about-hero.jpeg';
+import servicehero from './assets/services.jpg';
+import { Target, Telescope, Scale } from 'lucide-react';
 
 // ─── SHARED UTILITIES ────────────────────────────────────────────────────────
 
@@ -74,16 +77,16 @@ export function About() {
 
   return (
     <>
-      <PageHero label="Our Story" title="Engineering Excellence Since 1996" subtitle="From a single labour contract to India's most demanding bridge and rail projects — the Maxtech Brothers story is one of grit, precision, and relentless growth." />
+      <PageHero bgImage={aboutHero}label="Our Story" title="Engineering Excellence Since 1996" subtitle="From a single labour contract to India's most demanding bridge and rail projects — the Maxtech Brothers story is one of grit, precision, and relentless growth." />
 
       {/* Mission / Vision */}
       <section style={{ background: 'linear-gradient(180deg, #ffffff 0%, #F4F4F0 100%)', padding: '7rem 0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
           <div ref={r1} className={`reveal ${v1 ? 'visible' : ''}`} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2px', background: '#CBD5E1', marginBottom: '6rem' }}>
             {[
-              { label: 'Our Mission', icon: '🎯', text: 'To become the client\'s most preferred choice by attaining excellence in quality and timely completed, value-added projects — while providing the highest level of craftsmanship in heavy civil and mechanical construction.' },
-              { label: 'Our Vision', icon: '🔭', text: 'To be the leading specialist contractor in structural erection, recognised for quality, innovation, and safety — supporting our staff, clients, and the communities in which we work.' },
-              { label: 'Our Values', icon: '⚖️', text: 'Our business is built on integrity, fairness and honesty — qualities at the foundation of every project. We say what we are going to do, and we do it. Safety is non-negotiable; quality is our signature.' },
+              { label: 'Our Mission', icon: <Target size={40} color="#009DE0" />, text: 'To become the client\'s most preferred choice by attaining excellence in quality and timely completed, value-added projects — while providing the highest level of craftsmanship in heavy civil and mechanical construction.' },
+              { label: 'Our Vision', icon: <Telescope size={40} color="#009DE0" />, text: 'To be the leading specialist contractor in structural erection, recognised for quality, innovation, and safety — supporting our staff, clients, and the communities in which we work.' },
+              { label: 'Our Values', icon: <Scale size={40} color="#009DE0" />, text: 'Our business is built on integrity, fairness and honesty — qualities at the foundation of every project. We say what we are going to do, and we do it. Safety is non-negotiable; quality is our signature.' },
             ].map((item, i) => (
               <div key={i} style={{ background: '#fff', padding: '3rem 2.5rem' }}>
                 <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>{item.icon}</div>
@@ -249,32 +252,36 @@ export function Services() {
   const [r1, v1] = useScrollReveal();
   return (
     <>
-      <PageHero label="What We Do" title="End-to-End Execution Capabilities" subtitle="Six specialist service lines covering every phase of heavy civil and mechanical infrastructure — from raw steel to fully commissioned structure." />
+      <PageHero bgImage={servicehero} label="What We Do" title="End-to-End Execution Capabilities" subtitle="Specialist service lines covering every phase of heavy civil and mechanical infrastructure — from raw steel to fully commissioned structure." />
 
-      <section style={{ background: 'linear-gradient(180deg, #ffffff 0%, #F4F4F0 100%)', padding: '7rem 0' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '2px', background: '#CBD5E1' }}>
-            {SERVICES.map((svc, i) => {
-              const [hov, setHov] = useState(false);
-              return (
-                <div key={i} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{ background: hov ? '#0F172A' : '#fff', padding: '3rem 2.5rem', transition: 'background 0.3s' }}>
-                  <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>{svc.icon}</div>
-                  <div style={{ color: '#009DE0', fontSize: '10px', fontWeight: '700', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '0.75rem' }}>{svc.id}</div>
-                  <h3 style={{ fontSize: '1.15rem', fontWeight: '800', color: hov ? '#fff' : '#0F172A', marginBottom: '1rem', lineHeight: '1.3' }}>{svc.title}</h3>
-                  <p style={{ color: hov ? '#94A3B8' : '#64748B', fontSize: '13px', lineHeight: '1.85', marginBottom: '1.5rem' }}>{svc.desc}</p>
-                  <ul style={{ listStyle: 'none' }}>
-                    {svc.bullets.map((b, j) => (
-                      <li key={j} style={{ color: hov ? '#64748B' : '#475569', fontSize: '12px', display: 'flex', gap: '8px', alignItems: 'center', marginBottom: '6px' }}>
-                        <span style={{ color: '#009DE0', fontWeight: '700' }}>→</span> {b}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              );
-            })}
-          </div>
+    <section className="section-padding" style={{ background: '#F8FAFC' }}>
+  <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
+    
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
+      {SERVICES.map((svc, i) => (
+        <div key={i} style={{ 
+          background: '#fff', 
+          padding: '2.5rem', 
+          border: '1px solid #E2E8F0',
+          borderRadius: '4px' 
+        }}>
+          {/* Icon */}
+          <div style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>{svc.icon}</div>
+          
+          {/* Title */}
+          <h3 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#0F172A', marginBottom: '1rem', lineHeight: '1.3' }}>
+            {svc.title}
+          </h3>
+          
+          {/* Full Description */}
+          <p style={{ color: '#64748B', fontSize: '14px', lineHeight: '1.8', margin: 0 }}>
+            {svc.desc}
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Process */}
       <section ref={r1} style={{ background: 'linear-gradient(160deg, #28166F 0%, #112040 50%, #0a1628 100%)', padding: '7rem 0', position: 'relative', overflow: 'hidden' }}>

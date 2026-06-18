@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useScrollReveal, AnimatedStat } from '../utils';
 import { STATS, CORE_CAPS, PROJECTS, CLIENTS } from '../data';
 import gallery4 from '../assets/gallery/gallery4.jpg';
-
+import '../App.css';
 function CapCard({ cap }) {
   const [hovered, setHovered] = useState(false);
   

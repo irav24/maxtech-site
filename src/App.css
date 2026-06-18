@@ -1,0 +1,28 @@
+/* --- DESKTOP RULES (The defaults) --- */
+
+/* 1. Gives sections room to breathe */
+.section-padding {
+  padding: 7rem 0; 
+}
+
+/* 2. Keeps photos large and cinematic on desktop */
+.hero-media {
+  width: 100%;
+  min-height: 600px;
+  object-fit: cover;
+}
+
+/* --- MOBILE RULES (The magic happens here) --- */
+@media (max-width: 768px) {
+  
+  /* Cuts the endless vertical scrolling exactly in half */
+  .section-padding {
+    padding: 3.5rem 0; 
+  }
+
+  /* Stops photos from taking up the entire phone screen */
+  .hero-media {
+    min-height: auto; 
+    aspect-ratio: 4 / 3; /* Forces a perfect, natural photo shape */
+  }
+}
