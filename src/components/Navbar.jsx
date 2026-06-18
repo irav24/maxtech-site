@@ -81,31 +81,74 @@ export function Navbar() {
   }
   @media (min-width: 901px) {
     .mobile-nav { display: none !important; }
+    
+  }
+/* --- MOBILE UTILITY BAR FIXES --- */
+  @media (max-width: 900px) {
+    .utility-socials { display: none !important; } /* Hides FB/Twitter on mobile */
+    .utility-container { padding: 8px 15px !important; }
+    
+    /* Stacks the phone and email rows tightly */
+    .utility-contact { 
+      flex-direction: column !important; 
+      gap: 6px !important; 
+      align-items: flex-start !important; 
+    }
+    
+    /* Mobile font sizing */
+    .utility-item { font-size: 11px !important; }
+    
+    /* Keeps icons sized correctly so they don't shrink */
+    .utility-item svg { width: 16px !important; height: 16px !important; }
+  }
   }
 `}</style>
 
       {/* Top contact bar */}
       {/* --- THE TOP UTILITY BAR --- */}
-<div className="utility-bar" style={{ background: '#020617', color: '#94A3B8', fontSize: '12px', padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', fontWeight: '600', letterSpacing: '1px', textTransform: 'uppercase' }}>
-  <div className="utility-container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-    
-    {/* Left Side */}
-    <div className="utility-left" style={{ display: 'flex', gap: '1.5rem' }}>
-      <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <span style={{ color: '#009DE0' }}>📞</span> +91 12345 67890
-      </span>
-      <span className="utility-email" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <span style={{ color: '#009DE0' }}>✉️</span> contact@maxtechbrothers.com
-      </span>
-    </div>
+{/* --- THE TOP UTILITY BAR --- */}
+      <div className="utility-bar" style={{ background: '#020617', color: '#94A3B8', fontSize: '12px', fontWeight: '600', letterSpacing: '0.5px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+        <div className="utility-container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '8px 15px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          
+          {/* Left Side: Dual Contact Info */}
+          <div className="utility-contact" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+            
+            {/* Phone Row */}
+            <div className="utility-item" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#009DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <path d="M12 18h.01"></path>
+              </svg>
+              <span>+91 9665442319 / +91 9665442788</span>
+            </div>
 
-    {/* Right Side */}
-    <div className="utility-right" style={{ display: 'flex', gap: '1rem' }}>
-      <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
-    </div>
+            {/* Email Row */}
+            <div className="utility-item" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#009DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>maxtechbrothers@gmail.com / director@maxtechbrothers.com</span>
+            </div>
 
-  </div>
-</div>
+          </div>
+
+          {/* Right Side: Social Icons */}
+          <div className="utility-socials" style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+            <a href="#" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', background: 'rgba(255,255,255,0.05)', color: '#009DE0', borderRadius: '4px', textDecoration: 'none', transition: 'background 0.3s' }}
+               onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
+               onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.05)'}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="#" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', background: 'rgba(255,255,255,0.05)', color: '#009DE0', borderRadius: '4px', textDecoration: 'none', transition: 'background 0.3s' }}
+               onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
+               onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.05)'}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
 {/* --- MAIN NAVBAR STARTS HERE --- */}
 
       {/* Main nav */}
@@ -122,18 +165,18 @@ export function Navbar() {
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', height: '72px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           {/* NEW IMAGE LOGO */}
 {/* Replace your logo block with this refined version */}
-<Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-  <img 
-  src={logo} 
-  alt="Maxtech Brothers Logo" 
-  style={{ 
-    // This tells it: Be 40px on phones, grow dynamically, but never exceed 70px on desktop
-    height: 'clamp(40px, 6vw, 70px)', 
-    width: 'auto', 
-    filter: 'drop-shadow(0px 0px 1px rgba(255,255,255,0.3))' 
-  }} 
-/>
-</Link>
+{/* NEW IMAGE LOGO */}
+        <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+          <img 
+            src={logo} 
+            alt="Maxtech Brothers Logo" 
+            style={{ 
+              height: 'clamp(55px, 6vw, 65px)', /* Fluid sizing: 40px on phone, 65px on desktop */
+              width: 'auto', 
+              filter: 'drop-shadow(0px 0px 1px rgba(255,255,255,0.3))' 
+            }} 
+          />
+        </Link>
 
           {/* Desktop nav */}
           <div className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>

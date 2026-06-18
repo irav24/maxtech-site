@@ -6,6 +6,7 @@ import { PROJECTS } from '../data';
 function ProjectCard({ project }) {
   const [hov, setHov] = useState(false);
   return (
+    <Link to={`/project/${project.id}`} style={{ textDecoration: 'none' }}>
     <div onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{ background: '#fff', border: '1px solid #E2E8F0', overflow: 'hidden', transition: 'box-shadow 0.3s', boxShadow: hov ? '0 12px 40px rgba(0,0,0,0.1)' : 'none' }}>
       <div style={{ aspectRatio: '16/10', overflow: 'hidden', position: 'relative' }}>
         <img src={project.image} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transform: hov ? 'scale(1.05)' : 'scale(1)', transition: 'transform 0.5s ease' }} />
@@ -38,8 +39,10 @@ function ProjectCard({ project }) {
         </div>
       </div>
     </div>
+    </Link>
   );
 }
+
 
 export function Projects() {
   const STATUS_TABS = ['All Projects', 'Ongoing Projects', 'Completed Projects'];

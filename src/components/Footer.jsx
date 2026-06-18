@@ -1,6 +1,6 @@
 import React from 'react';
 // Keep this bulletproof import!
-import footerBg from '../assets/footer-banner.jpg'; 
+import footerBg from '../assets/footerbanner.jpg'; 
 
 export function Footer() {
   return (

@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import gallery4 from './assets/gallery/gallery4.jpg';
+
 
 // ─── SHARED UTILITIES ────────────────────────────────────────────────────────
 
@@ -124,28 +126,60 @@ export function About() {
       </section>
 
       {/* Timeline */}
-      <section style={{ background: 'linear-gradient(160deg, #28166F 0%, #112040 50%, #0a1628 100%)', padding: '7rem 0', position: 'relative', overflow: 'hidden' }}>
-        
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', position: 'relative' }}>
-          <p style={{ color: '#009DE0', fontSize: '10px', fontWeight: '700', letterSpacing: '3.5px', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Our Journey</p>
-          <h2 style={{ fontSize: '2.4rem', fontWeight: '800', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", marginBottom: '4rem' }}>28 Years of Milestones</h2>
-          <div style={{ position: 'relative' }}>
-            <div style={{ position: 'absolute', left: '80px', top: 0, bottom: 0, width: '2px', background: 'rgba(200,150,12,0.2)' }} />
-            {timeline.map((item, i) => (
-              <div key={i} style={{ display: 'flex', gap: '2rem', marginBottom: '3rem', alignItems: 'flex-start' }}>
-                <div style={{ minWidth: '80px', textAlign: 'right', paddingRight: '2.5rem', position: 'relative' }}>
-                  <span style={{ color: '#009DE0', fontWeight: '800', fontSize: '13px' }}>{item.year}</span>
-                  <div style={{ position: 'absolute', right: '-5px', top: '4px', width: '10px', height: '10px', borderRadius: '50%', background: '#009DE0', border: '2px solid #28166F' }} />
-                </div>
-                <div style={{ paddingTop: '1px' }}>
-                  <div style={{ color: '#fff', fontWeight: '700', fontSize: '15px', marginBottom: '0.4rem' }}>{item.title}</div>
-                  <div style={{ color: '#64748B', fontSize: '13px', lineHeight: '1.7' }}>{item.desc}</div>
-                </div>
-              </div>
-            ))}
+<section style={{ 
+  position: 'relative', 
+  padding: '7rem 0', 
+  overflow: 'hidden',
+  background: '#0a1628' // Fallback color
+}}>
+  
+ 
+  <img 
+    src={gallery4} 
+    alt="Journey Background" 
+    style={{ 
+      position: 'absolute', 
+      top: 0, 
+      left: 0, 
+      width: '100%', 
+      height: '100%', 
+      objectFit: 'cover', 
+      opacity: 1, /* Boosted from 0.4 to 0.8 so the photo really pops */
+      zIndex: 0 
+    }} 
+  />
+
+  {/* LAYER 2: The Gradient (Dialed back the heavy blue) */}
+  <div style={{ 
+    position: 'absolute', 
+    inset: 0, 
+    /* The last number in the rgba() is the alpha/transparency. 
+       Dropped it from 0.85 to 0.5 so it's much more see-through */
+    background: 'linear-gradient(160deg, rgba(40, 22, 111, 0.3) 0%, rgba(17, 32, 64, 0.2) 50%, rgba(10, 22, 40, 0.1) 100%)', 
+    zIndex: 1 
+  }} />
+  {/* LAYER 3: The Content */}
+  <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 2 }}>
+    <p style={{ color: '#009DE0', fontSize: '10px', fontWeight: '700', letterSpacing: '3.5px', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Our Journey</p>
+    <h2 style={{ fontSize: '2.4rem', fontWeight: '800', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", marginBottom: '4rem' }}>28 Years of Milestones</h2>
+    
+    <div style={{ position: 'relative' }}>
+      <div style={{ position: 'absolute', left: '80px', top: 0, bottom: 0, width: '2px', background: 'rgba(200,150,12,0.2)' }} />
+      {timeline.map((item, i) => (
+        <div key={i} style={{ display: 'flex', gap: '2rem', marginBottom: '3rem', alignItems: 'flex-start' }}>
+          <div style={{ minWidth: '80px', textAlign: 'right', paddingRight: '2.5rem', position: 'relative' }}>
+            <span style={{ color: '#009DE0', fontWeight: '800', fontSize: '13px' }}>{item.year}</span>
+            <div style={{ position: 'absolute', right: '-5px', top: '4px', width: '10px', height: '10px', borderRadius: '50%', background: '#009DE0', border: '2px solid #28166F' }} />
+          </div>
+          <div style={{ paddingTop: '1px' }}>
+            <div style={{ color: '#fff', fontWeight: '700', fontSize: '15px', marginBottom: '0.4rem' }}>{item.title}</div>
+            <div style={{ color: '#e6ebf1', fontSize: '13px', lineHeight: '1.7' }}>{item.desc}</div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Certifications */}
       <section ref={r3} style={{ background: 'linear-gradient(180deg, #F4F4F0 0%, #e8eef6 100%)', padding: '6rem 0' }}>
@@ -333,6 +367,7 @@ import { Gallery } from './pages/Gallery';
 // ─── ────────────────────────────────────────────────────────────
 
 import { Contact } from './pages/Contact.jsx';
+import { ProjectDetails } from './pages/ProjectDetails';
 
 // ─── APP ─────────────────────────────────────────────────────────────────────
 
@@ -346,6 +381,7 @@ export default function App() {
 
           <Route path="services" element={<Services />} />
           <Route path="projects" element={<Projects />} />
+          <Route path="project/:id" element={<ProjectDetails />} />
           <Route path="products" element={<ProductsPage />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="contact" element={<Contact />} />

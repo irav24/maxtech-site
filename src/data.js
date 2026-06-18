@@ -1,11 +1,15 @@
 // src/data.js
+import bltrn from './assets/project/bullet-train.jpeg';
+import mgsetu from './assets/project/mgsetu.jpg';
+import jk from './assets/project/usbrl.jpg';
+
 
 export const CLIENTS = ['L&T Construction', 'Afcons Infrastructure', 'NHAI', 'NHSRCL', 'Gammon India', 'Tata Projects', 'Rail Vikas Nigam', 'RVNL', 'DFCCIL', 'Punj Lloyd'];
 
 export const PROJECTS = [
-  { title: 'Mumbai–Ahmedabad High-Speed Rail Bridge', status: 'Ongoing', client: 'National High Speed Rail Corporation', scope: 'Assembly & Erection of 100-Meter Span Open Web Girder (OWG) weighing 1,500 MT. Complex precision alignment and staged launching under live corridor conditions.', tag: 'Bullet Train', scale: '1,500 Metric Tonnes', year: '2023', location: 'Gujarat, India', image: 'https://images.unsplash.com/photo-1541888059082-9e8db807e05e?auto=format&fit=crop&q=80&w=800', color: '#0D1B3E' },
-  { title: 'J&K Reasi Rail Project (USBRL)', status: 'Ongoing', client: 'Afcons Infrastructure', scope: 'Fabrication, continuous sandblasting, structural assembly, precision torquing, and complex girder launching across high-altitude terrain in J&K.', tag: 'Railways', scale: '₹7 Crore Value', year: '2022', location: 'Jammu & Kashmir', image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800', color: '#0D1B3E' },
-  { title: 'Mahatma Gandhi Setu Bridge', status: 'Completed', client: 'Afcons Sibmost JV', scope: 'Heavy assembly, high-altitude girder erection, deck slab concreting, and stable liner/trestle fabrication over the Ganga river.', tag: 'Mega Bridges', scale: '₹5 Crore Value', year: '2021', location: 'Bihar, India', image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800', color: '#0EA5E9' },
+  { title: 'Mumbai–Ahmedabad High-Speed Rail Bridge', status: 'Ongoing', client: 'National High Speed Rail Corporation', scope: 'Assembly & Erection of 100-Meter Span Open Web Girder (OWG) weighing 1,500 MT. Complex precision alignment and staged launching under live corridor conditions.', tag: 'Bullet Train', scale: '1,500 Metric Tonnes', year: '2023', location: 'Gujarat, India', image: bltrn, color: '#0D1B3E' },
+  { title: 'J&K Reasi Rail Project (USBRL)', status: 'Ongoing', client: 'Afcons Infrastructure', scope: 'Fabrication, continuous sandblasting, structural assembly, precision torquing, and complex girder launching across high-altitude terrain in J&K.', tag: 'Railways', scale: '₹7 Crore Value', year: '2022', location: 'Jammu & Kashmir', image: jk, color: '#0D1B3E' },
+  { title: 'Mahatma Gandhi Setu Bridge', status: 'Completed', client: 'Afcons Sibmost JV', scope: 'Heavy assembly, high-altitude girder erection, deck slab concreting, and stable liner/trestle fabrication over the Ganga river.', tag: 'Mega Bridges', scale: '₹5 Crore Value', year: '2021', location: 'Bihar, India', image: mgsetu, color: '#0EA5E9' },
   { title: 'Dedicated Freight Corridor', status: 'Completed', client: 'DFCCIL / L&T Construction', scope: 'Supply, fabrication and erection of composite steel-concrete girders for the Western DFC alignment. Multi-span execution under live freight schedule.', tag: 'Freight Rail', scale: '₹12 Crore Value', year: '2020', location: 'Rajasthan, India', image: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&q=80&w=800', color: '#334155' },
   { title: 'NH-48 Flyover Package', status: 'Completed', client: 'NHAI / Gammon India', scope: 'PSC girder erection, launching girder operations, and temporary works for a multi-span urban flyover on NH-48 in Maharashtra.', tag: 'National Highway', scale: '₹8 Crore Value', year: '2019', location: 'Maharashtra, India', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=800', color: '#0B1530' },
   { title: 'Chenab Rail Bridge Auxiliary Works', status: 'Completed', client: 'Tata Projects Ltd.', scope: 'Structural fabrication of auxiliary steel components, sandblasting, metallizing and site coordination for the world-class Chenab arch bridge project.', tag: 'Icon Project', scale: '₹4 Crore Value', year: '2018', location: 'Jammu & Kashmir', image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80&w=800', color: '#475569' },
@@ -37,8 +41,24 @@ export const STATS = [
 ];
 
 export const CORE_CAPS = [
-  { id: '01', title: 'Heavy Steel Girder Erection', desc: 'Specialist in structural Road & Rail bridges — OWG, Underslung, and Composite systems with precision launching.' },
-  { id: '02', title: 'Precision Bolting & Torquing', desc: 'Certified hydraulic and electric torque solutions, calibration services, equipment sales and rental.' },
-  { id: '03', title: 'Industrial Metal Fabrication', desc: 'Heavy-duty steel structures, pressure pipelines, liner plates, trestle systems, and PEB erection.' },
-  { id: '04', title: 'Surface Treatment & Coating', desc: 'High-spec copper slag blasting, thermal metallizing, and multi-coat industrial painting programs.' },
+  {
+    id: '01',
+    title: 'Fabrication of Steel Structures or Piping In any industries.',
+    desc: 'Precision metal fabrication and piping solutions utilizing state-of-the-art equipment to deliver exceptional results across all industrial sectors.'
+  },
+  {
+    id: '02',
+    title: 'Erection of Steel Girders',
+    desc: 'Expert erection of structural steel girders for road and railway bridges, including OWG, underslung, and composite systems.'
+  },
+  {
+    id: '03',
+    title: 'Erection of PEB Structure',
+    desc: 'Seamless assembly and erection of pre-engineered buildings (PEB) and steel frameworks, ensuring structural integrity and precise alignment.'
+  },
+  {
+    id: '04',
+    title: 'Civil Projects',
+    desc: 'Comprehensive civil engineering and construction services dedicated to developing robust public and private infrastructure for regional growth.'
+  }
 ];

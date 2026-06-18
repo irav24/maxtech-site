@@ -6,14 +6,18 @@ import { STATS, CORE_CAPS, PROJECTS, CLIENTS } from '../data';
 
 function CapCard({ cap }) {
   const [hovered, setHovered] = useState(false);
+  
   return (
-    <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} style={{ background: hovered ? '#0A0F1C' : '#ffffff', padding: '2.75rem 2.5rem', transition: 'background 0.5s cubic-bezier(0.16, 1, 0.3, 1)', cursor: 'default', borderRight: '1px solid #E2E8F0', borderBottom: '1px solid #E2E8F0' }}>
+    <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} style={{ background: hovered ? '#0A0F1C' : '#ffffff', padding: '2.75rem 2.5rem', transition: 'background 0.5s cubic-bezier(0.16, 1, 0.3, 1)', cursor: 'pointer', borderRight: '1px solid #E2E8F0', borderBottom: '1px solid #E2E8F0' }}>
       <div style={{ color: '#009DE0', fontSize: '11px', fontWeight: '800', fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: '3px', marginBottom: '1.5rem' }}>{cap.id}</div>
+      
       <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: hovered ? '#ffffff' : '#111111', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase', marginBottom: '0.9rem', lineHeight: '1.4' }}>{cap.title}</h3>
+      
       <p style={{ color: hovered ? '#F4F4F0' : '#64748B', fontSize: '0.87rem', lineHeight: '1.75' }}>{cap.desc}</p>
-      <div style={{ marginTop: '1.75rem', color: '#009DE0', fontSize: '11px', fontWeight: '800', fontFamily: "'Barlow Condensed', sans-serif", display: 'flex', alignItems: 'center', gap: '6px', letterSpacing: '1px', textTransform: 'uppercase' }}>
+      
+      <Link to="/services" style={{ textDecoration: 'none', marginTop: '1.75rem', color: '#009DE0', fontSize: '11px', fontWeight: '800', fontFamily: "'Barlow Condensed', sans-serif", display: 'flex', alignItems: 'center', gap: '6px', letterSpacing: '1px', textTransform: 'uppercase' }}>
         Learn more <span style={{ transition: 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)', transform: hovered ? 'translateX(5px)' : 'none' }}>→</span>
-      </div>
+      </Link>
     </div>
   );
 }
@@ -26,28 +30,29 @@ export function Home() {
 
   return (
     <>
-      {/* HERO */}
+      
       <header className="noise-bg" style={{ overflow: 'hidden', minHeight: '85vh', display: 'flex', alignItems: 'center', position: 'relative' }}>
         
-        {/* 1. The Background Video */}
+        {/* 1. Raw Background Video (No grayscale, no blur filters) */}
         <video 
           autoPlay 
           loop 
           muted 
           playsInline 
-          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0, filter: 'grayscale(40%)' }}
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }}
         >
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
 
-        {/* 2. The Dark Overlay (Ensures text readability over the video) */}
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(10,15,28,0.95) 0%, rgba(10,15,28,0.7) 50%, rgba(10,15,28,0.3) 100%)', zIndex: 0 }} />
+        {/* 2. Original Clean Dark Overlay (Just enough to read the white text) */}
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(10,15,28,0.95) 0%, rgba(10,15,28,0.7) 50%, rgba(10,15,28,0.3) 100%)', zIndex: 1 }} />
 
         {/* 3. The Left Cyan Accent Line */}
         <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '4px', background: '#009DE0', zIndex: 2 }} />
 
-        {/* 4. The Hero Content */}
+        {/* 4. The Hero Content (Padding reset to a standard static size) */}
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '6rem 2rem', width: '100%', position: 'relative', zIndex: 2 }}>
+          
           <div className={`hero-fade ${heroVisible ? 'visible' : ''}`} style={{ animationDelay: '0s' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', background: 'rgba(0,157,224,0.1)', border: '1px solid rgba(0,157,224,0.25)', borderRadius: '3px', padding: '8px 16px', marginBottom: '2.5rem', backdropFilter: 'blur(4px)' }}>
               <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#009DE0', display: 'inline-block', animation: 'pulse 2s infinite' }} />

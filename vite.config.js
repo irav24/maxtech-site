@@ -7,4 +7,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  watch: {
+      usePolling: true,}
 })
+// vite.config.js
