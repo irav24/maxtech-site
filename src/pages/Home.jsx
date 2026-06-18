@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useScrollReveal, AnimatedStat } from '../utils';
 import { STATS, CORE_CAPS, PROJECTS, CLIENTS } from '../data';
+import gallery4 from '../assets/gallery/gallery4.jpg';
 
 function CapCard({ cap }) {
   const [hovered, setHovered] = useState(false);
@@ -146,38 +147,71 @@ export function Home() {
         </div>
       </section>
 
-      {/* Why Maxtech */}
-      <section className="noise-bg" style={{ padding: '7rem 0', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 2 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '5rem', alignItems: 'center' }}>
-            <div>
-              <p style={{ color: '#009DE0', fontSize: '12px', fontWeight: '800', fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: '3.5px', textTransform: 'uppercase', marginBottom: '1rem' }}>Why Choose Us</p>
-              <h2 style={{ fontSize: '2.4rem', fontWeight: '900', color: '#ffffff', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase', lineHeight: '1.2', marginBottom: '1.5rem' }}>Trusted by India's Top EPC Contractors</h2>
-              <p style={{ color: '#F4F4F0', fontSize: '1.05rem', lineHeight: '1.85' }}>Since 1996, Maxtech Brothers has been the preferred execution partner for India's most demanding infrastructure projects. From the Chenab Bridge to the Bullet Train corridor, our name stands for on-time delivery, zero-compromise safety, and engineering precision.</p>
-              <Link to="/about" style={{ display: 'inline-block', marginTop: '2rem', color: '#009DE0', fontWeight: '800', fontFamily: "'Barlow Condensed', sans-serif", fontSize: '12px', letterSpacing: '1.5px', textTransform: 'uppercase', textDecoration: 'none' }}>Our Story →</Link>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: 'rgba(255,255,255,0.1)' }}>
-              {[
-                { label: 'IS Compliant Execution', icon: '✓' },
-                { label: 'OHSAS Safety Standards', icon: '✓' },
-                { label: 'Calibrated Torque Equipment', icon: '✓' },
-                { label: 'Pan-India Deployment', icon: '✓' },
-              ].map((item, i) => (
-                <div key={i} style={{ background: '#0A0F1C', padding: '2.5rem 1.5rem', borderBottom: i < 2 ? '1px solid rgba(255,255,255,0.05)' : 'none', borderRight: i % 2 === 0 ? '1px solid rgba(255,255,255,0.05)' : 'none' }}>
-                  <div style={{ color: '#009DE0', fontSize: '1.2rem', marginBottom: '0.75rem', fontWeight: '900' }}>{item.icon}</div>
-                  <div style={{ color: '#ffffff', fontSize: '13px', fontWeight: '700', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase', letterSpacing: '1px' }}>{item.label}</div>
-                </div>
-              ))}
-            </div>
+      
+
+
+{/* Why Maxtech */}
+
+{/* Why Maxtech */}
+<section className="noise-bg" style={{ padding: '7rem 0', position: 'relative', overflow: 'hidden' }}>
+  
+  {/* LAYER 1: The Background Image */}
+  <img 
+    src={gallery4} 
+    alt="Engineering Background" 
+    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }} 
+  />
+
+  {/* LAYER 2: The Dark Overlay 
+      (Fades from 95% solid dark on the left to protect the text, 
+      to 50% transparent on the right so the image shines through) */}
+  <div style={{ 
+    position: 'absolute', 
+    inset: 0, 
+    background: 'linear-gradient(90deg, rgba(11, 17, 32, 0.95) 0%, rgba(11, 17, 32, 0.5) 100%)', 
+    zIndex: 1 
+  }} />
+
+  {/* LAYER 3: Your Original Layout */}
+  <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 2 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '5rem', alignItems: 'center' }}>
+      
+      {/* Text Block */}
+      <div>
+        <p style={{ color: '#009DE0', fontSize: '12px', fontWeight: '800', fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: '3.5px' }}>WHY CHOOSE US</p>
+        <h2 style={{ fontSize: '2.4rem', fontWeight: '900', color: '#ffffff', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase' }}>TRUSTED BY INDIA'S TOP EPC CONTRACTORS</h2>
+        <p style={{ color: '#F4F4F0', fontSize: '1.05rem', lineHeight: '1.85' }}>Since 1996, Maxtech Brothers has been the preferred execution partner for India's most demanding infrastructure projects. From the Chenab Bridge to the Bullet Train corridor, our name stands for on-time delivery, zero-compromise safety, and engineering precision.</p>
+        <Link to="/about" style={{ display: 'inline-block', marginTop: '2rem', color: '#009DE0', fontWeight: '800', fontFamily: "'Barlow Condensed', sans-serif" }}>OUR STORY &rarr;</Link>
+      </div>
+
+      {/* Grid Block */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: 'rgba(255,255,255,0.1)' }}>
+        {[
+          { label: 'IS Compliant Execution', icon: '✓' },
+          { label: 'OHSAS Safety Standards', icon: '✓' },
+          { label: 'Calibrated Torque Equipment', icon: '✓' },
+          { label: 'Pan-India Deployment', icon: '✓' },
+        ].map((item, i) => (
+          <div key={i} style={{ 
+            background: 'rgba(10, 15, 28, 0.85)', /* Changed to RGBA so the background photo faintly shows through the boxes! */
+            padding: '2.5rem 1.5rem', 
+            borderBottom: i < 2 ? '1px solid rgba(255,255,255,0.05)' : 'none' 
+          }}>
+            <div style={{ color: '#009DE0', fontSize: '1.2rem', marginBottom: '0.75rem', fontWeight: '900' }}>{item.icon}</div>
+            <div style={{ color: '#ffffff', fontSize: '13px', fontWeight: '700', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase' }}>{item.label}</div>
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* CTA */}
-      <section style={{ background: '#009DE0', padding: '5rem 0' }}>
+      <section style={{ background: '#eef3f5', padding: '5rem 0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '2rem' }}>
           <div>
-            <h2 style={{ fontSize: '1.9rem', fontWeight: '900', color: '#ffffff', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase', lineHeight: '1.2' }}>Ready to build something monumental?</h2>
+            <h2 style={{ fontSize: '1.9rem', fontWeight: '900', color: '#111111', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase', lineHeight: '1.2' }}>Ready to build something monumental?</h2>
             <p style={{ color: '#111111', fontWeight: '700', marginTop: '0.5rem' }}>Connect with our engineering team for tender inquiries and partnerships.</p>
           </div>
           <Link to="/contact" style={{ background: '#111111', color: '#ffffff', padding: '16px 40px', borderRadius: '2px', fontWeight: '800', fontFamily: "'Barlow Condensed', sans-serif", fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', whiteSpace: 'nowrap', transition: 'transform 0.3s' }}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import gallery4 from './assets/gallery/gallery4.jpg';
+import bg2 from './assets/gallery/bg2.jpg';
 
 
 // ─── SHARED UTILITIES ────────────────────────────────────────────────────────
@@ -135,7 +135,7 @@ export function About() {
   
  
   <img 
-    src={gallery4} 
+    src={bg2} 
     alt="Journey Background" 
     style={{ 
       position: 'absolute', 
@@ -153,9 +153,7 @@ export function About() {
   <div style={{ 
     position: 'absolute', 
     inset: 0, 
-    /* The last number in the rgba() is the alpha/transparency. 
-       Dropped it from 0.85 to 0.5 so it's much more see-through */
-    background: 'linear-gradient(160deg, rgba(40, 22, 111, 0.3) 0%, rgba(17, 32, 64, 0.2) 50%, rgba(10, 22, 40, 0.1) 100%)', 
+    background: 'linear-gradient(90deg, rgba(11, 17, 32, 0.95) 0%, rgba(11, 17, 32, 0.5) 100%)', 
     zIndex: 1 
   }} />
   {/* LAYER 3: The Content */}
@@ -182,33 +180,65 @@ export function About() {
 </section>
 
       {/* Certifications */}
-      <section ref={r3} style={{ background: 'linear-gradient(180deg, #F4F4F0 0%, #e8eef6 100%)', padding: '6rem 0' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
-          <div className={`reveal ${v3 ? 'visible' : ''}`}>
-            <p style={{ color: '#009DE0', fontSize: '10px', fontWeight: '700', letterSpacing: '3.5px', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Compliance</p>
-            <h2 style={{ fontSize: '2.4rem', fontWeight: '800', color: '#0F172A', fontFamily: "'Barlow Condensed', sans-serif", marginBottom: '3rem' }}>Standards & Certifications</h2>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '2px', background: '#CBD5E1' }}>
-            {['IS:2062 Steel Standards', 'OHSAS 18001 Safety', 'SSPC Surface Prep', 'IS:4353 Torque Compliance', 'NABL Calibrated Equipment', 'IRC Bridge Standards'].map((cert, i) => (
-              <div key={i} style={{ background: '#fff', padding: '2rem', display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#009DE0', flexShrink: 0 }} />
-                <span style={{ color: '#0F172A', fontSize: '13px', fontWeight: '700' }}>{cert}</span>
-              </div>
-            ))}
-          </div>
+<section ref={r3} style={{ background: 'linear-gradient(180deg, #F4F4F0 0%, #e8eef6 100%)', padding: '6rem 0' }}>
+  <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
+    
+    <div className={`reveal ${v3 ? 'visible' : ''}`}>
+      <p style={{ color: '#009DE0', fontSize: '10px', fontWeight: '700', letterSpacing: '3.5px', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Compliance</p>
+      <h2 style={{ fontSize: '2.4rem', fontWeight: '800', color: '#0F172A', fontFamily: "'Barlow Condensed', sans-serif", marginBottom: '3rem' }}>Standards & Certifications</h2>
+    </div>
+{/* The New Spaced Grid Layout */}
+    <div style={{ 
+      display: 'grid', 
+      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+      gap: '1.5rem' /* Creates breathing room between cards */
+    }}>
+      {['IS:2062 Steel Standards', 'OHSAS 18001 Safety', 'SSPC Surface Prep', 'IS:4353 Torque Compliance', 'NABL Calibrated Equipment', 'IRC Bridge Standards'].map((cert, i) => (
+        <div key={i} style={{ 
+          background: '#fff', 
+          padding: '2rem', 
+          display: 'flex', 
+          gap: '1rem', 
+          alignItems: 'center',
+          border: '1px solid #CBD5E1', /* Draws the border on the card itself */
+          borderRadius: '4px',         /* Slight rounding for a premium feel */
+          boxShadow: '0 2px 4px rgba(0,0,0,0.02)' /* Very subtle shadow */
+        }}>
+          <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#009DE0', flexShrink: 0 }} />
+          <span style={{ color: '#0F172A', fontSize: '13px', fontWeight: '700' }}>{cert}</span>
         </div>
-      </section>
+      ))}
+    </div>
+
+  </div>
+</section>
 
       {/* CTA */}
-      <section style={{ background: 'linear-gradient(135deg, #28166F 0%, #112040 100%)', padding: '4.5rem 0' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '2rem' }}>
-          <div>
-            <h2 style={{ fontSize: '1.8rem', fontWeight: '800', color: '#ffffff', fontFamily: "'Barlow Condensed', sans-serif" }}>Partner with us on your next project</h2>
-            <p style={{ color: 'rgba(255,255,255,0.65)', marginTop: '0.4rem' }}>Our team is ready to evaluate tender packages and site requirements.</p>
-          </div>
-          <Link to="/contact" style={{ background: '#009DE0', color: '#fff', padding: '15px 36px', borderRadius: '2px', fontWeight: '800', fontSize: '11px', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', whiteSpace: 'nowrap' }}>Start a Tender →</Link>
-        </div>
-      </section>
+
+{/* Option B: The "Ping-Pong" Gradient (Fades back to light) */}
+<section style={{ 
+  background: 'linear-gradient(180deg, #e8eef6 0%, #F4F4F0 100%)', 
+  padding: '6rem 0' ,
+
+  
+}}>
+  <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '2rem' }}>
+    
+    <div>
+      <h2 style={{ fontSize: '1.8rem', fontWeight: '800', color: '#0F172A', fontFamily: "'Barlow Condensed', sans-serif" }}>
+        Partner with us on your next project
+      </h2>
+      <p style={{ color: '#0F172A', marginTop: '0.4rem' }}>
+        Our team is ready to evaluate tender packages and site requirements.
+      </p>
+    </div>
+
+    <Link to="/contact" style={{ background: '#009DE0', color: '#fff', padding: '15px 36px', borderRadius: '2px', fontWeight: '800', fontSize: '14px', textDecoration: 'none', letterSpacing: '1px' }}>
+      START A TENDER &rarr;
+    </Link>
+    
+  </div>
+</section>
     </>
   );
 }
