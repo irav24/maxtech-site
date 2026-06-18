@@ -2,43 +2,61 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { PageHero } from '../components/PageHero';
 import { PROJECTS } from '../data';
+import projecthero from '../assets/projecthero.jpeg'
 
 function ProjectCard({ project }) {
   const [hov, setHov] = useState(false);
+  
   return (
-    <Link to={`/project/${project.id}`} style={{ textDecoration: 'none' }}>
-    <div onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{ background: '#fff', border: '1px solid #E2E8F0', overflow: 'hidden', transition: 'box-shadow 0.3s', boxShadow: hov ? '0 12px 40px rgba(0,0,0,0.1)' : 'none' }}>
-      <div style={{ aspectRatio: '16/10', overflow: 'hidden', position: 'relative' }}>
-        <img src={project.image} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transform: hov ? 'scale(1.05)' : 'scale(1)', transition: 'transform 0.5s ease' }} />
+    <Link to={`/project/${project.id}`} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+      <div onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{ 
+        background: '#fff', 
+        border: '1px solid #E2E8F0', 
+        overflow: 'hidden', 
+        transition: 'box-shadow 0.3s', 
+        boxShadow: hov ? '0 12px 40px rgba(0,0,0,0.1)' : 'none',
+        display: 'flex', 
+        flexDirection: 'column', 
+        height: '100%' 
+      }}>
         
-        {/* Active Site Badge for Ongoing Projects */}
-        <div style={{ position: 'absolute', top: '1rem', right: '1rem', display: 'flex', gap: '0.5rem' }}>
-          {project.status === 'Ongoing' && (
-            <span style={{ background: '#F59E0B', color: '#fff', fontSize: '9px', fontWeight: '800', letterSpacing: '1px', textTransform: 'uppercase', padding: '4px 10px', borderRadius: '2px', display: 'flex', alignItems: 'center', gap: '4px' }}>
-              <span style={{ width: '6px', height: '6px', background: '#fff', borderRadius: '50%', animation: 'pulse 2s infinite' }}></span>
-              Active Site
-            </span>
+        <div style={{ aspectRatio: '16/10', overflow: 'hidden', position: 'relative', background: '#F1F5F9' }}>
+          {project.image ? (
+            <img src={project.image} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transform: hov ? 'scale(1.05)' : 'scale(1)', transition: 'transform 0.5s ease' }} />
+          ) : (
+            <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94A3B8', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>Image Pending</div>
           )}
+          
+          <div style={{ position: 'absolute', top: '1rem', right: '1rem', display: 'flex', gap: '0.5rem' }}>
+            {project.status === 'Ongoing' && (
+              <span style={{ background: '#F59E0B', color: '#fff', fontSize: '9px', fontWeight: '800', letterSpacing: '1px', textTransform: 'uppercase', padding: '4px 10px', borderRadius: '2px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <span style={{ width: '6px', height: '6px', background: '#fff', borderRadius: '50%', animation: 'pulse 2s infinite' }}></span>
+                Active Site
+              </span>
+            )}
+          </div>
+
+          <span style={{ position: 'absolute', top: '1rem', left: '1rem', background: project.color || '#0F172A', color: '#fff', fontSize: '9px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', padding: '4px 10px', borderRadius: '2px' }}>{project.tag}</span>
+        </div>
+        
+        <div style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+          <h3 style={{ fontSize: '1.05rem', fontWeight: '700', color: '#0F172A', lineHeight: '1.4', marginBottom: '0.5rem' }}>{project.title}</h3>
+          <p style={{ color: '#64748B', fontSize: '12px', marginBottom: '1rem', fontWeight: '500' }}>{project.client} · {project.location}</p>
+          <p style={{ color: '#475569', fontSize: '13px', lineHeight: '1.75', marginBottom: '1.5rem' }}>{project.scope}</p>
+          
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #F1EDE4', paddingTop: '1.25rem', marginTop: 'auto' }}>
+            <div>
+              <div style={{ color: '#94A3B8', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: '700' }}>Year</div>
+              <div style={{ fontWeight: '700', color: '#0F172A', fontSize: '14px', marginTop: '2px' }}>{project.year}</div>
+            </div>
+            <div style={{ textAlign: 'right' }}>
+              <div style={{ color: '#94A3B8', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: '700' }}>Scale</div>
+              <div style={{ fontWeight: '700', color: '#0EA5E9', fontSize: '14px', marginTop: '2px' }}>{project.scale}</div>
+            </div>
+          </div>
         </div>
 
-        <span style={{ position: 'absolute', top: '1rem', left: '1rem', background: project.color, color: '#fff', fontSize: '9px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', padding: '4px 10px', borderRadius: '2px' }}>{project.tag}</span>
       </div>
-      <div style={{ padding: '1.75rem' }}>
-        <h3 style={{ fontSize: '1.05rem', fontWeight: '700', color: '#0F172A', lineHeight: '1.4', marginBottom: '0.5rem' }}>{project.title}</h3>
-        <p style={{ color: '#64748B', fontSize: '12px', marginBottom: '1rem', fontWeight: '500' }}>{project.client} · {project.location}</p>
-        <p style={{ color: '#475569', fontSize: '13px', lineHeight: '1.75', marginBottom: '1.5rem' }}>{project.scope}</p>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #F1EDE4', paddingTop: '1.25rem' }}>
-          <div>
-            <div style={{ color: '#94A3B8', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: '700' }}>Year</div>
-            <div style={{ fontWeight: '700', color: '#0F172A', fontSize: '14px', marginTop: '2px' }}>{project.year}</div>
-          </div>
-          <div style={{ textAlign: 'right' }}>
-            <div style={{ color: '#94A3B8', fontSize: '9px', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: '700' }}>Scale</div>
-            <div style={{ fontWeight: '700', color: '#0EA5E9', fontSize: '14px', marginTop: '2px' }}>{project.scale}</div>
-          </div>
-        </div>
-      </div>
-    </div>
     </Link>
   );
 }
@@ -69,7 +87,7 @@ export function Projects() {
 
   return (
     <>
-      <PageHero label="Our Portfolio" title="Engineering Marvels Delivered" subtitle="A proven track record of high-value civil and mechanical operations across India's most demanding infrastructure corridors." />
+      <PageHero bgImage={projecthero} label="Our Portfolio" title="Engineering Marvels Delivered" subtitle="A proven track record of high-value civil and mechanical operations across India's most demanding infrastructure corridors." />
 
       <section style={{ background: '#F1F5F9', padding: '4rem 0 6rem 0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
@@ -108,13 +126,13 @@ export function Projects() {
         </div>
       </section>
 
-      <section style={{ background: '#0EA5E9', padding: '4.5rem 0' }}>
+      <section style={{ background: '#F1F5F9',borderTop: '2px solid #E2E8F0', padding: '4.5rem 0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '2rem' }}>
           <div>
             <h2 style={{ fontSize: '1.8rem', fontWeight: '800', color: '#000', fontFamily: "'Barlow Condensed', sans-serif" }}>Have a project in mind?</h2>
-            <p style={{ color: 'rgba(255,255,255,0.65)', marginTop: '0.4rem' }}>Submit a tender inquiry and our team will respond within 24 hours.</p>
+            <p style={{ color: '#111111(255,255,255,0.65)', marginTop: '0.4rem' }}>Submit a tender inquiry and our team will respond within 24 hours.</p>
           </div>
-          <Link to="/contact" style={{ background: '#fff', color: '#0EA5E9', padding: '15px 36px', borderRadius: '2px', fontWeight: '800', fontSize: '11px', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', whiteSpace: 'nowrap' }}>Start a Tender →</Link>
+          <Link to="/contact" style={{ background: '#0EA5E9', color: '#FFF', padding: '15px 36px', borderRadius: '2px', fontWeight: '800', fontSize: '11px', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', whiteSpace: 'nowrap' }}>Start a Tender →</Link>
         </div>
       </section>
     </>

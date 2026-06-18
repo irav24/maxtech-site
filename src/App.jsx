@@ -392,6 +392,7 @@ export function Services() {
 // ───────────────────────────────────────────────────────────
 
 import { Projects } from './pages/Projects.jsx';
+ // Adjust the path
 
 // ─── PRODUCTS PAGE ───────────────────────────────────────────────────────────
 

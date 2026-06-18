@@ -1,19 +1,242 @@
 // src/data.js
 import bltrn from './assets/project/bullet-train.jpeg';
+import bltrn2 from './assets/project/bullet-train2.jpeg';
 import mgsetu from './assets/project/mgsetu.jpg';
+import mgSetu1 from './assets/project/mg-setu1.jpg';
+import mgSetu2 from './assets/project/mg-setu2.jpg';
+import mgSetu3 from './assets/project/mg-setu3.jpg';
+import mgSetu4 from './assets/project/mg-setu4.jpg';
+import mgSetu5 from './assets/project/mg-setu5.jpg';
+import mgSetu7 from './assets/project/mg-setu7.jpg';
+import mgSetu8 from './assets/project/mg-setu8.jpg';
+import mgSetu9 from './assets/project/mg-setu9.jpg';
 import jk from './assets/project/usbrl.jpg';
+import usbrl2 from './assets/project/usbrl2.jpg';
+import usbrl3 from './assets/project/usbrl3.jpg';
+import usbrl4 from './assets/project/usbrl4.jpg';
+import usbrl5 from './assets/project/usbrl5.jpg';
+import usbrl6 from './assets/project/usbrl6.jpg';
+import usbrl7 from './assets/project/usbrl7.jpeg';
+import wdfcc15a from './assets/project/wdfcc15a.jpg';
+import wdfcc15a1 from './assets/project/wdfcc15a1.jpg';
+import wdfcc15a2 from './assets/project/wdfcc15a2.jpg';
+import wdfcc15a3 from './assets/project/wdfcc15a3.jpg';
+import wdfcc15a4 from './assets/project/wdfcc15a4.jpg';
+import wdfcc15a5 from './assets/project/wdfcc15a5.jpg';
+import wdfcc15b from './assets/project/wdfcc15b.jpg';
+import wdfcc15b1 from './assets/project/wdfcc15b1.jpg';
+import wdfcc15b2 from './assets/project/wdfcc15b2.jpg';
+import wdfcc15b3 from './assets/project/wdfcc15b3.jpg';
+import wdfcc15b4 from './assets/project/wdfcc15b4.jpg';
 import { Wrench, Settings, Zap, HardHat, Building2, Ruler, PaintBucket } from 'lucide-react';
 
 
 export const CLIENTS = ['L&T Construction', 'Afcons Infrastructure', 'NHAI', 'NHSRCL', 'Gammon India', 'Tata Projects', 'Rail Vikas Nigam', 'RVNL', 'DFCCIL', 'Punj Lloyd'];
 
 export const PROJECTS = [
-  { title: 'Mumbai–Ahmedabad High-Speed Rail Bridge', status: 'Ongoing', client: 'National High Speed Rail Corporation', scope: 'Assembly & Erection of 100-Meter Span Open Web Girder (OWG) weighing 1,500 MT. Complex precision alignment and staged launching under live corridor conditions.', tag: 'Bullet Train', scale: '1,500 Metric Tonnes', year: '2023', location: 'Gujarat, India', image: bltrn, color: '#0D1B3E' },
-  { title: 'J&K Reasi Rail Project (USBRL)', status: 'Ongoing', client: 'Afcons Infrastructure', scope: 'Fabrication, continuous sandblasting, structural assembly, precision torquing, and complex girder launching across high-altitude terrain in J&K.', tag: 'Railways', scale: '₹7 Crore Value', year: '2022', location: 'Jammu & Kashmir', image: jk, color: '#0D1B3E' },
-  { title: 'Mahatma Gandhi Setu Bridge', status: 'Completed', client: 'Afcons Sibmost JV', scope: 'Heavy assembly, high-altitude girder erection, deck slab concreting, and stable liner/trestle fabrication over the Ganga river.', tag: 'Mega Bridges', scale: '₹5 Crore Value', year: '2021', location: 'Bihar, India', image: mgsetu, color: '#0EA5E9' },
-  { title: 'Dedicated Freight Corridor', status: 'Completed', client: 'DFCCIL / L&T Construction', scope: 'Supply, fabrication and erection of composite steel-concrete girders for the Western DFC alignment. Multi-span execution under live freight schedule.', tag: 'Freight Rail', scale: '₹12 Crore Value', year: '2020', location: 'Rajasthan, India', image: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&q=80&w=800', color: '#334155' },
-  { title: 'NH-48 Flyover Package', status: 'Completed', client: 'NHAI / Gammon India', scope: 'PSC girder erection, launching girder operations, and temporary works for a multi-span urban flyover on NH-48 in Maharashtra.', tag: 'National Highway', scale: '₹8 Crore Value', year: '2019', location: 'Maharashtra, India', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=800', color: '#0B1530' },
-  { title: 'Chenab Rail Bridge Auxiliary Works', status: 'Completed', client: 'Tata Projects Ltd.', scope: 'Structural fabrication of auxiliary steel components, sandblasting, metallizing and site coordination for the world-class Chenab arch bridge project.', tag: 'Icon Project', scale: '₹4 Crore Value', year: '2018', location: 'Jammu & Kashmir', image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80&w=800', color: '#475569' },
+  { id:'1',title: 'Mumbai–Ahmedabad High-Speed Rail Bridge', status: 'Ongoing', client: 'National High Speed Rail Corporation', scope: 'Assembly & Erection of 100-Meter Span Open Web Girder (OWG) weighing 1,500 MT. Complex precision alignment and staged launching under live corridor conditions.', tag: 'Bullet Train', scale: '1,500 Metric Tonnes', year: '2023', location: 'Gujarat, India', image: bltrn, color: '#0D1B3E',gallery: [bltrn, bltrn2] },
+   {
+    id: '2',
+    title: 'J&K Reasi Rail Project (USBRL)',
+    status: 'Ongoing',
+    client: 'Afcons Infrastructure',
+    scope: 'Fabrication, continuous sandblasting, structural assembly, precision torquing, and complex girder launching across high-altitude terrain in J&K.',
+    tag: 'RAILWAYS',
+    scale: '₹7 Crore Value',
+    year: '2022',
+    location: 'Jammu & Kashmir',
+    color: '#0F172A',
+    image: jk, 
+    // This array will automatically trigger the image carousel on the details page!
+    gallery: [jk, usbrl2, usbrl3, usbrl4, usbrl5, usbrl6, usbrl7] 
+  },
+  { id:'3',title: 'Mahatma Gandhi Setu Bridge', status: 'Completed', client: 'Afcons Sibmost JV', scope: 'Heavy assembly, high-altitude girder erection, deck slab concreting, and stable liner/trestle fabrication over the Ganga river.', tag: 'Mega Bridges', scale: '₹5 Crore Value', year: '2021', location: 'Bihar, India', image: mgsetu, color: '#0EA5E9',gallery: [
+      mgsetu, 
+      mgSetu1, 
+      mgSetu2, 
+      mgSetu3, 
+      mgSetu4, 
+      mgSetu5, 
+      mgSetu7, 
+      mgSetu8, 
+      mgSetu9
+    ] },
+  {
+    id:'4',
+    title: 'WDFCC 15A Project',
+    status: 'Completed',
+    client: 'L&T Construction Ltd.',
+    scope: 'Assembly, Erection, Torquing & Painting.',
+    tag: 'RAILWAYS',
+    scale: '₹2.5 Crore Approx.',
+    year: '2021 - 2022',
+    location: 'Maharashtra',
+    color: '#0F172A',
+     image:wdfcc15a,
+    gallery: [
+      wdfcc15a, 
+      wdfcc15a1, 
+      wdfcc15a2, 
+      wdfcc15a3, 
+      wdfcc15a4, 
+      wdfcc15a5
+    ]// ⚠️ Import placeholder
+  },
+  {
+    id:'5',
+    title: 'WDFCC 15B Project',
+    status: 'Completed',
+    client: 'L&T Construction Ltd.',
+    scope: 'Assembly, Erection, Torquing & Painting.',
+    tag: 'RAILWAYS',
+    scale: '₹90 Lacs Approx.',
+    year: '2022 - 2023',
+    location: 'Gujarat',
+    color: '#0F172A',
+    image: wdfcc15b,
+    gallery: [
+      wdfcc15b, 
+      wdfcc15b1, 
+      wdfcc15b2, 
+      wdfcc15b3, 
+      wdfcc15b4
+    ]
+     // ⚠️ Import placeholder
+  },
+  {id:'6',
+    title: 'New Defence Shop Project',
+    
+    status: 'Ongoing', // This creates the orange tag at the top right
+   
+    client: 'L&T Construction Ltd.',
+    
+    scope: 'Fabrication, continuous sandblasting, painting, and erection of Defence Shed Structure.',
+    tag: 'DEFENCE', // This will show up in the dark blue tag at the top left
+    scale: '₹2 Crore Value',
+    year: '2023 - 2024',
+    
+    location: 'Hazira, Gujarat',
+     // You will need to import an image for this at the top of your file!
+  },
+  { id:'7',
+     // Adjust ID numbering as needed
+    title: 'Bangalore Metro Rail Corporation Ltd',
+    status: 'Completed', // Or 'Ongoing' depending on current site status
+    client: 'Afcons Infrastructure Ltd.',
+    scope: 'Assembly, Erection & Torquing of Composite Girder.',
+    tag: 'METRO',
+    scale: '₹30 Lacs', // Formatted for your UI
+    year: '2023 - 2024',
+    location: 'Karnataka',
+    color: '#009DE0', // Optional: Adds the specific color to the top-left tag
+     // ⚠️ Don't forget to import this image at the top of your file!
+  },
+  {
+    id:'8',
+    title: 'Grasim Paint Plant',
+    status: 'Ongoing',
+    client: 'L&T Construction Ltd.',
+    scope: 'Fabrication & Erection of Structures.',
+    tag: 'INDUSTRIAL',
+    scale: 'In Process', 
+    year: '2023 - 2024',
+    location: 'Cheyyar, Tamil Nadu',
+    color: '#0F172A',
+     // ⚠️ Import placeholder
+  },
+  {id:'9',
+    title: 'Reliance PV Manufacturing Facility',
+    status: 'Ongoing',
+    client: 'L&T Construction Ltd.',
+    scope: 'Precast Erection Works.',
+    tag: 'MANUFACTURING',
+    scale: 'In Process',
+    year: '2023 - 2024',
+    location: 'Jamnagar, Gujarat',
+    color: '#0F172A',
+    // ⚠️ Import placeholder
+  },
+  {
+    id:'10',
+    title: 'Ultratech Cement Plant',
+    status: 'Completed', // Or 'Ongoing' if still active
+    client: 'L&T Construction Ltd.',
+    scope: 'Fabrication, Painting & Erection of Cement Plant Structure.',
+    tag: 'INDUSTRIAL',
+    scale: '₹1.2 Crore', // Formatted for your UI
+    year: '2022 - 2024',
+    location: 'Pali, Rajasthan',
+    color: '#0F172A',
+    // ⚠️ Import placeholder
+  },
+  
+  {id:'11',
+    title: 'JSW Shiva Cement Plant',
+    status: 'Completed',
+    client: 'L&T Construction Ltd.',
+    scope: 'Fabrication & Erection of Cement Plant Structure.',
+    tag: 'INDUSTRIAL',
+    scale: '₹30 Lacs',
+    year: '2022 - 2023',
+    location: 'Rourkela, Odisha',
+    color: '#0F172A',
+    // ⚠️ Import placeholder
+  },
+  {
+    id:'12',
+    title: 'Gujarat Metro Rail Corporation Ltd',
+    status: 'Completed',
+    client: 'Dilip Buildcon Ltd.',
+    scope: 'Fabrication of Barricading Board & Painting works.',
+    tag: 'METRO',
+    scale: '₹20 Lacs',
+    year: '2022 - 2023',
+    location: 'Gujarat',
+    color: '#009DE0',
+    // ⚠️ Import placeholder
+  },
+  {
+    id:'13',
+    title: 'Steel Plant',
+    status: 'Completed',
+    client: 'L&T Construction Ltd.',
+    scope: 'Fabrication Works',
+    tag: 'INDUSTRIAL',
+    scale: '₹70 Lacs',
+    year: '2022 - 2023',
+    location: 'Angul, Odisha',
+    color: '#0F172A',
+     // ⚠️ Import placeholder
+  },
+  { id:'14',
+    title: 'NCRTC RRTS PKG 8',
+    status: 'Completed',
+    client: 'Afcons Infrastructure Ltd.',
+    scope: 'Fabrication works.',
+    tag: 'RAILWAYS',
+    scale: '₹20 Lacs',
+    year: '2022 - 2023',
+    location: 'Meerut, U.P.',
+    color: '#0F172A',
+    // ⚠️ Import placeholder
+  },
+  {
+    id:'15',
+    title: 'NCRTC RRTS PKG 6',
+    status: 'Completed',
+    client: 'Afcons Infrastructure Ltd.',
+    scope: 'Fabrication works.',
+    tag: 'RAILWAYS',
+    scale: '₹1.5 Crore',
+    year: '2022 - 2023',
+    location: 'Delhi',
+    color: '#0F172A',
+    // ⚠️ Import placeholder
+  },
+  
+  
+  
+  
 ];
 
 
