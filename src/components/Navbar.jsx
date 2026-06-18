@@ -86,39 +86,21 @@ export function Navbar() {
 
       {/* Top contact bar */}
       {/* --- THE TOP UTILITY BAR --- */}
-<div style={{ 
-  background: '#020617', // Extremely dark slate (darker than your navbar) to push it backward
-  color: '#94A3B8',      // Muted slate text so it doesn't fight with the main menu
-  fontSize: '12px',      // Small utility font size
-  padding: '8px 0',      // Very thin height
-  borderBottom: '1px solid rgba(255,255,255,0.05)', // A hyper-subtle line separating it from the main nav
-  fontWeight: '600',
-  letterSpacing: '1px',
-  textTransform: 'uppercase'
-}}>
-  <div style={{ 
-    maxWidth: '1280px', 
-    margin: '0 auto', 
-    padding: '0 2rem', 
-    display: 'flex', 
-    justifyContent: 'space-between', // Puts contact info on the left, other info on the right
-    alignItems: 'center' 
-  }}>
+<div className="utility-bar" style={{ background: '#020617', color: '#94A3B8', fontSize: '12px', padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', fontWeight: '600', letterSpacing: '1px', textTransform: 'uppercase' }}>
+  <div className="utility-container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
     
-    {/* Left Side: Contact Info */}
-    <div style={{ display: 'flex', gap: '2rem' }}>
+    {/* Left Side */}
+    <div className="utility-left" style={{ display: 'flex', gap: '1.5rem' }}>
       <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <span style={{ color: '#009DE0' }}>📞</span> {/* Accent color on the icon */}
-        +91 12345 67890
+        <span style={{ color: '#009DE0' }}>📞</span> +91 12345 67890
       </span>
-      <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <span style={{ color: '#009DE0' }}>✉️</span> 
-        contact@maxtechbrothers.com
+      <span className="utility-email" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <span style={{ color: '#009DE0' }}>✉️</span> contact@maxtechbrothers.com
       </span>
     </div>
 
-    {/* Right Side: Trust Badge or Hours */}
-    <div style={{ display: 'flex', gap: '1rem' }}>
+    {/* Right Side */}
+    <div className="utility-right" style={{ display: 'flex', gap: '1rem' }}>
       <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
     </div>
 
@@ -142,16 +124,15 @@ export function Navbar() {
 {/* Replace your logo block with this refined version */}
 <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
   <img 
-    src={logo} 
-    alt="Maxtech Brothers Logo" 
-    style={{ 
-      height: '65px', 
-      width: 'auto', 
-      // Reduced the blur radius (from 2px to 1px) 
-      // and lowered the alpha (from 0.5 to 0.3) for a subtler look
-      filter: 'drop-shadow(0px 0px 1px rgba(255,255,255,0.3))' 
-    }} 
-  />
+  src={logo} 
+  alt="Maxtech Brothers Logo" 
+  style={{ 
+    // This tells it: Be 40px on phones, grow dynamically, but never exceed 70px on desktop
+    height: 'clamp(40px, 6vw, 70px)', 
+    width: 'auto', 
+    filter: 'drop-shadow(0px 0px 1px rgba(255,255,255,0.3))' 
+  }} 
+/>
 </Link>
 
           {/* Desktop nav */}
