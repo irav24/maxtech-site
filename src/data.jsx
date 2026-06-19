@@ -28,17 +28,17 @@ import wdfcc15b1 from './assets/project/wdfcc15b1.jpg';
 import wdfcc15b2 from './assets/project/wdfcc15b2.jpg';
 import wdfcc15b3 from './assets/project/wdfcc15b3.jpg';
 import wdfcc15b4 from './assets/project/wdfcc15b4.jpg';
-import { Wrench, Settings, Zap, HardHat, Building2, Ruler, PaintBucket } from 'lucide-react';
+import { Wrench, Settings, Zap, HardHat, Building2, Ruler, PaintBucket, Shield } from 'lucide-react';
 
 
 export const CLIENTS = ['L&T Construction', 'Afcons Infrastructure', 'NHAI', 'NHSRCL', 'Gammon India', 'Tata Projects', 'Rail Vikas Nigam', 'RVNL', 'DFCCIL', 'Punj Lloyd'];
 
 export const PROJECTS = [
-  { id:'1',title: 'Mumbai–Ahmedabad High-Speed Rail Bridge', status: 'Ongoing', client: 'National High Speed Rail Corporation', scope: 'Assembly & Erection of 100-Meter Span Open Web Girder (OWG) weighing 1,500 MT. Complex precision alignment and staged launching under live corridor conditions.', tag: 'Bullet Train', scale: '1,500 Metric Tonnes', year: '2023', location: 'Gujarat, India', image: bltrn, color: '#0D1B3E',gallery: [bltrn, bltrn2] },
+  { id:'1',title: 'Mumbai–Ahmedabad High-Speed Rail Bridge', status: 'Completed', client: 'National High Speed Rail Corporation', scope: 'Assembly & Erection of 100-Meter Span Open Web Girder (OWG) weighing 1,500 MT. Complex precision alignment and staged launching under live corridor conditions.', tag: 'Bullet Train', scale: '1,500 Metric Tonnes', year: '2023', location: 'Gujarat, India', image: bltrn, color: '#0D1B3E',gallery: [bltrn, bltrn2] },
    {
     id: '2',
     title: 'J&K Reasi Rail Project (USBRL)',
-    status: 'Ongoing',
+    status: 'Completed',
     client: 'Afcons Infrastructure',
     scope: 'Fabrication, continuous sandblasting, structural assembly, precision torquing, and complex girder launching across high-altitude terrain in J&K.',
     tag: 'RAILWAYS',
@@ -283,6 +283,12 @@ export const SERVICES = [
     icon: <PaintBucket size={40} color="#009DE0" />,
     title: 'Sand-Blasting, Metallizing & Painting',
     desc: 'We do all types of sand/copper slag Blasting, Metallizing and surface coating jobs for any industries.'
+  },
+  {
+    id: '08',
+    icon: <Shield size={40} color="#009DE0" />,
+    title: 'Hot Dip Galvanisation',
+    desc: 'We do all types of Hot-Dip Galvanising(HDG) of structures.'
   }
 ];
 
