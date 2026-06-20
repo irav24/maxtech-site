@@ -39,6 +39,13 @@ import hexdrive from './assets/product/hexdrive.jpg'
 import electrictorquewrench from './assets/product/electrictorquewrench.png'
 import lithium from './assets/product/lithium.jpeg'
 import { Wrench, Settings, Zap, HardHat, Building2, Ruler, PaintBucket, ShieldCheck } from 'lucide-react';
+import dec1 from './assets/product/dec.jpg'
+import dec2 from './assets/product/dec.jpg'
+
+import etwc from './assets/product/etwc.jpg'
+import hexc from './assets/product/hexc.jpg'
+import sdtwc from './assets/product/sdtwc.jpg'
+import swc from './assets/product/swc.jpg'
 
 
 export const CLIENTS = ['L&T Construction', 'Afcons Infrastructure', 'NHAI', 'NHSRCL', 'Gammon India', 'Tata Projects', 'Rail Vikas Nigam', 'RVNL', 'DFCCIL', 'Punj Lloyd'];
@@ -304,49 +311,56 @@ export const SERVICES = [
 
 export const PRODUCTS = [
   { 
+    id:'01',
     name: 'Electric Shear Wrench', 
     cat: 'Torque Tools', 
     desc: 'Purpose-built for high-strength TC bolt installation in structural steel connections. Delivers precise shear-type controlled torque.', 
-    img: shearwrench// Using a local gallery image as a placeholder
+    img: shearwrench,// Using a local gallery image as a placeholder
+    catalogImg:swc,
   },
-  { 
+  { id:'02',
     name: 'Electric Torque Wrench', 
     cat: 'Torque Tools', 
     desc: 'Purpose-built for high-strength TC bolt installation in structural steel connections. Delivers precise shear-type controlled torque.', 
-    img: electrictorquewrench// Using a local gallery image as a placeholder
+    img: electrictorquewrench,
+    catalogImg:etwc
   },
-  { 
+  { id:'03',
     name: 'Digital Electric Torque Wrench (TL-Type)', 
     cat: 'Electric Series', 
     desc: 'High-precision digital readout torque wrench for controlled tightening in bridges and industrial facilities. Adjustable torque range.', 
-    img: tltype
+    img: tltype,
+    catalogImg:dec1
   },
-  { 
+  { id:'04',
     name: 'Digital Electric Torque Wrench (TN-Type)', 
     cat: 'Electric Series', 
     desc: 'Compact form-factor electric wrench suited for confined spaces. Inline torque setting with digital confirmation and audit trail.', 
-    img: tntype
+    img: tntype,
+    catalogImg:dec2
   },
  
-   { 
+   { id:'05',
     name: 'Lithium Battery Torque Wrench', 
     cat: 'Battery Series', 
     desc: 'Freedom of movement without power cables. Ideal for field operations where power infrastructure is unavailable.', 
-    img: lithium
+    img: lithium,
+
   },
-  { 
+  { id:'06',
     name: 'Electric Hydraulic Torque Pump', 
     cat: 'Hydraulic Series', 
     desc: 'High-flow hydraulic power unit for driving square-drive or hex-type hydraulic torque wrenches in heavy industrial applications.', 
     img: hydraulicwrenchpump
   },
-  { 
+  { id:'07',
     name: 'Hydraulic Torque Wrench Tool (Hex Drive)', 
     cat: 'Hydraulic Series', 
     desc: 'Heavy Duty bolting tool designed to deliver precise, high torque in confined spaces.', 
-    img: hexdrive
+    img: hexdrive,
+    catalogImg:hexc
   },
-  { 
+  { id:'08',
     name: 'Hydraulic Torque Wrench Tool (Square Drive)', 
     cat: 'Hydraulic Series', 
     desc: 'Interchangeable square-drive cassettes for wide bolt-size coverage. Used in structural, petrochemical, and power plant applications.', 

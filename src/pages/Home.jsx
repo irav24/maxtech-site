@@ -367,7 +367,7 @@ export function Home() {
             <h2 style={{ fontSize: '1.9rem', fontWeight: '900', color: '#111111', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase', lineHeight: '1.2' }}>Ready to build something monumental?</h2>
             <p style={{ color: '#111111', fontWeight: '700', marginTop: '0.5rem' }}>Connect with our engineering team for tender inquiries and partnerships.</p>
           </div>
-          <Link to="/contact" style={{ background: '#111111', color: '#ffffff', padding: '16px 40px', borderRadius: '2px', fontWeight: '800', fontFamily: "'Barlow Condensed', sans-serif", fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', whiteSpace: 'nowrap', transition: 'transform 0.3s' }}
+          <Link to="/contact" style={{ background: '#009DE0', color: '#ffffff', padding: '16px 40px', borderRadius: '2px', fontWeight: '800',  fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', whiteSpace: 'nowrap', transition: 'transform 0.3s' }}
             onMouseEnter={e => e.target.style.transform = 'translateY(-2px)'}
             onMouseLeave={e => e.target.style.transform = 'none'}
           >Get In Touch →</Link>

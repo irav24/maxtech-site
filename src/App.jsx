@@ -404,7 +404,7 @@ import { Gallery } from './pages/Gallery';
 
 import { Contact } from './pages/Contact.jsx';
 import { ProjectDetails } from './pages/ProjectDetails';
-
+import { ProductDetails } from './pages/ProductDetails';
 // ─── APP ─────────────────────────────────────────────────────────────────────
 
 export default function App() {
@@ -419,6 +419,7 @@ export default function App() {
           <Route path="projects" element={<Projects />} />
           <Route path="project/:id" element={<ProjectDetails />} />
           <Route path="products" element={<ProductsPage />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="contact" element={<Contact />} />
         </Route>

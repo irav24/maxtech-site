@@ -1,10 +1,11 @@
 import React from 'react';
 import { PageHero } from '../components/PageHero';
+import galleryhero from '../assets/gelleryhero.jpg';
 
 export function Gallery() {
   return (
     <main>
-      <PageHero 
+      <PageHero bgImage={galleryhero}
         label="Our Work" 
         title="Project Gallery" 
         subtitle="A visual showcase of our civil and mechanical engineering operations."
