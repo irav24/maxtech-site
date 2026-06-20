@@ -39,8 +39,8 @@ function ProjectCard({ project }) {
           <span style={{ position: 'absolute', top: '1rem', left: '1rem', background: project.color || '#0F172A', color: '#fff', fontSize: '9px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', padding: '4px 10px', borderRadius: '2px' }}>{project.tag}</span>
         </div>
         
-        <div style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-          <h3 style={{ fontSize: '1.05rem', fontWeight: '700', color: '#0F172A', lineHeight: '1.4', marginBottom: '0.5rem' }}>{project.title}</h3>
+        <div style={{ padding: 'clamp(1.25rem, 3vw, 1.75rem)', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+          <h3 style={{ fontSize: 'clamp(1.05rem, 2.5vw, 1.15rem)', fontWeight: '800', color: '#0F172A', lineHeight: '1.4', marginBottom: '0.5rem', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase' }}>{project.title}</h3>
           <p style={{ color: '#64748B', fontSize: '12px', marginBottom: '1rem', fontWeight: '500' }}>{project.client} · {project.location}</p>
           <p style={{ color: '#475569', fontSize: '13px', lineHeight: '1.75', marginBottom: '1.5rem' }}>{project.scope}</p>
           
@@ -67,53 +67,102 @@ export function Projects() {
   const [activeTab, setActiveTab] = useState('All Projects');
   const [activeTag, setActiveTag] = useState('All');
 
-  // Filter 1: By Status
   const filteredByStatus = PROJECTS.filter(p => {
     if (activeTab === 'Completed Projects') return p.status === 'Completed';
     if (activeTab === 'Ongoing Projects') return p.status === 'Ongoing';
     return true;
   });
 
-  // Dynamic tags based on the current status view
   const TAGS = ['All', ...Array.from(new Set(filteredByStatus.map(p => p.tag)))];
-
-  // Filter 2: By Category Tag
   const finalFilteredProjects = filteredByStatus.filter(p => activeTag === 'All' ? true : p.tag === activeTag);
 
-  // Auto-reset tag to 'All' when switching status tabs
   useEffect(() => {
     setActiveTag('All');
   }, [activeTab]);
 
   return (
-    <>
+    <div style={{ background: '#F8FAFC', minHeight: '100vh' }}>
+      
+      {/* We inject a quick global style here to hide the scrollbars on our new mobile swipers */}
+      <style>{`
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { scrollbar-width: none; ms-overflow-style: none; }
+      `}</style>
+
       <PageHero bgImage={projecthero} label="Our Portfolio" title="Engineering Marvels Delivered" subtitle="A proven track record of high-value civil and mechanical operations across India's most demanding infrastructure corridors." />
 
-      <section style={{ background: '#F1F5F9', padding: '4rem 0 6rem 0' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
+      <section style={{ padding: 'clamp(3rem, 8vw, 5rem) 0' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 2rem)' }}>
           
-          <div style={{ display: 'flex', gap: '2rem', borderBottom: '1px solid #CBD5E1', marginBottom: '2.5rem', overflowX: 'auto', whiteSpace: 'nowrap' }}>
+          {/* 1. THE STATUS TABS (App-like swiper on mobile) */}
+          <div className="hide-scroll" style={{ 
+            display: 'flex', 
+            gap: 'clamp(1.5rem, 4vw, 2.5rem)', 
+            borderBottom: '1px solid #CBD5E1', 
+            marginBottom: 'clamp(1.5rem, 4vw, 2.5rem)', 
+            overflowX: 'auto', 
+            whiteSpace: 'nowrap'
+          }}>
             {STATUS_TABS.map(tab => (
               <button 
                 key={tab} 
                 onClick={() => setActiveTab(tab)}
-                style={{ background: 'none', border: 'none', padding: '0 0 1rem 0', color: activeTab === tab ? '#0EA5E9' : '#64748B', fontWeight: '800', fontSize: '14px', letterSpacing: '1px', textTransform: 'uppercase', borderBottom: activeTab === tab ? '2px solid #0EA5E9' : '2px solid transparent', cursor: 'pointer', transition: 'color 0.2s, border-color 0.2s' }}
+                style={{ 
+                  background: 'none', 
+                  border: 'none', 
+                  padding: '0 0 1rem 0', 
+                  color: activeTab === tab ? '#009DE0' : '#64748B', 
+                  fontWeight: '800', 
+                  fontSize: 'clamp(13px, 3vw, 15px)', 
+                  letterSpacing: '1px', 
+                  textTransform: 'uppercase', 
+                  borderBottom: activeTab === tab ? '2px solid #009DE0' : '2px solid transparent', 
+                  cursor: 'pointer', 
+                  transition: 'color 0.2s, border-color 0.2s' 
+                }}
               >
                 {tab}
               </button>
             ))}
           </div>
 
-          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '3.5rem' }}>
+          {/* 2. THE CATEGORY TAGS (The neat, pill-shaped horizontal scroller) */}
+          <div className="hide-scroll" style={{ 
+            display: 'flex', 
+            gap: '0.6rem', 
+            overflowX: 'auto', 
+            paddingBottom: '0.5rem', /* Prevents box-shadows from clipping */
+            marginBottom: 'clamp(2rem, 5vw, 3.5rem)'
+          }}>
             {TAGS.map(tag => (
-              <button key={tag} className={`tag-btn ${activeTag === tag ? 'active' : ''}`} onClick={() => setActiveTag(tag)}>{tag}</button>
+              <button 
+                key={tag} 
+                onClick={() => setActiveTag(tag)}
+                style={{
+                  background: activeTag === tag ? '#0F172A' : '#fff',
+                  color: activeTag === tag ? '#fff' : '#475569',
+                  border: `1px solid ${activeTag === tag ? '#0F172A' : '#CBD5E1'}`,
+                  padding: '8px 18px',
+                  fontSize: '11px',
+                  fontWeight: '800',
+                  letterSpacing: '1px',
+                  textTransform: 'uppercase',
+                  borderRadius: '20px', /* The secret to a neat, modern look */
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  flexShrink: 0 /* CRITICAL: Prevents buttons from squishing into weird shapes on phones */
+                }}
+              >
+                {tag}
+              </button>
             ))}
           </div>
 
-          <p style={{ color: '#94A3B8', fontSize: '12px', letterSpacing: '1px', textTransform: 'uppercase', fontWeight: '700', marginBottom: '2rem' }}>
+          <p style={{ color: '#94A3B8', fontSize: '12px', letterSpacing: '1px', textTransform: 'uppercase', fontWeight: '800', marginBottom: '2rem', fontFamily: "'Barlow Condensed', sans-serif" }}>
             Showing {finalFilteredProjects.length} {activeTab.toLowerCase().replace(' projects', '')} project{finalFilteredProjects.length !== 1 ? 's' : ''}
           </p>
 
+          {/* 3. THE FLUID GRID */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))', gap: '2px', background: '#CBD5E1' }}>
             {finalFilteredProjects.map((p, i) => <ProjectCard key={i} project={p} />)}
           </div>
@@ -126,15 +175,16 @@ export function Projects() {
         </div>
       </section>
 
-      <section style={{ background: '#F1F5F9',borderTop: '2px solid #E2E8F0', padding: '4.5rem 0' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '2rem' }}>
+      {/* Bottom CTA */}
+      <section style={{ background: '#F8FAFC', borderTop: '2px solid #E2E8F0',padding: 'clamp(3rem, 8vw, 4.5rem) 0' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 2rem)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '2rem' }}>
           <div>
-            <h2 style={{ fontSize: '1.8rem', fontWeight: '800', color: '#000', fontFamily: "'Barlow Condensed', sans-serif" }}>Have a project in mind?</h2>
-            <p style={{ color: '#111111(255,255,255,0.65)', marginTop: '0.4rem' }}>Submit a tender inquiry and our team will respond within 24 hours.</p>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 1.8rem)', fontWeight: '800', color: '#111111', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase' }}>Have a project in mind?</h2>
+            <p style={{ color: '#111', marginTop: '0.4rem', fontSize: 'clamp(0.9rem, 3vw, 1rem)' }}>Submit a tender inquiry and our engineering team will respond within 24 hours.</p>
           </div>
-          <Link to="/contact" style={{ background: '#0EA5E9', color: '#FFF', padding: '15px 36px', borderRadius: '2px', fontWeight: '800', fontSize: '11px', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', whiteSpace: 'nowrap' }}>Start a Tender →</Link>
+          <Link to="/contact" style={{ background: '#009DE0', color: '#FFF', padding: '15px 36px', borderRadius: '2px', fontWeight: '800', fontSize: '11px', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', whiteSpace: 'nowrap' }}>Start a Tender →</Link>
         </div>
       </section>
-    </>
+    </div>
   );
 }

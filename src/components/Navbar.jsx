@@ -111,8 +111,7 @@ export function Navbar() {
   }
 `}</style>
 
-      {/* Top contact bar */}
-      {/* --- THE TOP UTILITY BAR --- */}
+      
 {/* --- THE TOP UTILITY BAR --- */}
       <div className="utility-bar" style={{ background: '#020617', color: '#94A3B8', fontSize: '12px', fontWeight: '600', letterSpacing: '0.5px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
         <div className="utility-container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '8px 15px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -178,7 +177,7 @@ export function Navbar() {
             src={logo} 
             alt="Maxtech Brothers Logo" 
             style={{ 
-              height: 'clamp(55px, 6vw, 65px)', /* Fluid sizing: 40px on phone, 65px on desktop */
+              height: 'clamp(50px, 6vw, 65px)', /* Fluid sizing: 40px on phone, 65px on desktop */
               width: 'auto', 
               filter: 'drop-shadow(0px 0px 1px rgba(255,255,255,0.3))' 
             }} 
@@ -199,9 +198,8 @@ export function Navbar() {
           </button>
         </div>
 
-        {/* Mobile nav dropdown */}
         {menuOpen && (
-          <div className="mobile-nav" style={{ background: '#28166F', borderTop: '1px solid rgba(14,165,233,0.15)', padding: '1.5rem 2rem' }}>
+          <div className="mobile-nav" style={{ background: '#0F172A', borderTop: '1px solid rgba(0,157,224,0.2)', padding: '1.5rem 2rem' }}>
             {navLinks.map((l, i) => (
               <Link key={l.to} to={l.to} style={{ display: 'block', color: location.pathname === l.to ? '#009DE0' : '#94A3B8', fontSize: '12px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', padding: '12px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', textDecoration: 'none', animation: `slideIn 0.3s ease ${i * 0.05}s both` }}>
                 {l.label}

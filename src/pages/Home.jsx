@@ -78,7 +78,7 @@ export function Home() {
           
           <div className={`hero-fade ${heroVisible ? 'visible' : ''}`} style={{ animationDelay: '0.1s' }}>
             {/* FIX 1: Dropped the minimum clamp from 2.8rem to 2.2rem so it doesn't break mobile screens */}
-            <h1 style={{ fontSize: 'clamp(2.2rem, 8vw, 5rem)', fontWeight: '900', lineHeight: '1.07', color: '#ffffff', letterSpacing: '-1px', marginBottom: '1.2rem', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase' }}>
+            <h1 style={{ fontSize: 'clamp(2.4rem, 8vw, 5rem)', fontWeight: '900', lineHeight: '1.07', color: '#ffffff', letterSpacing: '-1px', marginBottom: '1.2rem', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase' }}>
               Building India's<br /><span style={{ color: '#009DE0' }}>Steel Backbone.</span>
             </h1>
           </div>
