@@ -43,10 +43,10 @@ export function Contact() {
         hasWatermark={true}
         bgImage="contact-bg.jpg" /* <--- ADD YOUR EXACT FILE NAME HERE */
       />
-      <section style={{ background: '#F8FAFC', padding: '6rem 0', borderBottom: '1px solid #E2E8F0' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
+      <section style={{ background: '#F8FAFC', padding: 'clamp(3rem, 8vw, 6rem) 0', borderBottom: '1px solid #E2E8F0' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(1rem, 4vw, 2rem)' }}>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(2rem, 5vw, 4rem)' }}>
             
             {/* LEFT COLUMN: Single HQ & Departments */}
             <div>

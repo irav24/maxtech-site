@@ -199,7 +199,7 @@ export function Navbar() {
         </div>
 
         {menuOpen && (
-          <div className="mobile-nav" style={{ background: '#0F172A', borderTop: '1px solid rgba(0,157,224,0.2)', padding: '1.5rem 2rem' }}>
+          <div className="mobile-nav" style={{ background: '#0F172A', borderTop: '1px solid rgba(0,157,224,0.2)', padding: '1rem 1.25rem' }}>
             {navLinks.map((l, i) => (
               <Link key={l.to} to={l.to} style={{ display: 'block', color: location.pathname === l.to ? '#009DE0' : '#94A3B8', fontSize: '12px', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', padding: '12px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', textDecoration: 'none', animation: `slideIn 0.3s ease ${i * 0.05}s both` }}>
                 {l.label}
@@ -223,8 +223,8 @@ export function Navbar() {
   borderTop: '1px solid #1E293B' 
 }}>
   <div style={{ height: '4px', background: 'linear-gradient(90deg, #28166F, #009DE0, #28166F)' }} />
-  <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '4rem 2rem 0' }}>
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem', marginBottom: '3rem' }}>
+  <div style={{ maxWidth: '1280px', margin: '0 auto', padding: 'clamp(2.5rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem) 0' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 'clamp(1.5rem, 4vw, 3rem)', marginBottom: 'clamp(1.5rem, 4vw, 3rem)' }}>
       <div>
         <div style={{ fontSize: '15px', fontWeight: '800', color: '#fff', letterSpacing: '2px', textTransform: 'uppercase' }}>MAXTECH BROTHERS</div>
         <div style={{ fontSize: '9px', color: '#009DE0', fontWeight: '700', letterSpacing: '3px', textTransform: 'uppercase', marginTop: '2px', marginBottom: '1.5rem' }}>Engineering LLP · Est. 1996</div>
@@ -242,7 +242,7 @@ export function Navbar() {
         </div>
       ))}
     </div>
-    <div style={{ borderTop: '1px solid #1E293B', padding: '2rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+    <div style={{ borderTop: '1px solid #1E293B', padding: 'clamp(1rem, 3vw, 2rem) 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
       <p style={{ color: '#334155', fontSize: '11px' }}>© 2026 Maxtech Brothers Engineering LLP. All rights reserved.</p>
       <p style={{ color: '#334155', fontSize: '11px' }}>CIN: AAP-4913 · GSTIN: 27AADCM8571R1Z5</p>
     </div>

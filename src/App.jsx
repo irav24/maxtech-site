@@ -90,15 +90,15 @@ export function About() {
       <PageHero bgImage={aboutHero}label="Our Story" title="Engineering Excellence Since 1996" subtitle="From a single labour contract to India's most demanding bridge and rail projects — the Maxtech Brothers story is one of grit, precision, and relentless growth." />
 
       {/* Mission / Vision */}
-      <section style={{ background: 'linear-gradient(180deg, #ffffff 0%, #F4F4F0 100%)', padding: '7rem 0' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
-          <div ref={r1} className={`reveal ${v1 ? 'visible' : ''}`} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2px', background: '#CBD5E1', marginBottom: '6rem' }}>
+      <section style={{ background: 'linear-gradient(180deg, #ffffff 0%, #F4F4F0 100%)', padding: 'clamp(3rem, 8vw, 7rem) 0' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(1rem, 4vw, 2rem)' }}>
+          <div ref={r1} className={`reveal ${v1 ? 'visible' : ''}`} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '2px', background: '#CBD5E1', marginBottom: 'clamp(3rem, 7vw, 6rem)' }}>
             {[
               { label: 'Our Mission', icon: <Target size={40} color="#009DE0" />, text: 'To become the client\'s most preferred choice by attaining excellence in quality and timely completed, value-added projects — while providing the highest level of craftsmanship in heavy civil and mechanical construction.' },
               { label: 'Our Vision', icon: <Telescope size={40} color="#009DE0" />, text: 'To be the leading specialist contractor in structural erection, recognised for quality, innovation, and safety — supporting our staff, clients, and the communities in which we work.' },
               { label: 'Our Values', icon: <Scale size={40} color="#009DE0" />, text: 'Our business is built on integrity, fairness and honesty — qualities at the foundation of every project. We say what we are going to do, and we do it. Safety is non-negotiable; quality is our signature.' },
             ].map((item, i) => (
-              <div key={i} style={{ background: '#fff', padding: '3rem 2.5rem' }}>
+              <div key={i} style={{ background: '#fff', padding: 'clamp(1.5rem, 4vw, 3rem) clamp(1.25rem, 3vw, 2.5rem)' }}>
                 <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>{item.icon}</div>
                 <p style={{ color: '#009DE0', fontSize: '10px', fontWeight: '700', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '0.75rem' }}>{item.label}</p>
                 <p style={{ color: '#475569', fontSize: '14px', lineHeight: '1.85' }}>{item.text}</p>
@@ -108,7 +108,7 @@ export function About() {
 
           {/* Founder */}
           {/* Founder & Credibility Section */}
-<div ref={r2} className={`reveal ${v2 ? 'visible' : ''}`} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'stretch', marginBottom: '6rem' }}>
+<div ref={r2} className={`reveal ${v2 ? 'visible' : ''}`} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: 'clamp(2rem, 5vw, 4rem)', alignItems: 'stretch', marginBottom: 'clamp(3rem, 7vw, 6rem)' }}>
   
   {/* Left Side: Founder Message + Minimal Stats */}
   <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -169,10 +169,10 @@ export function About() {
   alt={`Official Recognition ${i + 1}`} 
   style={{ 
     width: '100%', 
-    height: '600px', /* Hard cap on height so it doesn't take over the page */
+    height: 'clamp(220px, 50vw, 600px)',
     objectFit: 'fill',
-    padding: '0 rem', /* Gives the screenshot a nice little border area */
-    background: '#fff' /* Soft grey background for the empty space on the sides */
+    padding: '0 rem',
+    background: '#fff'
   }} 
 />
           
@@ -187,9 +187,9 @@ export function About() {
       {/* Timeline */}
 <section style={{ 
   position: 'relative', 
-  padding: '7rem 0', 
+  padding: 'clamp(3rem, 8vw, 7rem) 0', 
   overflow: 'hidden',
-  background: '#0a1628' // Fallback color
+  background: '#0a1628'
 }}>
   
  
@@ -216,9 +216,9 @@ export function About() {
     zIndex: 1 
   }} />
   {/* LAYER 3: The Content */}
-  <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 2 }}>
+  <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(1rem, 4vw, 2rem)', position: 'relative', zIndex: 2 }}>
     <p style={{ color: '#009DE0', fontSize: '10px', fontWeight: '700', letterSpacing: '3.5px', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Our Journey</p>
-    <h2 style={{ fontSize: '2.4rem', fontWeight: '800', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", marginBottom: '4rem' }}>28 Years of Milestones</h2>
+    <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.4rem)', fontWeight: '800', color: '#fff', fontFamily: "'Barlow Condensed', sans-serif", marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>28 Years of Milestones</h2>
     
     <div style={{ position: 'relative' }}>
       <div style={{ position: 'absolute', left: 'clamp(50px, 7vw, 80px)', top: 0, bottom: 0, width: '2px', background: 'rgba(200,150,12,0.2)' }} />
@@ -246,14 +246,12 @@ export function About() {
 {/* Option B: The "Ping-Pong" Gradient (Fades back to light) */}
 <section style={{ 
   background: 'linear-gradient(180deg, #e8eef6 0%, #F4F4F0 100%)', 
-  padding: '6rem 0' ,
-
-  
+  padding: 'clamp(3rem, 6vw, 6rem) 0',
 }}>
-  <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '2rem' }}>
+  <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(1rem, 4vw, 2rem)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '2rem' }}>
     
     <div>
-      <h2 style={{ fontSize: '1.8rem', fontWeight: '800', color: '#0F172A', fontFamily: "'Barlow Condensed', sans-serif" }}>
+      <h2 style={{ fontSize: 'clamp(1.4rem, 4vw, 1.8rem)', fontWeight: '800', color: '#0F172A', fontFamily: "'Barlow Condensed', sans-serif" }}>
         Partner with us on your next project
       </h2>
       <p style={{ color: '#0F172A', marginTop: '0.4rem' }}>
@@ -280,13 +278,13 @@ export function Services() {
       <PageHero bgImage={servicehero} label="What We Do" title="End-to-End Execution Capabilities" subtitle="Specialist service lines covering every phase of heavy civil and mechanical infrastructure — from raw steel to fully commissioned structure." />
 
     <section className="section-padding" style={{ background: '#F8FAFC' }}>
-  <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
+  <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(1rem, 4vw, 2rem)' }}>
     
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '2rem' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '2rem' }}>
       {SERVICES.map((svc, i) => (
         <div key={i} style={{ 
           background: '#fff', 
-          padding: '2.5rem', 
+          padding: 'clamp(1.5rem, 4vw, 2.5rem)', 
           border: '1px solid #E2E8F0',
           borderRadius: '4px' 
         }}>
@@ -319,14 +317,14 @@ export function Services() {
   backgroundAttachment: 'fixed', /* Adds a premium parallax scrolling effect */
   color: '#fff' 
 }}>
-  <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
+  <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(1rem, 4vw, 2rem)' }}>
 
     {/* Header Text */}
-    <div style={{ maxWidth: '600px', marginBottom: '4rem' }}>
+    <div style={{ maxWidth: '600px', marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>
       <p style={{ color: '#009DE0', fontSize: '10px', fontWeight: '800', letterSpacing: '4px', textTransform: 'uppercase', marginBottom: '1rem' }}>
         How We Work
       </p>
-      <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#fff', margin: 0, fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: '0.5px' }}>
+      <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', fontWeight: '800', color: '#fff', margin: 0, fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: '0.5px' }}>
         Our Execution Process
       </h2>
       <p style={{ color: '#94A3B8', fontSize: '15px', lineHeight: '1.8', marginTop: '1.5rem' }}>
@@ -337,11 +335,10 @@ export function Services() {
     {/* The 4 Process Cards */}
     <div style={{ 
       display: 'grid', 
-      gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', 
-      /* THE FIX: Semi-transparent background with a glass blur effect */
+      gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', 
       background: 'rgba(11, 17, 32, 0.4)', 
       backdropFilter: 'blur(12px)',
-      WebkitBackdropFilter: 'blur(12px)', /* Safari support */
+      WebkitBackdropFilter: 'blur(12px)',
       border: '1px solid rgba(255,255,255,0.1)', 
       borderRadius: '4px', 
       overflow: 'hidden',
@@ -355,7 +352,7 @@ export function Services() {
         { step: '04', title: 'QA/QC Sign-off', desc: 'Third-party inspection support, calibration records, and handover documentation.' }
       ].map((item, i) => (
         <div key={i} style={{ 
-          padding: '3rem 2rem', 
+          padding: 'clamp(1.5rem, 4vw, 3rem) clamp(1.25rem, 3vw, 2rem)', 
           borderRight: i !== 3 ? '1px solid rgba(255,255,255,0.08)' : 'none', 
           borderBottom: '1px solid rgba(255,255,255,0.08)' 
         }}>
@@ -376,10 +373,10 @@ export function Services() {
   </div>
 </section>
 
-      <section style={{ background: '#ffffff', padding: '4.5rem 0' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '2rem' }}>
+      <section style={{ background: '#ffffff', padding: 'clamp(2.5rem, 5vw, 4.5rem) 0' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(1rem, 4vw, 2rem)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '2rem' }}>
           <div>
-            <h2 style={{ fontSize: '1.8rem', fontWeight: '800', color: '#000', fontFamily: "'Barlow Condensed', sans-serif" }}>Need a service-specific scope?</h2>
+            <h2 style={{ fontSize: 'clamp(1.4rem, 4vw, 1.8rem)', fontWeight: '800', color: '#000', fontFamily: "'Barlow Condensed', sans-serif" }}>Need a service-specific scope?</h2>
             <p style={{ color: '#111111)', marginTop: '0.4rem' }}>Send us your BOQ or tender package and we'll respond with a competitive offer.</p>
           </div>
           <Link to="/contact" style={{ background: '#009DE0', color: '#fff', padding: '15px 36px', borderRadius: '2px', fontWeight: '800', fontSize: '11px', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', whiteSpace: 'nowrap' }}>Request a Quote →</Link>

@@ -1,51 +1,44 @@
-/* --- DESKTOP RULES (The defaults) --- */
-
-/* 1. Gives sections room to breathe */
-.section-padding {
-  padding: 7rem 0; 
+/* --- GLOBAL RESPONSIVE HELPERS --- */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-/* 2. Keeps photos large and cinematic on desktop */
+img {
+  max-width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Fluid section padding — replaces all hard 7rem / 6rem / 5rem padding */
+.section-padding {
+  padding: clamp(3rem, 8vw, 7rem) 0;
+}
+
+/* Inner horizontal padding used across all pages */
+.section-inner {
+  padding-left: clamp(1rem, 4vw, 2rem);
+  padding-right: clamp(1rem, 4vw, 2rem);
+}
+
+/* Hero images */
 .hero-media {
   width: 100%;
   min-height: 600px;
   object-fit: cover;
 }
 
-/* --- MOBILE RULES (The magic happens here) --- */
 @media (max-width: 768px) {
-  
-  /* Cuts the endless vertical scrolling exactly in half */
-  .section-padding {
-    padding: 3.5rem 0; 
-  }
-
-  /* Stops photos from taking up the entire phone screen */
   .hero-media {
-    min-height: auto; 
-    aspect-ratio: 4 / 3; /* Forces a perfect, natural photo shape */
+    min-height: auto;
+    aspect-ratio: 4 / 3;
   }
 }
 
-/* --- GLOBAL RESPONSIVE HELPERS --- */
+/* Reveal animations */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* Prevent any element from overflowing the viewport horizontally */
-* {
-  box-sizing: border-box;
-}
-
-/* Ensure images never overflow their containers */
-img {
-  max-width: 100%;
-}
-
-/* Fix horizontal scroll caused by wide content */
-body {
-  overflow-x: hidden;
-}
-
-/* Responsive section padding fallback using clamp */
-.section-inner {
-  padding-left: clamp(1rem, 4vw, 2rem);
-  padding-right: clamp(1rem, 4vw, 2rem);
-}
+/* Smooth image hover */
+.img-industrial { transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); display: block; width: 100%; height: 100%; object-fit: cover; }
