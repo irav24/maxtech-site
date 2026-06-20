@@ -1,6 +1,7 @@
 // src/data.js
-import bltrn from './assets/project/bullet-train.jpeg';
+import bltrn from './assets/project/bullet-train3.jpeg';
 import bltrn2 from './assets/project/bullet-train2.jpeg';
+import bltrn3 from './assets/project/bullet-train4.jpeg';
 import mgsetu from './assets/project/mgsetu.jpg';
 import mgSetu1 from './assets/project/mg-setu1.jpg';
 import mgSetu2 from './assets/project/mg-setu2.jpg';
@@ -28,13 +29,22 @@ import wdfcc15b1 from './assets/project/wdfcc15b1.jpg';
 import wdfcc15b2 from './assets/project/wdfcc15b2.jpg';
 import wdfcc15b3 from './assets/project/wdfcc15b3.jpg';
 import wdfcc15b4 from './assets/project/wdfcc15b4.jpg';
-import { Wrench, Settings, Zap, HardHat, Building2, Ruler, PaintBucket, Shield } from 'lucide-react';
+import shearwrench from './assets/product/shearwrench.jpg'
+import tltype from './assets/product/TL-Type.jpg'
+import tntype from './assets/product/TN-Type.jpg'
+import cordlesswrench from './assets/product/cordlesswrench.jpg'
+import hydraulicwrenchpump from './assets/product/hydraulicwrenchpump.jpg'
+import squaredrive from './assets/product/squaredrive.jpg'
+import hexdrive from './assets/product/hexdrive.jpg'
+import electrictorquewrench from './assets/product/electrictorquewrench.png'
+import lithium from './assets/product/lithium.jpeg'
+import { Wrench, Settings, Zap, HardHat, Building2, Ruler, PaintBucket, ShieldCheck } from 'lucide-react';
 
 
 export const CLIENTS = ['L&T Construction', 'Afcons Infrastructure', 'NHAI', 'NHSRCL', 'Gammon India', 'Tata Projects', 'Rail Vikas Nigam', 'RVNL', 'DFCCIL', 'Punj Lloyd'];
 
 export const PROJECTS = [
-  { id:'1',title: 'Mumbai–Ahmedabad High-Speed Rail Bridge', status: 'Completed', client: 'National High Speed Rail Corporation', scope: 'Assembly & Erection of 100-Meter Span Open Web Girder (OWG) weighing 1,500 MT. Complex precision alignment and staged launching under live corridor conditions.', tag: 'Bullet Train', scale: '1,500 Metric Tonnes', year: '2023', location: 'Gujarat, India', image: bltrn, color: '#0D1B3E',gallery: [bltrn, bltrn2] },
+  { id:'1',title: 'Mumbai–Ahmedabad High-Speed Rail Bridge', status: 'Completed', client: 'National High Speed Rail Corporation', scope: 'Assembly & Erection of 100-Meter Span Open Web Girder (OWG) weighing 1,500 MT. Complex precision alignment and staged launching under live corridor conditions.', tag: 'Bullet Train', scale: '1,500 Metric Tonnes', year: '2023', location: 'Gujarat, India', image: bltrn, color: '#0D1B3E',gallery: [bltrn, bltrn2,bltrn3] },
    {
     id: '2',
     title: 'J&K Reasi Rail Project (USBRL)',
@@ -286,19 +296,62 @@ export const SERVICES = [
   },
   {
     id: '08',
-    icon: <Shield size={40} color="#009DE0" />,
+    icon: <ShieldCheck size={40} color="#009DE0" />,
     title: 'Hot Dip Galvanisation',
     desc: 'We do all types of Hot-Dip Galvanising(HDG) of structures.'
   }
 ];
 
 export const PRODUCTS = [
-  { name: 'Maxtech Shear Wrench', cat: 'Torque Tools', desc: 'Purpose-built for high-strength TC bolt installation in structural steel connections. Delivers precise shear-type controlled torque.', img: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Digital Electric Torque Wrench (TL-Type)', cat: 'Electric Series', desc: 'High-precision digital readout torque wrench for controlled tightening in bridges and industrial facilities. Adjustable torque range.', img: 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Digital Electric Torque Wrench (TN-Type)', cat: 'Electric Series', desc: 'Compact form-factor electric wrench suited for confined spaces. Inline torque setting with digital confirmation and audit trail.', img: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Cordless Battery Torque Wrench', cat: 'Battery Series', desc: 'Freedom of movement without power cables. Ideal for field operations where power infrastructure is unavailable.', img: 'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Electric Hydraulic Torque Pump', cat: 'Hydraulic Series', desc: 'High-flow hydraulic power unit for driving square-drive or hex-type hydraulic torque wrenches in heavy industrial applications.', img: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Hydraulic Torque Wrench (Square Drive)', cat: 'Hydraulic Series', desc: 'Interchangeable square-drive cassettes for wide bolt-size coverage. Used in structural, petrochemical, and power plant applications.', img: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=80&w=600' },
+  { 
+    name: 'Electric Shear Wrench', 
+    cat: 'Torque Tools', 
+    desc: 'Purpose-built for high-strength TC bolt installation in structural steel connections. Delivers precise shear-type controlled torque.', 
+    img: shearwrench// Using a local gallery image as a placeholder
+  },
+  { 
+    name: 'Electric Torque Wrench', 
+    cat: 'Torque Tools', 
+    desc: 'Purpose-built for high-strength TC bolt installation in structural steel connections. Delivers precise shear-type controlled torque.', 
+    img: electrictorquewrench// Using a local gallery image as a placeholder
+  },
+  { 
+    name: 'Digital Electric Torque Wrench (TL-Type)', 
+    cat: 'Electric Series', 
+    desc: 'High-precision digital readout torque wrench for controlled tightening in bridges and industrial facilities. Adjustable torque range.', 
+    img: tltype
+  },
+  { 
+    name: 'Digital Electric Torque Wrench (TN-Type)', 
+    cat: 'Electric Series', 
+    desc: 'Compact form-factor electric wrench suited for confined spaces. Inline torque setting with digital confirmation and audit trail.', 
+    img: tntype
+  },
+ 
+   { 
+    name: 'Lithium Battery Torque Wrench', 
+    cat: 'Battery Series', 
+    desc: 'Freedom of movement without power cables. Ideal for field operations where power infrastructure is unavailable.', 
+    img: lithium
+  },
+  { 
+    name: 'Electric Hydraulic Torque Pump', 
+    cat: 'Hydraulic Series', 
+    desc: 'High-flow hydraulic power unit for driving square-drive or hex-type hydraulic torque wrenches in heavy industrial applications.', 
+    img: hydraulicwrenchpump
+  },
+  { 
+    name: 'Hydraulic Torque Wrench Tool (Hex Drive)', 
+    cat: 'Hydraulic Series', 
+    desc: 'Heavy Duty bolting tool designed to deliver precise, high torque in confined spaces.', 
+    img: hexdrive
+  },
+  { 
+    name: 'Hydraulic Torque Wrench Tool (Square Drive)', 
+    cat: 'Hydraulic Series', 
+    desc: 'Interchangeable square-drive cassettes for wide bolt-size coverage. Used in structural, petrochemical, and power plant applications.', 
+    img: squaredrive
+  },
 ];
 
 export const STATS = [

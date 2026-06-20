@@ -34,7 +34,7 @@ export function ProjectDetails() {
         height: '60vh', 
         minHeight: '400px',
         backgroundImage: `linear-gradient(to top, rgba(15, 23, 42, 1) 0%, rgba(15, 23, 42, 0.4) 100%), url(${project.image})`,
-        backgroundSize: 'cover',
+        backgroundSize:'cover',
         backgroundPosition: 'center',
         display: 'flex',
         alignItems: 'flex-end',
@@ -128,7 +128,7 @@ export function ProjectDetails() {
                   <style>{`div::-webkit-scrollbar { display: none; }`}</style>
                   
                   {project.gallery.map((imgSrc, index) => (
-                    <div key={index} style={{ flex: '0 0 100%', scrollSnapAlign: 'center', aspectRatio: '4/3', borderRadius: '4px', overflow: 'hidden', border: '1px solid #E2E8F0' }}>
+                    <div key={index} style={{ flex: '0 0 100%', scrollSnapAlign: 'center', aspectRatio: '1.24/1', borderRadius: '4px', overflow: 'hidden', border: '1px solid #E2E8F0' }}>
                       <img src={imgSrc} alt={`${project.title} Gallery ${index + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
                   ))}

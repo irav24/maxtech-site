@@ -7,24 +7,30 @@ export function PageHero({ label, title, subtitle, hasWatermark, bgImage }) {
       overflow: 'hidden', 
       position: 'relative',
      
-      background: bgImage ? `url(${bgImage}) center/cover no-repeat` : '#0A0F1C'
-    }}>
+      /* --- THE FIX: Separated background properties for precise control --- */
+      backgroundColor: '#0A0F1C',
+      backgroundImage: bgImage ? `url(${bgImage})` : 'none',
+      backgroundSize: 'cover',
       
+      /* Change this percentage to move the image UP or DOWN */
+      /* 0% is the very top, 50% is dead center, 100% is the very bottom */
+      backgroundPosition: 'center 30%', 
+      
+      backgroundRepeat: 'no-repeat'
+    }}>
       
       {/* The Premium Blue Gradient Overlay */}
       {bgImage && (
         <div style={{ 
           position: 'absolute', 
           inset: 0, 
-          background: 'linear-gradient(90deg, rgba(15, 23, 42, 0.75) 0%, rgba(0, 157, 224, 0.4) 100%)', 
+          background: 'linear-gradient(90deg, rgba(15, 23, 42, 0.45) 0%, rgba(0, 157, 224, 0.4) 100%)', 
           zIndex: 0 
         }} />
       )}
 
       {/* Noise Texture */}
       <div className="noise-bg" style={{ position: 'absolute', inset: 0, zIndex: 1, opacity: 0.5, pointerEvents: 'none' }} />
-
-     
 
       {/* The Blue Accent Line */}
       <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '4px', background: '#009DE0', zIndex: 2 }} />

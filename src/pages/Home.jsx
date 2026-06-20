@@ -146,8 +146,8 @@ export function Home() {
             {PROJECTS.slice(0,3).map((p, i) => {
               const [h, setH] = useState(false);
               return (
-                <div key={i} onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)} style={{ position: 'relative', overflow: 'hidden', aspectRatio: '4/3' }}>
-                  <img src={p.image} alt={p.title} className="img-industrial" style={{ filter: h ? 'grayscale(0%) contrast(1)' : 'grayscale(80%) contrast(1.1)', transform: h ? 'scale(1.04)' : 'scale(1)' }} />
+                <div key={i} onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)} style={{ position: 'relative', overflow: 'hidden', aspectRatio: '1.24/1' }}>
+                  <img src={p.image} alt={p.title} className="img-industrial" style={{ transform: h ? 'scale(1.08)' : 'scale(1)' }} />
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 0%, rgba(10,15,28,0.9) 100%)' }} />
                   <div style={{ position: 'absolute', inset: 0, padding: '1.75rem', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
                     <span style={{ display: 'inline-block', background: p.color, color: '#fff', fontSize: '10px', fontWeight: '800', fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: '2px', textTransform: 'uppercase', padding: '6px 12px', borderRadius: '2px', marginBottom: '0.75rem', alignSelf: 'flex-start' }}>{p.tag}</span>
