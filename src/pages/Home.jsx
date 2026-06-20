@@ -10,6 +10,7 @@ import galleryxx from '../assets/gallery/galleryxx.jpg';
 import gallery19 from '../assets/gallery/gallery19.jpg';
 import gallery20 from '../assets/gallery/gallery20.jpg';
 import { PRODUCTS } from '../data.jsx'; // Adjust path if needed!
+// --- CLIENT LOGO IMPORTS ---
 
 
 // Add this quick array right below your imports so it's easy to manage
@@ -56,11 +57,11 @@ export function Home() {
           playsInline 
           style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }}
         >
-          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src="/herovideo.mp4" type="video/mp4" />
         </video>
 
         {/* 2. Original Clean Dark Overlay (Just enough to read the white text) */}
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(10,15,28,0.95) 0%, rgba(10,15,28,0.7) 50%, rgba(10,15,28,0.3) 100%)', zIndex: 1 }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(10,15,28,0.55) 0%, rgba(10,15,28,0.55) 50%, rgba(10,15,28,0.55) 100%)', zIndex: 1 }} />
 
         {/* 3. The Left Cyan Accent Line */}
         <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '4px', background: '#009DE0', zIndex: 2 }} />
@@ -111,7 +112,7 @@ export function Home() {
       <div className="noise-bg" style={{ borderTop: '1px solid rgba(0,157,224,0.12)', borderBottom: '1px solid rgba(0,157,224,0.12)', padding: '14px 0', overflow: 'hidden' }}>
         <div style={{ display: 'flex', gap: '5rem', animation: 'ticker 22s linear infinite', width: 'max-content' }}>
           {[...CLIENTS, ...CLIENTS].map((c, i) => (
-            <span key={i} style={{ color: '#94A3B8', fontSize: '11px', letterSpacing: '2.5px', textTransform: 'uppercase', whiteSpace: 'nowrap', fontWeight: '700', fontFamily: "'Barlow Condensed', sans-serif", position: 'relative', zIndex: 2 }}>{c}</span>
+            <span key={i} style={{ color: '#94A3B8', fontSize: '11px', letterSpacing: '2.5px', textTransform: 'uppercase', whiteSpace: 'nowrap', fontWeight: '700', fontFamily: "'Barlow Condensed', sans-serif", position: 'relative', zIndex: 2 }}>{c.name}</span>
           ))}
         </div>
       </div>
@@ -359,6 +360,80 @@ export function Home() {
     </div>
   </div>
 </section>
+{/* --- OUR CLIENTS SECTION --- */}
+      <section className="section-padding" style={{ background: '#eef3f5',borderTop: '2px solid #E2E8F0', padding: '2rem 0' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
+          
+          {/* Header */}
+          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            <p style={{ color: '#009DE0', fontSize: '12px', fontWeight: '800', letterSpacing: '4px', textTransform: 'uppercase', marginBottom: '0.5rem', fontFamily: "'Barlow Condensed', sans-serif" }}>
+              Our Network
+            </p>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#0F172A', fontFamily: "'Barlow Condensed', sans-serif", margin: 0, textTransform: 'uppercase' }}>
+              Trusted By Industry Leaders
+            </h2>
+          </div>
+
+         
+          {/* The Client Grid */}
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', 
+            gap: '1px', 
+            background: '#E2E8F0',
+            border: '1px solid #E2E8F0',
+            borderRadius: '4px',
+            overflow: 'hidden'
+          }}>
+            {CLIENTS.slice(0, 4).map((client, i) => (
+              <div 
+                key={i} 
+                style={{ 
+                  background: '#F8FAFC', 
+                  padding: '2rem 2rem', 
+                  display: 'flex', 
+                  justifyContent: 'center', 
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  transition: 'all 0.3s ease',
+                  cursor: 'default',
+                  minHeight: '140px' 
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = '#fff'; e.currentTarget.style.transform = 'scale(1.02)'; e.currentTarget.style.zIndex = 10; e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = '#F8FAFC'; e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.zIndex = 1; e.currentTarget.style.boxShadow = 'none'; }}
+              >
+                
+                {/* SMART RENDERING: Shows image if it exists, otherwise shows text */}
+                {client.logo ? (
+                  <img 
+                    src={client.logo} 
+                    alt={`${client.name} Logo`} 
+                    style={{ 
+                      maxWidth: '200px', 
+                      maxHeight: '100px', 
+                      objectFit: 'contain', 
+                      mixBlendMode: 'multiply' 
+                    }} 
+                  />
+                ) : (
+                  <span style={{ 
+                    color: '#475569', 
+                    fontSize: '15px', 
+                    fontWeight: '800', 
+                    letterSpacing: '1px', 
+                    textTransform: 'uppercase',
+                    fontFamily: "'Barlow Condensed', sans-serif"
+                  }}>
+                    {client.name}
+                  </span>
+                )}
+
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
 
       {/* CTA */}
       <section style={{ background: '#eef3f5',borderTop: '2px solid #E2E8F0', padding: '5rem 0' }}>
