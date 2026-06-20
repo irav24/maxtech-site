@@ -24,7 +24,7 @@ export function PageHero({ label, title, subtitle, hasWatermark, bgImage }) {
         <div style={{ 
           position: 'absolute', 
           inset: 0, 
-          background: 'linear-gradient(90deg, rgba(15, 23, 42, 0.45) 0%, rgba(0, 157, 224, 0.4) 100%)', 
+          background: 'linear-gradient(90deg, rgba(15, 23, 42, 0.8) 0%, rgba(0, 157, 224, 0.4) 50%)', 
           zIndex: 0 
         }} />
       )}

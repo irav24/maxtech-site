@@ -46,10 +46,28 @@ import etwc from './assets/product/etwc.jpg'
 import hexc from './assets/product/hexc.jpg'
 import sdtwc from './assets/product/sdtwc.jpg'
 import swc from './assets/product/swc.jpg'
+import client1 from './assets/client/client1.png';
+import client2 from './assets/client/client2.png';
+import client3 from './assets/client/client3.png';
+import client4 from './assets/client/client4.png';
 
 
-export const CLIENTS = ['L&T Construction', 'Afcons Infrastructure', 'NHAI', 'NHSRCL', 'Gammon India', 'Tata Projects', 'Rail Vikas Nigam', 'RVNL', 'DFCCIL', 'Punj Lloyd'];
 
+export const CLIENTS = [
+  { name: "L&T Construction", logo: client1 },
+  { name: "Afcons Infrastructure", logo: client2 },
+  { name: "Dilip Buildcon", logo: client3 },
+  { name: "Jindal", logo: client4 },
+  
+  
+  // If you don't have logos for the rest yet, just leave logo as null!
+  { name: "NHAI", logo: null },
+  { name: "NHSRCL", logo:  null},
+  { name: "Gammon India", logo: null },
+  { name: "Tata Projects", logo: null },
+  { name: "Rail Vikas Nigam", logo: null },
+  { name: "DFCCIL", logo: null }
+];
 export const PROJECTS = [
   { id:'1',title: 'Mumbai–Ahmedabad High-Speed Rail Bridge', status: 'Completed', client: 'National High Speed Rail Corporation', scope: 'Assembly & Erection of 100-Meter Span Open Web Girder (OWG) weighing 1,500 MT. Complex precision alignment and staged launching under live corridor conditions.', tag: 'Bullet Train', scale: '1,500 Metric Tonnes', year: '2023', location: 'Gujarat, India', image: bltrn, color: '#0D1B3E',gallery: [bltrn, bltrn2,bltrn3] },
    {
