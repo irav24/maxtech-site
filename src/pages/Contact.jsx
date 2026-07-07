@@ -60,12 +60,12 @@ export function Contact() {
                   Maxtech Brothers Engineering
                 </h3>
                 <p style={{ color: '#94A3B8', fontSize: '14px', lineHeight: '1.8', whiteSpace: 'pre-line', marginBottom: '2rem' }}>
-                  201/A Wing, Godavari Building{'\n'}
-                  Boisar, Dist. Palghar{'\n'}
-                  Maharashtra – 401504
+                  Flat No. 001, C Wing, Atlas,{'\n'}
+                  Building No. 6, Thakur Galaxy,{'\n'}
+                  Boisar, Maharashtra – 401501
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '1.5rem' }}>
-                  <span style={{ color: '#ffffff', fontSize: '14px', fontWeight: '600' }}>T: +91 96654 42319</span>
+                  <span style={{ color: '#ffffff', fontSize: '14px', fontWeight: '600' }}>T: +91 8484947857</span>
                   <span style={{ color: '#ffffff', fontSize: '14px', fontWeight: '600' }}>T: +91 98226 53347</span>
                   <span style={{ color: '#009DE0', fontSize: '14px', fontWeight: '600', marginTop: '0.5rem' }}>E: director@maxtechbrothers.com</span>
                 </div>

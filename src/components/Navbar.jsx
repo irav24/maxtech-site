@@ -125,7 +125,7 @@ export function Navbar() {
                 <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
                 <path d="M12 18h.01"></path>
               </svg>
-              <span>+91 9665442319 / +91 9665442788</span>
+              <span>+91 8484947857 / +91 9665442788</span>
             </div>
 
             {/* Email Row */}
@@ -229,8 +229,11 @@ export function Navbar() {
         <div style={{ fontSize: '15px', fontWeight: '800', color: '#fff', letterSpacing: '2px', textTransform: 'uppercase' }}>MAXTECH BROTHERS</div>
         <div style={{ fontSize: '9px', color: '#009DE0', fontWeight: '700', letterSpacing: '3px', textTransform: 'uppercase', marginTop: '2px', marginBottom: '1.5rem' }}>Engineering LLP · Est. 1996</div>
         <p style={{ color: '#475569', fontSize: '13px', lineHeight: '1.9', maxWidth: '260px' }}>Heavy civil engineering and industrial steel fabrication across India since 1996. Partners to India's most demanding infrastructure corridors.</p>
-        <p style={{ color: '#334155', fontSize: '12px', marginTop: '1.5rem', lineHeight: '1.8' }}>201/A Wing, Godavari Building<br />Boisar, Dist. Palghar<br />Maharashtra – 401504</p>
-      </div>
+<p style={{ color: '#334155', fontSize: '12px', marginTop: '1.5rem', lineHeight: '1.8' }}>
+  Flat No. 001, C Wing, Atlas,<br />
+  Building No. 6, Thakur Galaxy,<br />
+  Boisar, Maharashtra – 401501
+</p>      </div>
       {[
         { title: 'Company', links: [{ label: 'Home', to: '/' }, { label: 'About Us', to: '/about' }, { label: 'Projects', to: '/projects' }, { label: 'Products', to: '/products' }] },
         { title: 'Services', links: [{ label: 'Steel Erection', to: '/services' }, { label: 'Fabrication', to: '/services' }, { label: 'Bolting & Torquing', to: '/services' }, { label: 'Surface Treatment', to: '/services' }] },

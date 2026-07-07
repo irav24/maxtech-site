@@ -13,6 +13,7 @@ import about4 from './assets/aboutphoto/3.jpg';
 import about5 from './assets/aboutphoto/award.jpg';
 import about6 from './assets/aboutphoto/DFCC TWEET.jpeg';
 import processimg from './assets/processimg.jpeg'
+import { Admin } from './pages/Admin.jsx';
 
 const RECOGNITION_IMAGES = [about1, about2, about3, about4, about5, about6];
 
@@ -419,7 +420,9 @@ export default function App() {
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="contact" element={<Contact />} />
+          
         </Route>
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </BrowserRouter>
   );

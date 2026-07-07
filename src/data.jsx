@@ -46,27 +46,42 @@ import etwc from './assets/product/etwc.jpg'
 import hexc from './assets/product/hexc.jpg'
 import sdtwc from './assets/product/sdtwc.jpg'
 import swc from './assets/product/swc.jpg'
+import lithiumc from './assets/product/lithiumcat.jpg'
 import client1 from './assets/client/client1.png';
 import client2 from './assets/client/client2.png';
 import client3 from './assets/client/client3.png';
 import client4 from './assets/client/client4.png';
+import client5 from './assets/client/client5.jpg';
 
 
 
 export const CLIENTS = [
+  // --- Existing Clients with Logos ---
   { name: "L&T Construction", logo: client1 },
   { name: "Afcons Infrastructure", logo: client2 },
   { name: "Dilip Buildcon", logo: client3 },
   { name: "Jindal", logo: client4 },
   
-  
-  // If you don't have logos for the rest yet, just leave logo as null!
+  // --- Existing Clients without Logos ---
   { name: "NHAI", logo: null },
-  { name: "NHSRCL", logo:  null},
+  { name: "NHSRCL", logo: null },
   { name: "Gammon India", logo: null },
   { name: "Tata Projects", logo: null },
   { name: "Rail Vikas Nigam", logo: null },
-  { name: "DFCCIL", logo: null }
+  { name: "DFCCIL", logo: null },
+
+  // --- Newly Added Clients ---
+  { name: "Rahee Infratech Ltd", logo: null },
+  { name: "Royal Infraconstru Ltd", logo: null },
+  { name: "KEC International Ltd", logo: null },
+  { name: "Dinesh Chandra Agrawal Pvt. Ltd.", logo: null },
+  { name: "MG Contractors Pvt. Ltd.", logo: null },
+  { name: "SP Singla Construction Pvt. Ltd.", logo: null },
+  { name: "Steel Works & Power Engineers Pvt. Ltd.", logo: null },
+  { name: "Deepak Builder & Engineers India Ltd.", logo: null },
+  { name: "Bhartia Infra Projects Ltd.", logo: null },
+  { name: "Vrinda Engineers Pvt. Ltd", logo: null },
+  { name: "Triveni Engicons Pvt. Ltd", logo: null }
 ];
 export const PROJECTS = [
   { id:'1',title: 'Mumbai–Ahmedabad High-Speed Rail Bridge', status: 'Completed', client: 'National High Speed Rail Corporation', scope: 'Assembly & Erection of 100-Meter Span Open Web Girder (OWG) weighing 1,500 MT. Complex precision alignment and staged launching under live corridor conditions.', tag: 'Bullet Train', scale: '1,500 Metric Tonnes', year: '2023', location: 'Gujarat, India', image: bltrn, color: '#0D1B3E',gallery: [bltrn, bltrn2,bltrn3] },
@@ -363,6 +378,7 @@ export const PRODUCTS = [
     cat: 'Battery Series', 
     desc: 'Freedom of movement without power cables. Ideal for field operations where power infrastructure is unavailable.', 
     img: lithium,
+    catalogImg:lithiumc
 
   },
   { id:'06',

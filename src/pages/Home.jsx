@@ -113,7 +113,7 @@ export function Home() {
 
       {/* Ticker */}
       <div className="noise-bg" style={{ borderTop: '1px solid rgba(0,157,224,0.12)', borderBottom: '1px solid rgba(0,157,224,0.12)', padding: '14px 0', overflow: 'hidden' }}>
-        <div style={{ display: 'flex', gap: '5rem', animation: 'ticker 22s linear infinite', width: 'max-content' }}>
+        <div style={{ display: 'flex', gap: '5rem', animation: 'ticker 50s linear infinite', width: 'max-content' }}>
           {[...CLIENTS, ...CLIENTS].map((c, i) => (
             <span key={i} style={{ color: '#94A3B8', fontSize: '11px', letterSpacing: '2.5px', textTransform: 'uppercase', whiteSpace: 'nowrap', fontWeight: '700', fontFamily: "'Barlow Condensed', sans-serif", position: 'relative', zIndex: 2 }}>{c.name}</span>
           ))}
@@ -393,7 +393,7 @@ export function Home() {
             borderRadius: '4px',
             overflow: 'hidden'
           }}>
-            {CLIENTS.slice(0, 4).map((client, i) => (
+            {CLIENTS.slice(0, 5).map((client, i) => (
               <div 
                 key={i} 
                 style={{ 
