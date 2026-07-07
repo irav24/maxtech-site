@@ -52,6 +52,34 @@ import client2 from './assets/client/client2.png';
 import client3 from './assets/client/client3.png';
 import client4 from './assets/client/client4.png';
 import client5 from './assets/client/client5.jpg';
+import client6 from './assets/client/client6.png';
+import client7 from './assets/client/client7.png';
+import client8 from './assets/client/client8.jpg';
+import client9 from './assets/client/client9.png';
+import client10 from './assets/client/client10.png';
+import client11 from './assets/client/client11.png';
+import client12 from './assets/client/client12.png';
+import client13 from './assets/client/client13.jpg';
+import client14 from './assets/client/client14.png';
+import client15 from './assets/client/client15.jpg';
+import client16 from './assets/client/client16.png';
+import client17 from './assets/client/client17.jpg';
+import client18 from './assets/client/client18.jpg';
+import client19 from './assets/client/client19.jpg';
+import client20 from './assets/client/client20.png';
+import client21 from './assets/client/client21.jpg';
+import client22 from './assets/client/client22.png';
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -63,25 +91,25 @@ export const CLIENTS = [
   { name: "Jindal", logo: client4 },
   
   // --- Existing Clients without Logos ---
-  { name: "NHAI", logo: null },
-  { name: "NHSRCL", logo: null },
-  { name: "Gammon India", logo: null },
-  { name: "Tata Projects", logo: null },
-  { name: "Rail Vikas Nigam", logo: null },
-  { name: "DFCCIL", logo: null },
+  { name: "NHAI", logo: client6 },
+  { name: "NHSRCL", logo: client7 },
+  { name: "Gammon India", logo: client8 },
+  { name: "Tata Projects", logo: client9 },
+  { name: "Rail Vikas Nigam", logo: client10 },
+  { name: "DFCCIL", logo: client11 },
 
   // --- Newly Added Clients ---
-  { name: "Rahee Infratech Ltd", logo: null },
-  { name: "Royal Infraconstru Ltd", logo: null },
-  { name: "KEC International Ltd", logo: null },
-  { name: "Dinesh Chandra Agrawal Pvt. Ltd.", logo: null },
-  { name: "MG Contractors Pvt. Ltd.", logo: null },
-  { name: "SP Singla Construction Pvt. Ltd.", logo: null },
-  { name: "Steel Works & Power Engineers Pvt. Ltd.", logo: null },
-  { name: "Deepak Builder & Engineers India Ltd.", logo: null },
-  { name: "Bhartia Infra Projects Ltd.", logo: null },
-  { name: "Vrinda Engineers Pvt. Ltd", logo: null },
-  { name: "Triveni Engicons Pvt. Ltd", logo: null }
+  { name: "Rahee Infratech Ltd", logo: client12 },
+  { name: "Royal Infraconstru Ltd", logo: client13 },
+  { name: "KEC International Ltd", logo: client14 },
+  { name: "Dinesh Chandra Agrawal Pvt. Ltd.", logo: client15 },
+  { name: "MG Contractors Pvt. Ltd.", logo: client16 },
+  { name: "SP Singla Construction Pvt. Ltd.", logo: client17 },
+  { name: "Steel Works & Power Engineers Pvt. Ltd.", logo: client18 },
+  { name: "Deepak Builder & Engineers India Ltd.", logo: client19 },
+  { name: "Bhartia Infra Projects Ltd.", logo: client20 },
+  { name: "Vrinda Engineers Pvt. Ltd", logo: client21 },
+  { name: "Triveni Engicons Pvt. Ltd", logo: client22 }
 ];
 export const PROJECTS = [
   { id:'1',title: 'Mumbai–Ahmedabad High-Speed Rail Bridge', status: 'Completed', client: 'National High Speed Rail Corporation', scope: 'Assembly & Erection of 100-Meter Span Open Web Girder (OWG) weighing 1,500 MT. Complex precision alignment and staged launching under live corridor conditions.', tag: 'Bullet Train', scale: '1,500 Metric Tonnes', year: '2023', location: 'Gujarat, India', image: bltrn, color: '#0D1B3E',gallery: [bltrn, bltrn2,bltrn3] },

@@ -1,5 +1,5 @@
 // src/pages/Home.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useScrollReveal, AnimatedStat } from '../utils';
 import { STATS, CORE_CAPS, PROJECTS, CLIENTS } from '../data';
@@ -38,7 +38,18 @@ function CapCard({ cap }) {
   );
 }
 
-export function Home() {
+
+  export function Home() {
+  // Add these lines right here:
+  const carouselRef = useRef(null);
+
+  const scrollCarousel = (direction) => {
+    if (carouselRef.current) {
+      const scrollAmount = carouselRef.current.offsetWidth; // Scrolls exactly one view width (4 items)
+      carouselRef.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    }
+  };
+
   const [heroVisible, setHeroVisible] = useState(false);
   useEffect(() => { const t = setTimeout(() => setHeroVisible(true), 80); return () => clearTimeout(t); }, []);
   const [secRef, secVisible] = useScrollReveal(0.1);
@@ -369,73 +380,90 @@ export function Home() {
   </div>
 </section>
 {/* --- OUR CLIENTS SECTION --- */}
-      <section className="section-padding" style={{ background: '#eef3f5',borderTop: '2px solid #E2E8F0', padding: '2rem 0' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(1rem, 4vw, 2rem)' }}>
+     {/* --- CLIENTS CAROUSEL SECTION --- */}
+      <section style={{ padding: 'clamp(4rem, 8vw, 6rem) 0', background: '#ffffff', borderTop: '1px solid #E2E8F0' }}>
+        
+        {/* Fluid CSS injected directly for extreme responsiveness */}
+        <style>{`
+          .client-scroll-container::-webkit-scrollbar { display: none; }
+          .client-slide {
+            flex: 0 0 calc(25% - 1.5rem); /* Forces exactly 4 items at a time */
+            scroll-snap-align: start;
+          }
+          @media (max-width: 900px) {
+            .client-slide { flex: 0 0 calc(50% - 1rem); } /* 2 items on tablet */
+          }
+          @media (max-width: 500px) {
+            .client-slide { flex: 0 0 100%; } /* 1 item on mobile */
+          }
+        `}</style>
+
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 2rem)' }}>
           
-          {/* Header */}
-          <div style={{ textAlign: 'center', marginBottom: 'clamp(1.5rem, 4vw, 4rem)' }}>
-            <p style={{ color: '#009DE0', fontSize: '12px', fontWeight: '800', letterSpacing: '4px', textTransform: 'uppercase', marginBottom: '0.5rem', fontFamily: "'Barlow Condensed', sans-serif" }}>
-              Our Network
-            </p>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: '800', color: '#0F172A', fontFamily: "'Barlow Condensed', sans-serif", margin: 0, textTransform: 'uppercase' }}>
-              Trusted By Industry Leaders
-            </h2>
+          {/* Header & Navigation Arrows */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3rem', flexWrap: 'wrap', gap: '1rem' }}>
+            <div>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.2rem)', fontWeight: '800', color: '#0F172A', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.5rem' }}>
+                Trusted By Industry Leaders
+              </h2>
+              <p style={{ color: '#64748B', fontSize: '14px' }}>Executing critical infrastructure for India's top engineering firms.</p>
+            </div>
+            
+            <div style={{ display: 'flex', gap: '12px' }}>
+              <button onClick={() => scrollCarousel('left')} style={{ width: '44px', height: '44px', borderRadius: '4px', background: '#F8FAFC', border: '1px solid #E2E8F0', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0F172A', transition: 'all 0.2s' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button onClick={() => scrollCarousel('right')} style={{ width: '44px', height: '44px', borderRadius: '4px', background: '#009DE0', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', transition: 'all 0.2s', boxShadow: '0 4px 10px rgba(0,157,224,0.3)' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
           </div>
 
-         
-          {/* The Client Grid */}
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 260px), 1fr))', 
-            gap: '1px', 
-            background: '#E2E8F0',
-            border: '1px solid #E2E8F0',
-            borderRadius: '4px',
-            overflow: 'hidden'
-          }}>
-            {CLIENTS.slice(0, 5).map((client, i) => (
+          {/* Draggable/Slideable Track */}
+          <div 
+            ref={carouselRef}
+            className="client-scroll-container"
+            style={{ 
+              display: 'flex', 
+              gap: '2rem', 
+              overflowX: 'auto', 
+              scrollSnapType: 'x mandatory', 
+              scrollBehavior: 'smooth',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              paddingBottom: '1.5rem' // Breathing room for hover shadows
+            }}
+          >
+            {CLIENTS.map((client, idx) => (
               <div 
-                key={i} 
+                key={idx} 
+                className="client-slide"
                 style={{ 
-                  background: '#F8FAFC', 
-                  padding: '2rem 2rem', 
-                  display: 'flex', 
-                  justifyContent: 'center', 
+                  background: '#F8FAFC',
+                  border: '1px solid #E2E8F0',
+                  borderRadius: '4px',
+                  height: '200px',
+                  display: 'flex',
                   alignItems: 'center',
-                  textAlign: 'center',
-                  transition: 'all 0.3s ease',
-                  cursor: 'default',
-                  minHeight: 'clamp(80px, 15vw, 140px)'
+                  justifyContent: 'center',
+                  padding: '1.5rem',
+                  transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = '#fff'; e.currentTarget.style.transform = 'scale(1.02)'; e.currentTarget.style.zIndex = 10; e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = '#F8FAFC'; e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.zIndex = 1; e.currentTarget.style.boxShadow = 'none'; }}
+                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 10px 25px rgba(15, 23, 42, 0.08)'; e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.background = '#ffffff'; }}
+                onMouseLeave={e => { e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'none'; e.currentTarget.style.background = '#F8FAFC'; }}
               >
-                
-                {/* SMART RENDERING: Shows image if it exists, otherwise shows text */}
                 {client.logo ? (
-                  <img 
+                   <img 
                     src={client.logo} 
-                    alt={`${client.name} Logo`} 
-                    style={{ 
-                      maxWidth: '200px', 
-                      maxHeight: '100px', 
-                      objectFit: 'contain', 
-                      mixBlendMode: 'multiply' 
-                    }} 
+                    alt={client.name} 
+                    style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', transition: 'all 0.3s' }} 
+                   
                   />
                 ) : (
-                  <span style={{ 
-                    color: '#475569', 
-                    fontSize: '15px', 
-                    fontWeight: '800', 
-                    letterSpacing: '1px', 
-                    textTransform: 'uppercase',
-                    fontFamily: "'Barlow Condensed', sans-serif"
-                  }}>
-                    {client.name}
-                  </span>
+                   <span style={{ color: '#0F172A', fontWeight: '800', fontFamily: "'Barlow Condensed', sans-serif", fontSize: 'clamp(1rem, 2vw, 1.25rem)', textTransform: 'uppercase', textAlign: 'center', letterSpacing: '1px', lineHeight: '1.3' }}>
+                     {client.name}
+                   </span>
                 )}
-
               </div>
             ))}
           </div>
