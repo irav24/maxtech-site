@@ -2,6 +2,15 @@
 import bltrn from './assets/project/bullet-train3.jpeg';
 import bltrn2 from './assets/project/bullet-train2.jpeg';
 import bltrn3 from './assets/project/bullet-train4.jpeg';
+import flagship1 from './assets/project/flagship1.jpg';
+import flagship2 from './assets/project/flagship2.jpg';
+import flagship3 from './assets/project/flagship3.jpg';
+import flagship4 from './assets/project/flagship4.jpg';
+import flagship5 from './assets/project/flagship5.jpg';
+import flagship6 from './assets/project/flagship6.jpg';
+import flagship7 from './assets/project/flagship7.jpg';
+import dibang1 from './assets/project/dibang1.jpg';
+
 import mgsetu from './assets/project/mgsetu.jpg';
 import mgSetu1 from './assets/project/mg-setu1.jpg';
 import mgSetu2 from './assets/project/mg-setu2.jpg';
@@ -112,6 +121,26 @@ export const CLIENTS = [
   { name: "Triveni Engicons Pvt. Ltd", logo: client22 }
 ];
 export const PROJECTS = [
+  {
+    id:'16',title:'Mahalaxmi Cable Stayed ROB near Mahalaxmi Railway Station', status: 'Ongoing', client:'BMC/RITES', scope:'Executed the precision erection and heavy-lifting of Indias first fully indigenous 70-meter, 1,500 MT steel pylon for the landmark Mahalaxmi Cable-Stayed ROB.', tag: 'RAILWAYS', scale:'1500 MT/70m', year:'2024-27', location:'Mahalaxmi, Mumbai (MH)', image:flagship1,  color: '#0F172A', gallery:[flagship1,flagship2,flagship3,flagship4,flagship5,flagship6,flagship7]
+  },
+   {id:'17',
+    title: 'L&T Dibang Lot 2',
+    
+    status: 'Ongoing', // This creates the orange tag at the top right
+   
+    client: 'L&T Construction Ltd.',
+    
+    scope: 'Fabrication, continuous sandblasting, painting, and erection of Defence Shed Structure.',
+    tag: 'Bridges', // This will show up in the dark blue tag at the top left
+    scale: 'pending',
+    year: '2026 - 2027',
+    
+    location: ' Dibang, Arunachal Pradesh',
+    image: dibang1,
+    gallery:[dibang1],
+     // You will need to import an image for this at the top of your file!
+  },
   { id:'1',title: 'Mumbai–Ahmedabad High-Speed Rail Bridge', status: 'Completed', client: 'National High Speed Rail Corporation', scope: 'Assembly & Erection of 100-Meter Span Open Web Girder (OWG) weighing 1,500 MT. Complex precision alignment and staged launching under live corridor conditions.', tag: 'Bullet Train', scale: '1,500 Metric Tonnes', year: '2023', location: 'Gujarat, India', image: bltrn, color: '#0D1B3E',gallery: [bltrn, bltrn2,bltrn3] },
    {
     id: '2',
@@ -128,7 +157,7 @@ export const PROJECTS = [
     // This array will automatically trigger the image carousel on the details page!
     gallery: [jk, usbrl2, usbrl3, usbrl4, usbrl5, usbrl6, usbrl7] 
   },
-  { id:'3',title: 'Mahatma Gandhi Setu Bridge', status: 'Completed', client: 'Afcons Sibmost JV', scope: 'Heavy assembly, high-altitude girder erection, deck slab concreting, and stable liner/trestle fabrication over the Ganga river.', tag: 'Mega Bridges', scale: '₹5 Crore Value', year: '2021', location: 'Bihar, India', image: mgsetu, color: '#0EA5E9',gallery: [
+  { id:'3',title: 'Mahatma Gandhi Setu Bridge', status: 'Completed', client: 'Afcons Sibmost JV', scope: 'Heavy assembly, high-altitude girder erection, deck slab concreting, and stable liner/trestle fabrication over the Ganga river.', tag: 'Bridges', scale: '₹5 Crore Value', year: '2021', location: 'Bihar, India', image: mgsetu, color: '#0EA5E9',gallery: [
       mgsetu, 
       mgSetu1, 
       mgSetu2, 

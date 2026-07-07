@@ -130,6 +130,7 @@ function CapCard({ cap }) {
           ))}
         </div>
       </div>
+         
 
       {/* Capabilities */}
       <section ref={secRef} style={{ background: '#eef3f5', padding: 'clamp(3rem, 8vw, 7rem) 0' }}>
@@ -143,6 +144,99 @@ function CapCard({ cap }) {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', border: '2px solid #E2E8F0' }}>
             {CORE_CAPS.map((cap, i) => <CapCard key={i} cap={cap} />)}
+          </div>
+        </div>
+      </section>
+        <section style={{ background: '#eef3f5', padding: 'clamp(4rem, 8vw, 7rem) 0', borderTop: '1px solid #1E293B', borderBottom: '1px solid #E2E8F0' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 2rem)' }}>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 500px), 1fr))', gap: 'clamp(3rem, 6vw, 5rem)', alignItems: 'center' }}>
+            
+            {/* LEFT COLUMN: Project Details */}
+            <div>
+              {/* Pulsing Active Status Badge */}
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(0,157,224,0.1)', border: '1px solid rgba(0,157,224,0.25)', padding: '6px 14px', borderRadius: '3px', marginBottom: '1.5rem' }}>
+                <span style={{ width: '8px', height: '8px', background: '#009DE0', borderRadius: '50%', animation: 'pulse 2s infinite' }} />
+                <span style={{ color: '#009DE0', fontSize: '20px', fontWeight: '800', fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: '2px', textTransform: 'uppercase' }}>Active Flagship Project</span>
+              </div>
+
+              <h2 style={{ fontSize: 'clamp(2.2rem, 2vw, 3.5rem)', fontWeight: '900', color: '#111111', fontFamily: "'Barlow Condensed', sans-serif", lineHeight: '1.1', textTransform: 'uppercase', marginBottom: '1.5rem' }}>
+                Mahalaxmi Cable-Stayed <br /><span style={{ color: '#111111' }}>ROB, Mumbai</span>
+              </h2>
+
+              <p style={{ color: '#323233', fontSize: 'clamp(1rem, 2vw, 1.1rem)', lineHeight: '1.8', marginBottom: '2.5rem' }}>
+                Erecting India's first fully indigenous 70-meter steel pylon for the Mahalaxmi Cable-Stayed Bridge. A monumental milestone in engineering excellence and precision heavy-lifting executed by Maxtech Brothers.
+              </p>
+
+              {/* Quick Stats Grid */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1.5rem', marginBottom: '3rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem' }}>
+                <div>
+                  <div style={{ color: '#009DE0', fontSize: '10px', fontWeight: '800', fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px' }}>Client</div>
+                  <div style={{ color: '#111111', fontSize: '14px', fontWeight: '700' }}>BMC / APCO Infratech</div>
+                </div>
+                <div>
+                  <div style={{ color: '#009DE0', fontSize: '10px', fontWeight: '800', fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px' }}>Scale / Tonnage</div>
+                  <div style={{ color: '#111111', fontSize: '14px', fontWeight: '700' }}>1,500 MT Approx</div>
+                </div>
+                <div>
+                  <div style={{ color: '#009DE0', fontSize: '10px', fontWeight: '800', fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px' }}>Pylon Height</div>
+                  <div style={{ color: '#111111', fontSize: '14px', fontWeight: '700' }}>70 Meters</div>
+                </div>
+              </div>
+
+              <Link 
+                to="/projects" 
+                style={{ background: '#009DE0', color: '#fff', padding: '16px 36px', borderRadius: '2px', fontWeight: '800', fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px', transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)' }}
+                onMouseEnter={e => { e.currentTarget.style.background = '#ffffff'; e.currentTarget.style.color = '#0F172A'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = '#009DE0'; e.currentTarget.style.color = '#ffffff'; e.currentTarget.style.transform = 'none'; }}
+              >
+                Explore Portfolio →
+              </Link>
+            </div>
+
+            {/* RIGHT COLUMN: Image Carousel */}
+            <div style={{ background: '#020617', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '1.5px', padding: '0.5rem', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+                <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: '#ffffff', margin: 0, textTransform: 'uppercase', letterSpacing: '1px', fontFamily: "'Barlow Condensed', sans-serif" }}>Live Site Updates</h3>
+                <span style={{ color: '#009DE0', fontSize: '10px', fontWeight: '800', letterSpacing: '2px' }}>SWIPE &rarr;</span>
+              </div>
+
+              {/* The Swiper */}
+              <div style={{ display: 'flex', overflowX: 'auto', scrollSnapType: 'x mandatory', gap: '1rem', scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                <style>{`div::-webkit-scrollbar { display: none; }`}</style>
+
+                {/* NOTE: Add your 3 or 4 Mahalaxmi project images here! Using placeholders for now. */}
+                {[
+                  "/src/assets/project/flagship1.jpg", 
+                  "/src/assets/project/flagship2.jpg", 
+                  "/src/assets/project/flagship6.jpg"
+                ].map((imgSrc, i) => (
+                  <div key={i} style={{ 
+                    flex: '0 0 100%', 
+                    scrollSnapAlign: 'center', 
+                    borderRadius: '0.5px',
+                    overflow: 'hidden',
+                    aspectRatio: '3/4',
+                    background: '#1E293B'
+                  }}>
+                    {/* If image is missing, it shows this sleek placeholder until you upload them */}
+                    <img 
+                      src={imgSrc} 
+                      alt={`Mahalaxmi Site Update ${i + 1}`} 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                    <div style={{ display: 'none', width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center', color: '#64748B', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: '800' }}>
+                      Image Pending
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
