@@ -403,6 +403,7 @@ import { Gallery } from './pages/Gallery';
 import { Contact } from './pages/Contact.jsx';
 import { ProjectDetails } from './pages/ProjectDetails';
 import { ProductDetails } from './pages/ProductDetails';
+
 // ─── APP ─────────────────────────────────────────────────────────────────────
 
 export default function App() {
