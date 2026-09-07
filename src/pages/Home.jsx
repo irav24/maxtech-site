@@ -408,10 +408,7 @@ function CapCard({ cap }) {
       
 
 
-{/* Why Maxtech */}
 
-{/* Why Maxtech */}
-{/* --- WHY CHOOSE US SECTION --- */}
 {/* --- WHY CHOOSE US SECTION --- */}
 <section style={{ background: '#eef3f5', borderTop: '2px solid #E2E8F0', padding: 'clamp(4rem, 10vw, 7rem) 0' }}>
   <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 2rem)' }}>

@@ -15,7 +15,7 @@ export function Contact() {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          access_key: "YOUR_ACCESS_KEY_HERE", // <-- PUT YOUR KEY BACK HERE
+          access_key: "a0a461d4-c261-4197-90b4-e8ec63eaac15", 
           subject: "New Corporate Inquiry",
           from_name: "Maxtech Portal",
           ...formData
