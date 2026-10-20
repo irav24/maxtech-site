@@ -61,7 +61,7 @@ function CapCard({ cap }) {
   return (
     <>
       
-    <header className="noise-bg" style={{ overflow: 'hidden', minHeight: '100svh', display: 'flex', alignItems: 'center', position: 'relative' }}>
+    <header className="noise-bg" style={{ overflow: 'hidden', minHeight: '70svh', display: 'flex', alignItems: 'center', position: 'relative' }}>
         
         {/* 1. Raw Background Video */}
         <video 
@@ -80,8 +80,8 @@ function CapCard({ cap }) {
         {/* 3. The Left Cyan Accent Line */}
         <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '4px', background: '#009DE0', zIndex: 2 }} />
 
-        {/* 4. The Hero Content */}
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: 'clamp(5rem, 12vh, 8rem) clamp(1.5rem, 5vw, 3rem)', width: '100%', position: 'relative', zIndex: 2 }}>
+        {/* 4. The Hero Content - Vertical padding reduced to fit 70svh */}
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: 'clamp(3rem, 8vh, 5rem) clamp(1.5rem, 5vw, 3rem)', width: '100%', position: 'relative', zIndex: 2 }}>
           
           <div className={`hero-fade ${heroVisible ? 'visible' : ''}`} style={{ animationDelay: '0s' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(0,157,224,0.1)', border: '1px solid rgba(0,157,224,0.25)', borderRadius: '3px', padding: '6px 12px', marginBottom: '2rem', backdropFilter: 'blur(4px)' }}>
@@ -91,14 +91,12 @@ function CapCard({ cap }) {
           </div>
           
           <div className={`hero-fade ${heroVisible ? 'visible' : ''}`} style={{ animationDelay: '0.1s' }}>
-            {/* FIX 1: Dropped the minimum clamp from 2.8rem to 2.2rem so it doesn't break mobile screens */}
             <h1 style={{ fontSize: 'clamp(2.4rem, 8vw, 5rem)', fontWeight: '900', lineHeight: '1.07', color: '#ffffff', letterSpacing: '-1px', marginBottom: '1.2rem', fontFamily: "'Barlow Condensed', sans-serif", textTransform: 'uppercase' }}>
               Building India's<br /><span style={{ color: '#009DE0' }}>Steel Backbone.</span>
             </h1>
           </div>
           
           <div className={`hero-fade ${heroVisible ? 'visible' : ''}`} style={{ animationDelay: '0.2s' }}>
-            {/* THE FIX: Dropped the minimum to 0.875rem (14px) and adjusted the VW curve so it visibly shrinks! */}
             <p style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.15rem)', color: '#EBEBE6', lineHeight: '1.6', marginBottom: '2.5rem', maxWidth: '540px', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
               Specialized heavy civil engineering, steel girder launching, and precision mechanical fabrication — executed at monumental scale across India's most demanding corridors.
             </p>
@@ -113,8 +111,8 @@ function CapCard({ cap }) {
             </Link>
           </div>
 
-          {/* FIX 3: Replaced the rigid Grid with Flexbox so the stats wrap cleanly on small phones without weird borders */}
-          <div className={`hero-fade ${heroVisible ? 'visible' : ''}`} style={{ animationDelay: '0.5s', display: 'flex', flexWrap: 'wrap', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2.5rem', marginTop: '4rem', gap: 'clamp(1.5rem, 4vw, 3rem)' }}>
+          {/* Stats top margin reduced to keep everything compact */}
+          <div className={`hero-fade ${heroVisible ? 'visible' : ''}`} style={{ animationDelay: '0.5s', display: 'flex', flexWrap: 'wrap', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem', marginTop: '2.5rem', gap: 'clamp(1.5rem, 4vw, 3rem)' }}>
             {STATS.map((s, i) => (
               <div key={i}>
                 <div style={{ fontSize: 'clamp(2rem, 5vw, 2.5rem)', fontWeight: '900', color: '#009DE0', lineHeight: '1', fontFamily: "'Barlow Condensed', sans-serif", textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}><AnimatedStat value={s.value} /></div>
