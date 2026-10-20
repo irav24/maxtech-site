@@ -247,7 +247,7 @@ export function Navbar() {
     </div>
     <div style={{ borderTop: '1px solid #1E293B', padding: 'clamp(1rem, 3vw, 2rem) 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
       <p style={{ color: '#334155', fontSize: '11px' }}>© 2026 Maxtech Brothers Engineering LLP. All rights reserved.</p>
-      <p style={{ color: '#334155', fontSize: '11px' }}>CIN: AAP-4913 · GSTIN: 27AADCM8571R1Z5</p>
+      <p style={{ color: '#334155', fontSize: '11px' }}> LLP Identification Number:AAD-9224 · GSTIN: 27ABAFM8033C1ZL</p>
     </div>
   </div>
 </footer>

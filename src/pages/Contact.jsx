@@ -66,8 +66,8 @@ export function Contact() {
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '1.5rem' }}>
                   <span style={{ color: '#ffffff', fontSize: '14px', fontWeight: '600' }}>T: +91 8484947857</span>
-                  <span style={{ color: '#ffffff', fontSize: '14px', fontWeight: '600' }}>T: +91 98226 53347</span>
-                  <span style={{ color: '#009DE0', fontSize: '14px', fontWeight: '600', marginTop: '0.5rem' }}>E: director@maxtechbrothers.com</span>
+                  <span style={{ color: '#ffffff', fontSize: '14px', fontWeight: '600' }}>T: +91 9665442788</span>
+                  <span style={{ color: '#009DE0', fontSize: '14px', fontWeight: '600', marginTop: '0.5rem' }}>E: maxtechbrothers@gmail.com</span>
                 </div>
               </div>
 
