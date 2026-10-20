@@ -270,10 +270,9 @@ function CapCard({ cap }) {
           Our Products
         </h2>
       </div>
-                  <a href="/products" style={{ textAlign: 'center', background: '#fff', color: '#009DE0', border: '1px solid #009DE0', padding: '10px', fontSize: '10px', fontWeight: '800', letterSpacing: '1.5px', textTransform: 'uppercase', textDecoration: 'none', borderRadius: '2px', transition: 'all 0.2s' }}>
-
       
-        VIEW FULL INVENTORY
+      <a href="/products" style={{ color: '#009DE0', fontWeight: '700', fontSize: '14px', textDecoration: 'none', letterSpacing: '1px' }}>
+        VIEW FULL INVENTORY 
       </a>
     </div>
 
