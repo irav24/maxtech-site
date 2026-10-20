@@ -219,19 +219,7 @@ function CapCard({ cap }) {
                     aspectRatio: '3/4',
                     background: '#1E293B'
                   }}>
-                    {/* If image is missing, it shows this sleek placeholder until you upload them */}
-                    <img 
-                      src={imgSrc} 
-                      alt={`Mahalaxmi Site Update ${i + 1}`} 
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    <div style={{ display: 'none', width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center', color: '#64748B', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: '800' }}>
-                      Image Pending
-                    </div>
+                    
                   </div>
                 ))}
               </div>
