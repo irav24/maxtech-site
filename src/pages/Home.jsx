@@ -9,6 +9,9 @@ import gallery14 from '../assets/gallery/gallery14.jpg';
 import galleryxx from '../assets/gallery/galleryxx.jpg';
 import gallery19 from '../assets/gallery/gallery19.jpg';
 import gallery20 from '../assets/gallery/gallery20.jpg';
+import flagship1 from '../assets/project/flagship1.jpg';
+import flagship2 from '../assets/project/flagship2.jpg';
+import flagship6 from '../assets/project/flagship6.jpg';
 import { PRODUCTS } from '../data.jsx'; // Adjust path if needed!
 // --- CLIENT LOGO IMPORTS ---
 
@@ -202,27 +205,23 @@ function CapCard({ cap }) {
               </div>
 
               {/* The Swiper */}
-              <div style={{ display: 'flex', overflowX: 'auto', scrollSnapType: 'x mandatory', gap: '1rem', scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                <style>{`div::-webkit-scrollbar { display: none; }`}</style>
+              {/* The Swiper */}
+<div style={{ display: 'flex', overflowX: 'auto', scrollSnapType: 'x mandatory', gap: '1rem', scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+  <style>{`div::-webkit-scrollbar { display: none; }`}</style>
 
-                {/* NOTE: Add your 3 or 4 Mahalaxmi project images here! Using placeholders for now. */}
-                {[
-                  "/src/assets/project/flagship1.jpg", 
-                  "/src/assets/project/flagship2.jpg", 
-                  "/src/assets/project/flagship6.jpg"
-                ].map((imgSrc, i) => (
-                  <div key={i} style={{ 
-                    flex: '0 0 100%', 
-                    scrollSnapAlign: 'center', 
-                    borderRadius: '0.5px',
-                    overflow: 'hidden',
-                    aspectRatio: '3/4',
-                    background: '#1E293B'
-                  }}>
-                    
-                  </div>
-                ))}
-              </div>
+  {[flagship1, flagship2, flagship6].map((imgSrc, i) => (
+    <div key={i} style={{ 
+      flex: '0 0 100%', 
+      scrollSnapAlign: 'center', 
+      borderRadius: '0.5px',
+      overflow: 'hidden',
+      aspectRatio: '3/4',
+      background: '#1E293B'
+    }}>
+      <img src={imgSrc} alt="Flagship Project" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+    </div>
+  ))}
+</div>
             </div>
 
           </div>
